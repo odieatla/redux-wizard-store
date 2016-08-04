@@ -1,15 +1,30 @@
 import { connect } from 'react-redux';
 import WizardList from '../components/WizardList';
-import { clickWizard } from '../actions';
+import { fetchWizardsIfNeeded } from '../actions';
 
 const mapStateToProps = (state) => {
+	const {
+		pagination: { wizardsById },
+		entities: { wizards }
+	} = state;
+
+	const pagination = wizardsById;
+
 	return {
-		wizards: state.wizards
+		pagination,
+		wizards: wizardsById.ids.map(id => wizards[id])
+	}
+}
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		loadData: () => dispatch(fetchWizardsIfNeeded())
 	}
 }
 
 const VisibleWizardList = connect(
-	mapStateToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(WizardList)
 
 export default VisibleWizardList

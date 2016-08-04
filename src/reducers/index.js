@@ -1,4 +1,12 @@
-import { ADD_WIZARD, EDIT_WIZARD, DELETE_WIZARD, CLICK_WIZARD } from '../actions';
+import { combineReducers } from 'redux'
+import merge from 'lodash/merge';
+import {
+	ADD_WIZARD, EDIT_WIZARD,
+	DELETE_WIZARD, CLICK_WIZARD,
+	RECEIVE_WIZARD,
+	REPORT_NOT_FOUND,
+	RECEIVE_WIZARDS, REQUEST_WIZARDS
+} from '../actions';
 
 const compareWizards = (oldW, newW) => {
 	const fields = ['name', 'description', 'version'];
@@ -38,20 +46,85 @@ const wizard = (state, action) => {
 	}
 };
 
-const defaultWizards = {
-	1: {
-		name: 'ddns',
-		version: '0.0.2',
-		description: 'a wizard for quick ddns setup'
-	},
-	2: {
-		name: 'static_mapping',
-		version: '0.0.5',
-		description: 'static mapping'
-	}
+const defaultWizards = {};
+const initEntities = {
+	wizards: {},
+	authors: {}
 };
+function entities(state = initEntities, action) {
+	if (action.entities) {
+		return merge({}, state, action.entities)
+	}
 
-export function wizards(state = defaultWizards, action) {
+	return state;
+}
+
+function usersById(state = [1, 3], action) {
+	return state;
+}
+
+const initWizardIds = {
+	isFetching: false,
+	didInvalidate: true,
+	ids: []
+};
+function wizardsById(state = initWizardIds, action) {
+	let receivedWizards = [];
+	if (action.entities && action.entities.wizards) {
+		receivedWizards = Object.keys(action.entities.wizards).map(id => Number(id));
+	}
+	switch(action.type) {
+		case RECEIVE_WIZARDS:
+			return {
+				isFetching: false,
+				didInvalidate: false,
+				updatedAt: action.receivedAt,
+				ids: [ ...new Set([...state.ids, ...receivedWizards])]
+			}
+
+		case RECEIVE_WIZARD:
+			return {
+				...state,
+				updatedAt: action.receivedAt,
+				ids: [ ...new Set([...state.ids, ...receivedWizards])]
+			}
+
+		case REQUEST_WIZARDS:
+			// is fetching
+			return {
+				...state,
+				isFetching: true
+			}
+
+		default:
+			return state;
+	}
+}
+
+const pagination = combineReducers({
+	wizardsById,
+	usersById
+});
+
+const defaultRouting = {
+	normal: true,
+	redirect: null
+};
+function routing(state = defaultRouting, action) {
+	switch (action.type) {
+		case REPORT_NOT_FOUND:
+			return {
+				...state,
+				normal: false,
+				redirect: 404
+			}
+
+		default:
+			return state
+	}
+}
+
+function wizards(state = defaultWizards, action) {
 	switch (action.type) {
 		case ADD_WIZARD:
 			return {
@@ -85,10 +158,18 @@ export function wizards(state = defaultWizards, action) {
 			return wizardsLeft;
 
 		case CLICK_WIZARD:
-			console.error('direct to wizard page');
 			return state;
 
 		default:
 			return state;
 	}
 };
+
+
+const rootReducer = combineReducers({
+	entities,
+	pagination,
+	routing
+});
+
+export default rootReducer;
