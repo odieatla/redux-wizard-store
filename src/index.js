@@ -1,37 +1,13 @@
 import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router';
-import { Provider } from 'react-redux';
-import App from './components/App';
-import VisibleWizardList from './containers/VisibleWizardList';
-import WizardPage from './containers/WizardPage';
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
-import rootReducer from './reducers';
-import { fetchWizardsIfNeeded } from './actions';
-import DevTools from './containers/DevTools'
-import createLogger from 'redux-logger'
+import { browserHistory } from 'react-router';
+import configureStore from './store/configureStore'
+import Root from './containers/Root'
 
-const store = createStore(
-	rootReducer,
-	compose(
-		applyMiddleware(thunk, createLogger()),
-		DevTools.instrument()
-	)
-);
+const store = configureStore()
 
 render(
-	<Provider store={store}>
-		<div>
-			<Router history={browserHistory}>
-				<Route path="/" component={App}>
-					<IndexRoute component={VisibleWizardList} />
-					<Route path="wizard/:wizardId" component={WizardPage} />
-				</Route>
-			</Router>
-			<DevTools />
-		</div>
-	</Provider>,
+	<Root store={store} history={browserHistory} />,
 	document.getElementById('root')
 )
