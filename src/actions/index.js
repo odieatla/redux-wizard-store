@@ -1,21 +1,6 @@
 import { normalize, Schema, arrayOf } from 'normalizr';
 import fetch from 'isomorphic-fetch';
-
-/*
- * action types
- */
-
-export const ADD_WIZARD = 'ADD_WIZARD';
-export const EDIT_WIZARD = 'EDIT_WIZARD';
-export const DELETE_WIZARD = 'DELETE_WIZARD';
-export const CLICK_WIZARD = 'CLICK_WIZARD';
-export const REQUEST_WIZARD = 'REQUEST_WIZARD';
-export const RECEIVE_WIZARD = 'RECEIVE_WIZARD';
-export const REQUEST_WIZARDS = 'REQUEST_WIZARDS';
-export const RECEIVE_WIZARDS = 'RECEIVE_WIZARDS';
-
-export const REPORT_NOT_FOUND = 'REPORT_NOT_FOUND';
-
+import * as types from '../constants/ActionTypes'
 
 /*
  * define schema
@@ -35,7 +20,7 @@ let nextWizardId = 0;
 
 export function addWizard(name, version, description) {
 	return {
-		type: ADD_WIZARD,
+		type: types.ADD_WIZARD,
 		id: nextWizardId++,
 		name,
 		version,
@@ -44,17 +29,17 @@ export function addWizard(name, version, description) {
 }
 
 export function clickWizard(id) {
-	return { type: CLICK_WIZARD, id }
+	return { type: types.CLICK_WIZARD, id }
 }
 
 export function requestWizard() {
-	return { type: REQUEST_WIZARD }
+	return { type: types.REQUEST_WIZARD }
 }
 
 export function receiveWizard(json) {
 	return {
 		...json,
-		type: RECEIVE_WIZARD,
+		type: types.RECEIVE_WIZARD,
 		received_at: Date.now()
 	}
 }
@@ -85,7 +70,7 @@ export function fetchWizard(id) {
 export function reportNotFound(entity) {
 	// TODO: write a middleware to redirect??
 	return {
-		type: REPORT_NOT_FOUND,
+		type: types.REPORT_NOT_FOUND,
 		entity
 	}
 }
@@ -119,13 +104,13 @@ export function fetchWizardIfNeeded(id) {
 }
 
 export function requestWizards() {
-	return { type: REQUEST_WIZARDS }
+	return { type: types.REQUEST_WIZARDS }
 }
 
 export function receiveWizards(json) {
 	return {
 		...json,
-		type: RECEIVE_WIZARDS,
+		type: types.RECEIVE_WIZARDS,
 		receivedAt: Date.now()
 	}
 }

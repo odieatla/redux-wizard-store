@@ -1,12 +1,6 @@
 import { combineReducers } from 'redux'
 import merge from 'lodash/merge';
-import {
-	ADD_WIZARD, EDIT_WIZARD,
-	DELETE_WIZARD, CLICK_WIZARD,
-	RECEIVE_WIZARD,
-	REPORT_NOT_FOUND,
-	RECEIVE_WIZARDS, REQUEST_WIZARDS
-} from '../actions';
+import * as types from '../constants/ActionTypes'
 
 const compareWizards = (oldW, newW) => {
 	const fields = ['name', 'description', 'version'];
@@ -23,13 +17,13 @@ const compareWizards = (oldW, newW) => {
 
 const wizard = (state, action) => {
 	switch (action.type) {
-		case ADD_WIZARD:
+		case types.ADD_WIZARD:
 			return {
 				name: action.name,
 				version: action.version || '0.0.1',
 				description: action.description
 			};
-		case EDIT_WIZARD:
+		case types.EDIT_WIZARD:
 			if (state.id !== action.id) {
 				return state;
 			}
@@ -74,7 +68,7 @@ function wizardsById(state = initWizardIds, action) {
 		receivedWizards = Object.keys(action.entities.wizards).map(id => Number(id));
 	}
 	switch(action.type) {
-		case RECEIVE_WIZARDS:
+		case types.RECEIVE_WIZARDS:
 			return {
 				isFetching: false,
 				didInvalidate: false,
@@ -82,14 +76,14 @@ function wizardsById(state = initWizardIds, action) {
 				ids: [ ...new Set([...state.ids, ...receivedWizards])]
 			}
 
-		case RECEIVE_WIZARD:
+		case types.RECEIVE_WIZARD:
 			return {
 				...state,
 				updatedAt: action.receivedAt,
 				ids: [ ...new Set([...state.ids, ...receivedWizards])]
 			}
 
-		case REQUEST_WIZARDS:
+		case types.REQUEST_WIZARDS:
 			// is fetching
 			return {
 				...state,
@@ -112,7 +106,7 @@ const defaultRouting = {
 };
 function routing(state = defaultRouting, action) {
 	switch (action.type) {
-		case REPORT_NOT_FOUND:
+		case types.REPORT_NOT_FOUND:
 			return {
 				...state,
 				normal: false,
@@ -126,12 +120,12 @@ function routing(state = defaultRouting, action) {
 
 function wizards(state = defaultWizards, action) {
 	switch (action.type) {
-		case ADD_WIZARD:
+		case types.ADD_WIZARD:
 			return {
 				...state,
 				[action.id]: wizard(undefined, action)
 			};
-		case EDIT_WIZARD:
+		case types.EDIT_WIZARD:
 			let selectedWizard = {};
 			for (let key in state) {
 				if (key === action.id) {
@@ -147,7 +141,7 @@ function wizards(state = defaultWizards, action) {
 				...state,
 				[action.id]: selectedWizard
 			}
-		case DELETE_WIZARD:
+		case types.DELETE_WIZARD:
 			let wizardsLift = Object.assign({}, state);
 			for (key in wizardsLeft) {
 				if (key === action.id) {
@@ -157,7 +151,7 @@ function wizards(state = defaultWizards, action) {
 
 			return wizardsLeft;
 
-		case CLICK_WIZARD:
+		case types.CLICK_WIZARD:
 			return state;
 
 		default:
