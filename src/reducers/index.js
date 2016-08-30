@@ -118,6 +118,65 @@ function routing(state = defaultRouting, action) {
 	}
 }
 
+const defaultFileUpload = {
+	isActive: false,
+	isUploading: false,
+	originalFilename: null,
+	uploadedFilename: null,
+	isDragging: false,
+	uploadedSuccess: false
+};
+
+function fileUpload(state = defaultFileUpload, action) {
+	switch (action.type) {
+		case types.DRAG_IN_WIZARD_FILE:
+			console.error('drag in');
+			return {
+				...state,
+				isDragging: true
+			}
+		case types.DRAG_OUT_WIZARD_FILE:
+			console.error('drag out');
+			return {
+				...state,
+				isDragging: false
+			}
+		case types.START_UPLOAD_WIZARD_FILE:
+			return {
+				...state,
+				originalFilename: action.filename,
+				isUploading: true,
+				isDragging: false
+			}
+		case types.UPLOAD_WIZARD_FILE_SUCCESS:
+			return {
+				...state,
+				isUploading: false,
+				uploadedSuccess: true,
+				uploadedError: ''
+			}
+		case types.UPLOAD_WIZARD_FILE_ERROR:
+			return {
+				...state,
+				isUpload: false,
+				uploadedSuccess: false,
+				uploadedError: action.error
+			}
+		case types.SHOW_DROP_ZONE:
+			return {
+				...state,
+				isActive: true
+			}
+		case types.HIDE_DROP_ZONE:
+			return {
+				...state,
+				isActive: false
+			}
+		default:
+			return state;
+	}
+}
+
 function wizards(state = defaultWizards, action) {
 	switch (action.type) {
 		case types.ADD_WIZARD:
@@ -163,7 +222,8 @@ function wizards(state = defaultWizards, action) {
 const rootReducer = combineReducers({
 	entities,
 	pagination,
-	routing
+	routing,
+	fileUpload
 });
 
 export default rootReducer;

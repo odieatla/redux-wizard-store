@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 class WizardDetail extends Component {
 	constructor(props) {
@@ -17,7 +17,8 @@ class WizardDetail extends Component {
 	}
 
 	render() {
-		const { id, name, version, description } = this.props.wizard;
+		const { id, name, version, description, updatedAt } = this.props.wizard;
+		const { onClickDownload } = this.props;
 		if (id === 0) {
 			return <h1><i>Loading...</i></h1>
 		}
@@ -30,7 +31,22 @@ class WizardDetail extends Component {
 		return (
 			<div>
 				<div className="title">{ name }</div>
-				<div className="version">Latest version: { version }</div>
+				<div>
+					<Link to={`/wizard_edit/${id}`}>
+						edit
+					</Link>
+				</div>
+				<div className="version">
+					<label>Latest version</label>
+					<div>{ version } </div>
+				</div>
+				<div>
+					<span onClick={onClickDownload}>download icon</span>
+				</div>
+				<div className="updatedAt">
+					<label>Last updated at</label>
+					<div>{ updatedAt }</div>
+				</div>
 				<div className="description">
 					<label>Description</label>
 					<div>{ description } </div>
@@ -55,8 +71,7 @@ WizardDetail.defaultProps = {
 		id: 0,
 		name: 'default_w',
 		version: '0.0.0',
-		description: 'default wizard',
-		special: '123'
+		description: 'default wizard'
 	}
 };
 

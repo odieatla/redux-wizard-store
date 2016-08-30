@@ -1,17 +1,9 @@
-import { normalize, Schema, arrayOf } from 'normalizr';
+import { normalize } from 'normalizr';
 import fetch from 'isomorphic-fetch';
 import * as types from '../constants/ActionTypes'
+import * as GLOBAL_VARS from '../constants/GlobalVars'
+import { wizardSchema, wizardsSchema, authorSchema } from '../schema'
 
-/*
- * define schema
- */
-const wizardSchema = new Schema('wizards');
-const authorSchema = new Schema('authors');
-wizardSchema.define({
-	author: authorSchema
-});
-
-const API_SERVER = 'http://0.0.0.0:8080/api/';
 
 /*
  * action creators
@@ -36,29 +28,29 @@ export function requestWizard() {
 	return { type: types.REQUEST_WIZARD }
 }
 
-export function receiveWizard(json) {
+export function requestUpdateWizard() {
+	return { type: types.REQUEST_UPDATE_WIZARD }
+}
+
+// @param timestamp for test purpose
+export function receiveWizard(json, timestamp) {
 	return {
 		...json,
 		type: types.RECEIVE_WIZARD,
-		received_at: Date.now()
+		receivedAt: timestamp || Date.now()
 	}
 }
 
-export function fetchWizard(id) {
+export function fetchWizard(id, timestamp) {
 	return function(dispatch, getState) {
 		dispatch(requestWizard());
 
-		return fetch(`${API_SERVER}wizards/${id}`)
-			.then(resp => {
-				if (resp.status == 404) {
-					throw Error('no wizard');
-				}
-				return resp.json()
-			})
+		return fetch(`${GLOBAL_VARS.API_SERVER}wizards/${id}`)
+			.then(resp => resp.json())
 			.then((json) => {
 				const data = normalize(json, wizardSchema);
 				console.log(getState());
-				dispatch(receiveWizard(data));
+				dispatch(receiveWizard(data, timestamp));
 			})
 			.catch((err) => {
 				dispatch(reportNotFound('wizard'));
@@ -107,11 +99,12 @@ export function requestWizards() {
 	return { type: types.REQUEST_WIZARDS }
 }
 
-export function receiveWizards(json) {
+// @param timestamp for test purpose
+export function receiveWizards(json, timestamp) {
 	return {
 		...json,
 		type: types.RECEIVE_WIZARDS,
-		receivedAt: Date.now()
+		receivedAt: timestamp || Date.now()
 	}
 }
 
@@ -119,11 +112,11 @@ export function fetchWizards() {
 	return function (dispatch) {
 		dispatch(requestWizards());
 
-		return fetch(`${API_SERVER}wizards`)
+		return fetch(`${GLOBAL_VARS.API_SERVER}wizards`)
 			.then(response => response.json())
 			.then((json) => {
 				// TODO: if no json.data.wizards?
-				const data = normalize(json, arrayOf(wizardSchema));
+				const data = normalize(json, wizardsSchema);
 				dispatch(receiveWizards(data))
 			});
 	}
@@ -153,5 +146,103 @@ export function fetchWizardsIfNeeded() {
 		} else {
 			return Promise.resolve()
 		}
+	}
+}
+
+// trigger middleware redirect to /wizard/${id}
+export function redirectWizard(id) {
+	return {
+		type: types.REDIRECT_WIZARD,
+		redirectTo: `/wizard/${id}`
+	}
+}
+
+export function updateWizard(formData) {
+	const { id } = formData;
+	return (dispatch) => {
+		dispatch(requestUpdateWizard())
+
+		return fetch(`${GLOBAL_VARS.API_SERVER}wizards/${id}`, {
+				method: 'PUT',
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(formData)
+			})
+			.then(response => response.json())
+			.then((json) => {
+				const data = normalize(json, wizardSchema);
+				dispatch(receiveWizard(data));
+				dispatch(redirectWizard(id));
+			})
+			.catch((err) => {
+				dispatch(reportSaveError('wizard'));
+      })
+	}
+}
+
+export function dragInWizardFile() {
+	return {
+		type: types.DRAG_IN_WIZARD_FILE
+	}
+}
+
+export function dragOutWizardFile() {
+	return {
+		type: types.DRAG_OUT_WIZARD_FILE
+	}
+}
+
+export function startUploadWizardFile(filename) {
+	return {
+		type: types.START_UPLOAD_WIZARD_FILE,
+		filename
+	}
+}
+
+export function UploadWizardFileSuccess() {
+	return {
+		type: types.UPLOAD_WIZARD_FILE_SUCCESS
+	}
+}
+
+export function UploadWizardFileError(error) {
+	return {
+		type: types.UPLOAD_WIZARD_FILE_ERROR,
+		error
+	}
+}
+
+export function uploadWizardFile(file) {
+	return (dispatch) => {
+		dispatch(startUploadWizardFile(file.name))
+
+		const data = new FormData()
+		data.append('file', file)
+
+		return fetch(`${GLOBAL_VARS.API_SERVER}upload`, {
+			method: 'POST',
+			body: data
+		})
+			.then(resp => resp.json())
+      .then((json) => {
+				dispatch(UploadWizardFileSuccess());
+      })
+      .catch((err) => {
+				dispatch(UploadWizardFileError(err));
+      })
+	}
+}
+
+export function showDropZone() {
+	return {
+		type: types.SHOW_DROP_ZONE
+	}
+}
+
+export function hideDropZone() {
+	return {
+		type: types.HIDE_DROP_ZONE
 	}
 }

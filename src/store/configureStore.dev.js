@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk';
+import redirect from '../middleware/redirect'
 import DevTools from '../containers/DevTools'
 import createLogger from 'redux-logger'
 import rootReducer from '../reducers'
@@ -8,7 +9,7 @@ export default function configureStore(preloadedState) {
 	const store = createStore(
 		rootReducer,
 		compose(
-			applyMiddleware(thunk, createLogger()),
+			applyMiddleware(thunk, redirect, createLogger()),
 			DevTools.instrument()
 		)
 	);
