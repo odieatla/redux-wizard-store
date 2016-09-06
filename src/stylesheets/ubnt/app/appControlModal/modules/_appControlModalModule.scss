@@ -1,0 +1,72 @@
+/**
+ * 1. Provides for positioning of close button.
+ * 2. Hide modal on page-load.
+ * 3. Display higher than other elements.
+ * 4. Make modal narrow by default.
+ */
+.appControlModal {
+  position: relative; /* [1] */
+  overflow: hidden; /* [2] */
+  z-index: $base-z-index-modal; /* [3] */
+  width: calc(100% - 1rem); /* [4] */
+  max-width: 800px; /* [4] */
+  color: $app-control-modal-font-color;
+  background-color: $app-control-modal-background-color;
+  border: 2px solid $app-control-modal-border-color;
+  box-shadow: $app-high-box-shadow;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.appControlModal--tiny {
+  max-width: 420px;
+}
+
+.appControlModal--small {
+  max-width: 600px;
+}
+
+  /**
+   * 1. Position button at top right of modal.
+   */
+  .appControlModal__close {
+    @extend %appCloseButton;
+    @extend %appCloseButton--dark;
+    position: absolute; // 1
+    cursor: pointer;
+    font-size: 12px;
+    top: 10px; // 1
+    right: 8px; // 1
+  }
+
+  .appControlModal__header {
+    color: $app-control-modal-header-font-color;
+    padding: 10px 12px 8px;
+    font-weight: 300;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .appControlModal__content {
+    padding: 10px 12px 12px;
+  }
+
+.appControlModalSpinnerContainer {
+  height: 200px;
+  font-size: 7em;
+  position: relative;
+
+  .appControlModalSpinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
+}
+
+/**
+ * 1. Create a default scrollable content area.
+ */
+.appControlModalScrollableContent {
+  @include appMakeControlModalScrollableContent; /* [1] */
+}

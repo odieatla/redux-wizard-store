@@ -1,0 +1,31 @@
+.comFeatureIcon {
+  width: $com-feature-icon-width;
+  height: $com-feature-icon-height;
+  background-color: $com-feature-icon-background-color;
+  box-shadow: inset 0 1px 2px rgba(#000000, .67);
+  margin-left: auto;
+  margin-right: auto;
+  @include border-radius(100%);
+  @include flexCenter;
+}
+
+  .comFeatureIcon__content {
+    width: $com-feature-icon-content-width;
+    height: $com-feature-icon-content-height;
+    background-color: $com-feature-icon-content-background-color;
+    color: $com-feature-icon-content-font-color;
+    font-size: remCalc(32px);
+    @include border-radius(100%);
+    @include flexCenter;
+  }
+
+.comFeatureIcon--large {
+  width: $com-feature-icon-large-width;
+  height: $com-feature-icon-large-height;
+
+  .comFeatureIcon__content {
+    width: $com-feature-icon-large-content-width;
+    height: $com-feature-icon-large-content-height;
+    font-size: remCalc(35px);
+  }
+}

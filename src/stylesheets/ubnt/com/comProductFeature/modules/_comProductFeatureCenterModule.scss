@@ -1,0 +1,16 @@
+.comProductFeature--center {
+
+  .comProductFeature__text {
+    margin-bottom: 48px;
+
+    p {
+      @include respondTo(medium-up) {
+        padding-left: 15%;
+        padding-right: 15%;
+      }
+      @include respondTo(large-up) {
+        text-align: center;
+      }
+    }
+  }
+}

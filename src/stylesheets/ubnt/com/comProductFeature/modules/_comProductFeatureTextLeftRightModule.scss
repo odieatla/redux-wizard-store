@@ -1,0 +1,76 @@
+.comProductFeature--textleft,
+.comProductFeature--textright {
+
+  .comProductFeature__container {
+    @include respondTo(medium-up) {
+      display: table;
+      table-layout: fixed;
+    }
+
+    .comProductFeature__text,
+    .comProductFeature__image {
+      @include respondTo(medium-up) {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    .comProductFeature__text {
+      margin-bottom: 2rem;
+
+      @include respondTo(medium-up) {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.comProductFeature--textleft {
+  .comProductFeature__text {
+    @include respondTo(medium-up) {
+      width: 50%;
+      padding-right: 40px;
+    }
+  }
+
+  .comProductFeature__image {
+    @include respondTo(medium-up) {
+      width: 50%;
+    }
+  }
+
+  .comProductFeature__text {
+    @include respondTo(large-up) {
+      padding-left: 7.5%;
+    }
+  }
+}
+
+.comProductFeature--textright {
+  .comProductFeature__container {
+    direction: rtl;
+  }
+
+  .comProductFeature__text {
+    p {
+      direction: ltr;
+    }
+    
+    @include respondTo(medium-up) {
+      width: 50%;
+      padding-left: 40px;
+    }
+  }
+
+  .comProductFeature__image {
+    @include respondTo(medium-up) {
+      width: 50%;
+    }
+  }
+
+  .comProductFeature__text {
+    @include respondTo(large-up) {
+      padding-right: 7.5%;
+    }
+  }
+}

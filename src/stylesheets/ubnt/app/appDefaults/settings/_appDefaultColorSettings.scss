@@ -1,0 +1,690 @@
+/**
+ * These colors are all overrideable so that themes that extend this one
+ * (e.g. Sun theme) can easily customize the appearance of components in
+ * a future-proof manner.
+ */
+
+// -----------------------------------------------------------------------------
+// STATUS
+// -----------------------------------------------------------------------------
+
+/**
+ * Status colors.
+ *
+ * 1. Gray
+ * 2. Blue
+ * 3. Green
+ * 4. Yellow
+ * 5. Red
+ */
+$app-status-static-color: #cccccc !default; /* [1] */
+$app-status-primary-color: #00a0df !default; /* [2] */
+$app-status-success-color: #13bb72 !default; /* [3] */
+$app-status-warning-color: #f09300 !default; /* [4] */
+$app-status-danger-color: #ff3516 !default; /* [5] */
+
+/**
+ * Old status colors. TODO: Refactor these out of the status namespace.
+ */
+$app-status-info-color: #e9eef1 !default;
+$app-status-info-dark-color: #bac8cd !default;
+
+// -----------------------------------------------------------------------------
+// LIGHT THEME
+// -----------------------------------------------------------------------------
+
+/**
+ * Backgrounds.
+ *
+ * 1. Default background color.
+ * 2. Stand out from the befault background color.
+ * 3. Call attention to a component that performs actions, e.g. button.
+ */
+$app-light-default-background-color: #ffffff !default; /* [1] */
+$app-light-standout-background-color: #f6f6f6 !default; /* [2] */
+$app-light-action-primary-background-color: #898989 !default; /* [3] */
+$app-light-action-secondary-background-color: #e8e8e8 !default; /* [3] */
+$app-light-disabled-background-color: $app-light-standout-background-color !default;
+$app-light-fill-disabled-font-color: #dddddd !default;
+
+/**
+ * Borders.
+ */
+$app-header-disabled-border: 4px solid $app-light-fill-disabled-font-color;
+
+/**
+ * Typography.
+ *
+ * 1. Default font color.
+ * 2. Sometimes text needs to appear disabled, e.g. disabled table rows.
+ * 3. Less noticeable than the default color.
+ * 4. Less noticeable than the subdued color.
+ */
+$app-light-default-font-color: #000000 !default; /* [1] */
+$app-light-default-disabled-font-color: #cccccc !default; /* [2] */
+$app-light-quiet-font-color: #616770 !default; /* [3] */
+$app-light-quieter-font-color: #969ba3 !default; /* [4] */
+
+/**
+ * Lines.
+ *
+ * Lines that separate content, e.g. horizontal rule, or the lines between
+ * items in a list or sections in a view.
+ *
+ * 1. For containers that enclose content, separated from surrounding content.
+ * 2. For headers that appear once on the page.
+ * 3. For separating the main sections of content within a view.
+ * 4. For separating list items, e.g. menus, dropdowns, grids, tables.
+ * 5. For isolating a discrete element, e.g. a form input.
+ */
+$app-line-light-container-border-color: #bfbfbf !default; /* [1] */
+$app-line-light-header-border-color: #000000 !default; /* [2] */
+$app-line-light-section-border-color: #c4c4c4 !default; /* [3] */
+$app-line-light-item-border-color: #dddddd !default; /* [4] */
+$app-line-light-input-border-color: #d7dbdd !default; /* [5] */
+
+/**
+ * Background states.
+ *
+ * These colors indicate interactive states.
+ */
+$app-state-light-hover-background-color: #f4f4f4 !default;
+$app-state-light-selected-background-color: #e9f0f4 !default;
+
+/**
+ * Font states.
+ *
+ * These colors indicate interactive states.
+ */
+$app-state-light-default-font-color: #616770 !default;
+$app-state-light-hover-font-color: lighten($app-state-light-default-font-color, 15%) !default;
+$app-state-light-selected-font-color: $app-status-primary-color !default;
+$app-state-light-disabled-font-color: rgba($app-state-light-default-font-color, .25) !default;
+
+// -----------------------------------------------------------------------------
+// DARK THEME
+// -----------------------------------------------------------------------------
+
+/**
+/**
+ * Backgrounds.
+ *
+ * 1. Default background color.
+ * 2. A darker background color for standing out, e.g. dark form inputs.
+ * 3. Call attention to a component that performs actions, e.g. button.
+ * 4. Full page dark background gradient.
+ */
+$app-dark-default-background-color: #242931 !default; /* [1] */
+$app-dark-standout-background-color: #191c21 !default; /* [2] */
+$app-dark-action-primary-background-color: #aaaaaa !default; /* [3] */
+$app-dark-action-secondary-background-color: #535860 !default; /* [3] */
+$app-container-dark-background-color: #111111 !default;
+$app-dark-default-background-gradient-start: #202930; /* [4] */
+$app-dark-default-background-gradient-stop: #000000; /* [4] */
+
+/**
+ * Typography.
+ *
+ * 1. Default font color.
+ * 2. Sometimes text needs to appear disabled, e.g. disabled table rows.
+ * 3. Darker link font color
+ */
+$app-dark-default-font-color: #ffffff !default; /* [1] */
+$app-dark-default-disabled-font-color: #70757e !default; /* [2] */
+$app-link-dark-color: #60c4ff !default;
+$app-link-dark-quiet-color: #5790b4 !default; /* [3] */
+$app-link-dark-hover-color: #a8dfff !default;
+$app-container-dark-font-color: #a7acb0 !default;
+
+/**
+ * Lines.
+ *
+ * Lines that separate content, e.g. horizontal rule, or the lines between
+ * items in a list or sections in a view.
+ *
+ * 1. For containers that enclose content, separated from surrounding content.
+ * 2. For headers that appear once on the page.
+ * 3. For separating the main sections of content within a view.
+ * 4. For separating list items, e.g. menus, dropdowns, grids, tables.
+ * 5. For isolating a discrete element, e.g. a form input.
+ */
+$app-line-dark-container-border-color: #565f63 !default; /* [1] */
+$app-line-dark-header-border-color: #454d51 !default; /* [2] */
+$app-line-dark-section-border-color: #515151 !default; /* [3] */
+$app-line-dark-item-border-color: #454d51 !default; /* [4] */
+$app-line-dark-input-border-color: #454D51 !default; /* [5] */
+
+/**
+ * Background states.
+ *
+ * These colors indicate interactive states.
+ */
+$app-state-dark-hover-background-color: #2b3038 !default;
+$app-state-dark-selected-background-color: #454d51 !default;
+
+/**
+ * Font states.
+ *
+ * These colors indicate interactive states.
+ */
+$app-state-dark-default-font-color: #aabbbb !default;
+$app-state-dark-hover-font-color: lighten($app-state-dark-default-font-color, 15%) !default;
+$app-state-dark-selected-font-color: #ffffff !default;
+$app-state-dark-disabled-font-color: rgba($app-state-dark-default-font-color, .25) !default;
+
+// -----------------------------------------------------------------------------
+// GLOBAL
+// -----------------------------------------------------------------------------
+
+/**
+ * Body colors.
+ */
+$app-body-background-color: $app-light-default-background-color !default;
+$app-body-font-color: $app-light-default-font-color !default;
+
+/**
+ * Scrollbar colors.
+ */
+$app-scrollbar-light-color: $app-light-action-primary-background-color !default;
+$app-scrollbar-dark-color: $app-dark-action-primary-background-color !default;
+
+/**
+ * Link colors.
+ */
+$app-link-color: $app-status-primary-color !default;
+$app-link-hover-color: lighten($app-link-color, 10%) !default;
+$app-link-disabled-color: rgba(#8c8c8c, .5) !default;
+$app-link-secondary-color: $app-light-quieter-font-color !default;
+$app-link-secondary-hover-color: lighten($app-link-color, 10%) !default;
+
+/**
+ * Shadows.
+ *
+ * 1. A shadow lying flat on the base surface.
+ * 2. Slightly elevated over the base surface.
+ * 3. High-altitude.
+ */
+$app-shadow-light-flat-color: #babfc2 !default; /* [1] */
+$app-shadow-light-low-color: rgba(#000000, .25) !default; /* [2] */
+$app-shadow-dark-low-color: rgba(#000000, .75) !default; /* [2] */
+$app-shadow-light-high-color: rgba(#000000,.5) !default; /* [3] */
+
+// -----------------------------------------------------------------------------
+// ACTION BAR
+// -----------------------------------------------------------------------------
+
+$app-action-bar-background-color: $app-status-info-color !default;
+$app-action-bar-border-color: $app-status-info-dark-color !default;
+
+// -----------------------------------------------------------------------------
+// ALERT ICON
+// -----------------------------------------------------------------------------
+
+// States
+$app-alert-icon-default-font-color: $app-light-action-primary-background-color !default;
+$app-alert-icon-primary-font-color: $app-status-primary-color !default;
+$app-alert-icon-success-font-color: $app-status-success-color !default;
+$app-alert-icon-warning-font-color: $app-status-warning-color !default;
+$app-alert-icon-danger-font-color: $app-status-danger-color !default;
+
+// Reverse states
+$app-alert-icon-default-background-color: $app-light-action-primary-background-color !default;
+$app-alert-icon-primary-background-color: $app-status-primary-color !default;
+$app-alert-icon-success-background-color: $app-status-success-color !default;
+$app-alert-icon-warning-background-color: $app-status-warning-color !default;
+$app-alert-icon-danger-background-color: $app-status-danger-color !default;
+$app-alert-icon-icon-font-color: #ffffff !default;
+
+// -----------------------------------------------------------------------------
+// AVATAR
+// -----------------------------------------------------------------------------
+
+$app-avatar-disabled-background-color: $app-light-fill-disabled-font-color !default;
+
+// -----------------------------------------------------------------------------
+// BADGE
+// -----------------------------------------------------------------------------
+
+$app-badge-medium-color: #aaaaaa !default;
+$app-badge-light-color: #ffffff !default;
+
+// -----------------------------------------------------------------------------
+// CLOSE BUTTON
+// -----------------------------------------------------------------------------
+
+$app-close-button-light-color: #1b262c !default;
+$app-close-button-dark-color: #ffffff !default;
+
+// -----------------------------------------------------------------------------
+// CONTROL MODAL
+// -----------------------------------------------------------------------------
+
+$app-control-modal-font-color: #969BA3 !default;
+$app-control-modal-border-color: #080808 !default;
+$app-control-modal-header-font-color: #ffffff !default;
+$app-control-modal-header-background-color: #333333 !default;
+$app-control-modal-background-color: $app-container-dark-background-color !default;
+$app-control-modal-header-background-gradient: linear-gradient($app-control-modal-header-background-color, rgba(black, 0)) !default;
+
+// -----------------------------------------------------------------------------
+// COUNT
+// -----------------------------------------------------------------------------
+
+$app-count-success-background-color: $app-status-success-color !default;
+$app-count-warning-background-color: $app-status-warning-color !default;
+$app-count-danger-background-color: $app-status-danger-color !default;
+$app-count-font-color: $app-dark-default-font-color !default;
+
+// -----------------------------------------------------------------------------
+// DATEPICKER
+// -----------------------------------------------------------------------------
+
+/**
+ * 1. Provide this variable for components (e.g. pikaday) that need to refer to
+ *    it in their styles.
+ */
+$app-datepicker-font-color: $app-light-default-font-color !default; /* [1] */
+$app-datepicker-selected-background-color: $app-state-light-selected-background-color !default;
+$app-datepicker-today-border-color: rgba($app-light-default-font-color, .2) !default;
+$app-datepicker-adjacent-font-color: $app-light-default-disabled-font-color !default;
+
+// -----------------------------------------------------------------------------
+// DROPDOWN
+// -----------------------------------------------------------------------------
+
+/**
+ * Light theme.
+ */
+$app-dropdown-light-background-color: $app-light-default-background-color !default;
+$app-dropdown-light-hover-background-color: $app-state-light-hover-background-color !default;
+$app-dropdown-light-border-color: $app-line-light-container-border-color !default;
+$app-dropdown-light-font-color: $app-light-default-font-color !default;
+
+/**
+ * Dark theme.
+ */
+$app-dropdown-dark-background-color: $app-dark-default-background-color !default;
+$app-dropdown-dark-hover-background-color: $app-state-dark-hover-background-color !default;
+$app-dropdown-dark-border-color: $app-line-dark-container-border-color !default;
+$app-dropdown-dark-font-color: $app-dark-default-font-color !default;
+
+// -----------------------------------------------------------------------------
+// FEATURE ICON
+// -----------------------------------------------------------------------------
+
+$app-feature-icon-background-color: #d9d9d9 !default;
+$app-feature-icon-content-background-color: #2b3038 !default;
+$app-feature-icon-content-font-color: #d9d9d9 !default;
+
+// -----------------------------------------------------------------------------
+// FOOTER
+// -----------------------------------------------------------------------------
+
+$app-footer-background-color: $app-light-standout-background-color !default;
+$app-footer-border-color: $app-line-light-section-border-color !default;
+
+// -----------------------------------------------------------------------------
+// FORM
+// -----------------------------------------------------------------------------
+
+/**
+ * Light theme.
+ */
+$app-form-light-background-color: $app-light-default-background-color !default;
+$app-form-light-border-color: $app-line-light-input-border-color !default;
+$app-form-light-hover-border-color: #000000 !default;
+$app-form-light-font-color: $app-light-default-font-color !default;
+
+/**
+ * Dark theme.
+ */
+$app-form-dark-background-color: transparent !default;
+$app-form-dark-border-color: $app-line-dark-input-border-color !default;
+$app-form-dark-hover-border-color: #929698 !default;
+$app-form-dark-font-color: #ffffff !default;
+$app-form-label-dark-font-color: #ffffff !default;
+
+// -------------------
+// Checkboxes and radio buttons.
+// -------------------
+
+$app-form-light-checkbox-background-color: $app-light-default-background-color !default;
+$app-form-light-checkbox-selected-color: $app-status-primary-color !default;
+
+$app-form-dark-checkbox-background-color: $app-form-dark-background-color !default;
+$app-form-dark-checkbox-selected-color: $app-form-light-checkbox-selected-color !default;
+$app-form-dark-checkbox-border-color: $app-form-dark-border-color !default;
+$app-form-dark-radio-selected-background-color: $app-form-light-checkbox-background-color !default;
+
+// -------------------
+// Icon input.
+// -------------------
+
+$app-form-icon-input-icon-color: $app-light-quieter-font-color !default;
+
+// -------------------
+// Range input.
+// -------------------
+
+/**
+ * Light theme.
+ */
+$app-input-range-light-track-background-color: $app-light-action-secondary-background-color !default;
+$app-input-range-light-thumb-background-color: $app-light-action-primary-background-color !default;
+
+/**
+ * Dark theme.
+ */
+$app-input-range-dark-track-background-color: $app-dark-action-secondary-background-color !default;
+$app-input-range-dark-thumb-background-color: $app-dark-action-primary-background-color !default;
+
+// -------------------
+// Toggle.
+// -------------------
+
+$app-toggle-light-background-color: $app-form-light-border-color !default;
+$app-toggle-light-border-color: $app-toggle-light-background-color !default;
+$app-toggle-light-font-color: $app-form-light-font-color !default;
+
+$app-toggle-dark-background-color: $app-dark-action-secondary-background-color !default;
+$app-toggle-dark-border-color: $app-toggle-dark-background-color !default;
+$app-toggle-dark-font-color: $app-form-dark-font-color !default;
+
+// -------------------
+// Validation.
+// -------------------
+
+$app-form-input-feedback-font-color: $app-light-quiet-font-color !default;
+
+// -------------------
+// Input help.
+// -------------------
+
+$app-form-input-help-font-color: $app-light-quieter-font-color !default;
+
+// -------------------
+// Input note.
+// -------------------
+
+$app-form-input-note-font-color: $app-light-quieter-font-color !default;
+
+// -----------------------------------------------------------------------------
+// GLOBAL HEADER
+// -----------------------------------------------------------------------------
+
+$app-global-header-background-color: $app-status-primary-color !default;
+$app-global-header-font-color: #ffffff !default;
+$app-global-header-logo-color: #ffffff !default;
+
+/**
+ * App switcher.
+ */
+$app-switcher-border-color: #bfbfbf !default;
+$app-switcher-icon-color: #ffffff !default;
+$app-switcher-item-text-color: #616770 !default;
+$app-switcher-trigger-border-color: #7fd6ff !default;
+
+/**
+ * Account links.
+ *
+ * 1. Username.
+ * 2. Dropdowm.
+ */
+$app-account-links-username-font-color: #ffffff !default; /* [1] */
+$app-account-links-dropdown-font-color: $app-dark-default-background-color !default; /* [2] */
+$app-account-links-drowdown-shadow-color: rgba(#000000, .4) !default; /* [2] */
+
+// -----------------------------------------------------------------------------
+// GLOBAL SIDE NAV
+// -----------------------------------------------------------------------------
+
+$app-global-side-nav-background-color: $app-dark-standout-background-color !default;
+$app-global-side-nav-font-color: $app-state-dark-default-font-color !default;
+$app-global-side-nav-icon-color: $app-state-dark-default-font-color !default;
+$app-global-side-nav-selected-font-color: $app-link-hover-color !default;
+$app-global-side-nav-selected-icon-color: $app-link-hover-color !default;
+$app-global-side-nav-hover-font-color: #ffffff !default;
+$app-global-side-nav-hover-icon-color: #ffffff !default;
+$app-side-nav-tooltip-background-color: $app-container-dark-background-color;
+
+// -----------------------------------------------------------------------------
+// INFO BOX
+// -----------------------------------------------------------------------------
+
+/**
+ * Light theme.
+ */
+$app-info-box-light-background-color: $app-light-standout-background-color !default;
+$app-info-box-light-font-color: $app-light-default-font-color !default;
+
+/**
+ * Dark theme.
+ */
+$app-info-box-dark-background-color: $app-container-dark-background-color !default;
+$app-info-box-dark-font-color: $app-container-dark-font-color !default;
+
+// -----------------------------------------------------------------------------
+// MAIN BUTTONS
+// -----------------------------------------------------------------------------
+
+$app-main-button-transparent-dark-font-color: #ffffff !default;
+
+// -----------------------------------------------------------------------------
+// MAIN BUTTON GROUP
+// -----------------------------------------------------------------------------
+
+$app-main-button-group-selected-font-color: #ffffff !default;
+
+// -----------------------------------------------------------------------------
+// MENU
+// -----------------------------------------------------------------------------
+
+$app-menu-background-color: $app-light-default-background-color !default;
+$app-menu-selected-background-color: $app-state-light-selected-background-color !default;
+$app-menu-hover-background-color: $app-state-light-hover-background-color !default;
+$app-menu-border-color: $app-line-light-item-border-color !default;
+$app-menu-font-color: $app-light-default-font-color !default;
+$app-menu-disabled-background-color: $app-light-disabled-background-color !default;
+$app-menu-disabled-font-color: $app-light-default-disabled-font-color !default;
+
+$app-menu-dark-background-color: $app-dark-default-background-color;
+$app-menu-dark-selected-background-color: #007cae;
+$app-menu-dark-font-color: #878d97;
+$app-menu-dark-selected-font-color: #ffffff;
+$app-menu-dark-hover-font-color: #ffffff;
+$app-menu-dark-hover-background-color: #007cae;
+
+$app-menu-light-selected-background-color: #00a0df;
+$app-menu-light-hover-font-color: #ffffff;
+$app-menu-light-hover-background-color: #00a0df;
+
+// -----------------------------------------------------------------------------
+// MODAL
+// -----------------------------------------------------------------------------
+
+// Light theme
+$app-modal-light-background-color: $app-light-default-background-color !default;
+$app-modal-light-font-color: $app-light-default-font-color !default;
+
+// Dark theme
+$app-modal-dark-background-color: $app-dark-default-background-color !default;
+$app-modal-dark-font-color: $app-dark-default-font-color !default;
+
+// -----------------------------------------------------------------------------
+// NODE
+// -----------------------------------------------------------------------------
+
+$app-node-neutral-color: #c9c9c9 !default;
+$app-node-success-color: $app-status-success-color !default;
+$app-node-warning-color: $app-status-warning-color !default;
+$app-node-danger-color: $app-status-danger-color !default;
+
+// -----------------------------------------------------------------------------
+// POPOVER
+// -----------------------------------------------------------------------------
+
+$app-popover-background-color: $app-light-default-background-color !default;
+$app-popover-border-color: $app-line-light-container-border-color !default;
+$app-popover-font-color: $app-light-default-font-color !default;
+$app-popover-shadow-color: #bfbfbf !default;
+$app-popover-header-background-color: $app-light-standout-background-color !default;
+$app-popover-disabled-background-color: $app-light-disabled-background-color !default;
+$app-popover-disabled-font-color: $app-light-default-disabled-font-color !default;
+
+$app-side-nav-popover-font-color: $app-dark-default-font-color !default;
+$app-side-nav-popover-border-color: $app-line-dark-container-border-color !default;
+$app-side-nav-popover-header-background-color: #333333 !default;
+$app-side-nav-popover-background-color: rgba($app-container-dark-background-color, 1) !default;
+
+// -----------------------------------------------------------------------------
+// SIDE PANEL
+// -----------------------------------------------------------------------------
+
+/**
+ * Light theme.
+ */
+$app-side-panel-light-background-color: $app-light-default-background-color !default;
+$app-side-panel-light-border-color: $app-line-light-container-border-color !default;
+$app-side-panel-light-font-color: $app-light-default-font-color !default;
+$app-side-panel-section-light-border-color: $app-line-light-section-border-color !default;
+
+/**
+ * Dark theme.
+ */
+$app-side-panel-dark-background-color: $app-dark-default-background-color !default;
+$app-side-panel-dark-border-color: $app-line-dark-container-border-color !default;
+$app-side-panel-dark-font-color: $app-dark-default-font-color !default;
+$app-side-panel-section-dark-border-color: $app-line-dark-section-border-color !default;
+
+// -----------------------------------------------------------------------------
+// STATUS BAR
+// -----------------------------------------------------------------------------
+
+$app-status-bar-background-color: rgba(#000000, .1) !default;
+$app-status-bar-dark-background-color: rgba(#ffffff, .1) !default;
+$app-status-bar-low-background-color: $app-status-danger-color !default;
+$app-status-bar-medium-background-color: $app-status-warning-color !default;
+$app-status-bar-high-background-color: $app-status-success-color !default;
+$app-status-bar-muted-background-color: #c6c6c6 !default;
+
+// -----------------------------------------------------------------------------
+// STATUS BALL
+// -----------------------------------------------------------------------------
+
+$app-status-ball-default-color: rgba(#000000, .13) !default;
+$app-status-ball-dark-color: #616770 !default;
+$app-status-ball-offline-color: $app-status-static-color !default;
+$app-status-ball-positive-color: $app-status-success-color !default;
+$app-status-ball-warning-color: $app-status-warning-color !default;
+$app-status-ball-danger-color: $app-status-danger-color !default;
+$app-status-ball-busy-color-1: rgba($app-status-primary-color, 1) !default;
+$app-status-ball-busy-color-2: rgba($app-status-primary-color, 0) !default;
+$app-status-ball-disabled-background-color: $app-light-fill-disabled-font-color !default;
+
+// -----------------------------------------------------------------------------
+// SUBHEADING
+// -----------------------------------------------------------------------------
+
+$app-subheading-light-font-color: $app-light-quieter-font-color !default;
+$app-subheading-light-border-color: $app-line-light-item-border-color !default;
+
+$app-subheading-dark-font-color: #ffffff !default;
+$app-subheading-dark-border-color: #3e494f !default;
+
+// -----------------------------------------------------------------------------
+// TABLE
+// -----------------------------------------------------------------------------
+
+/**
+ * Light theme.
+ *
+ * 1. Header.
+ * 2. Body.
+ * 3. Disabled rows.
+ * 4. Selected rows.
+ */
+$app-table-light-background-color: $app-light-default-background-color !default;
+$app-table-light-font-color: $app-light-default-font-color !default;
+$app-table-light-header-hover-font-color: #aaaaaa !default; /* [1] */
+$app-table-row-light-border-color: $app-line-light-item-border-color !default; /* [2] */
+$app-table-light-row-disabled-font-color: rgba($app-table-light-font-color, 0.5) !default;
+$app-table-light-row-selected-background-color: #b3dff7 !default;
+$app-table-light-row-hover-background-color: #e9f0f4 !default;
+
+/**
+ * Dark theme.
+ *
+ * 1. Header.
+ * 2. Body.
+ * 3. Disabled rows.
+ * 4. Selected rows.
+ */
+$app-table-dark-font-color: $app-container-dark-font-color !default; /* 1 */
+$app-table-dark-background-color: transparent !default; /* [1] */
+$app-table-dark-header-border-color: $app-line-dark-header-border-color !default; /* [1] */
+$app-table-dark-body-loud-font-color: #ffffff !default; /* [2] */
+$app-table-row-dark-border-color: $app-line-dark-item-border-color !default; /* [2] */
+$app-table-dark-row-disabled-font-color: $app-dark-default-disabled-font-color !default; /* [3] */
+$app-table-dark-row-selected-background-color: #0A222C !default; /* [4] */
+$app-table-dark-row-selected-font-color: #d7d9dc !default;
+$app-table-dark-row-hover-background-color: #191C21 !default;
+$app-table-dark-row-hover-font-color: #b7bbbe !default;
+
+// -----------------------------------------------------------------------------
+// TABS
+// -----------------------------------------------------------------------------
+
+/**
+ * Light theme.
+ */
+$app-tabs-light-bottom-border-color: $app-line-light-section-border-color !default;
+$app-tabs-light-background-color: $app-light-default-background-color !default;
+$app-tabs-light-item-font-color: $app-state-light-default-font-color !default;
+$app-tabs-light-item-hover-font-color: $app-state-light-hover-font-color !default;
+$app-tabs-light-item-selected-bottom-border-color: $app-status-primary-color !default;
+$app-tabs-light-item-selected-font-color: $app-state-light-selected-font-color !default;
+$app-tabs-light-item-disabled-font-color: $app-state-light-disabled-font-color !default;
+
+/**
+ * Dark theme.
+ */
+$app-tabs-dark-bottom-border-color: $app-line-dark-section-border-color !default;
+$app-tabs-dark-background-color: $app-dark-default-background-color !default;
+$app-tabs-dark-item-font-color: $app-state-dark-default-font-color !default;
+$app-tabs-dark-item-hover-font-color: $app-state-dark-hover-font-color !default;
+$app-tabs-dark-item-selected-bottom-border-color: $app-status-primary-color !default;
+$app-tabs-dark-item-selected-font-color: $app-state-dark-selected-font-color !default;
+$app-tabs-dark-item-selected-icon-color: $app-link-hover-color !default;
+$app-tabs-dark-item-disabled-font-color: $app-state-dark-disabled-font-color !default;
+
+// -----------------------------------------------------------------------------
+// TAG
+// -----------------------------------------------------------------------------
+
+$app-tag-background-color: $app-light-standout-background-color !default;
+$app-tag-border-color: $app-line-light-item-border-color !default;
+$app-tag-font-color: $app-light-quiet-font-color !default;
+
+// -----------------------------------------------------------------------------
+// TOOLTIP
+// -----------------------------------------------------------------------------
+
+// Prompt
+$app-tooltip-prompt-background-color: $app-status-primary-color !default;
+$app-tooltip-prompt-font-color: #ffffff !default;
+
+// Tooltip
+$app-tooltip-background-color: $app-light-default-background-color !default;
+$app-tooltip-border-color: $app-line-light-container-border-color !default;
+$app-tooltip-font-color: $app-light-default-font-color !default;
+$app-tooltip-shadow-color: $app-shadow-light-flat-color !default;
+$app-tooltip-arrow-shadow-color: $app-shadow-light-flat-color !default;
+
+// -----------------------------------------------------------------------------
+// VIEW
+// -----------------------------------------------------------------------------
+
+$app-view-side-panel-light-background-color: $app-light-default-background-color !default;
+$app-view-side-panel-light-border-color: $app-line-light-container-border-color !default;
+$app-view-side-panel-light-font-color: $app-light-default-font-color !default;
+$app-view-side-panel-dark-border-color: #3e494f !default;

@@ -1,0 +1,163 @@
+/**
+ * 1. Override inherited styles.
+ * 2. Center tooltip box over arrow.
+ */
+.appTooltip {
+  z-index: $app-z-index-tooltip;
+  background-color: $app-tooltip-background-color;
+  color: $app-tooltip-font-color;
+  padding: 15px;
+  font-size: 11px;
+  line-height: 1.4;
+  width: $app-tooltip-default-width;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $app-tooltip-border-color;
+  text-align: left;
+  cursor: default;
+  border-radius: 5px;
+  text-transform: none; /* [1] */
+  box-shadow: $app-high-box-shadow;
+  position: absolute;
+  bottom: calc(100% + #{$app-tooltip-distance}); /* [2] */
+  left: 50%; /* [2] */
+  @include transform(translateX(-50%)); /* [2] */
+
+  &:before,
+  &:after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    display: block;
+    content: " ";
+    border-color: transparent;
+    pointer-events: none;
+    border-width: $app-tooltip-arrow-size;
+    left: calc(50% - #{$app-tooltip-x-offset});
+    border-style: solid solid outset;
+  }
+
+  &:after {
+    bottom: remCalc(-$app-tooltip-y-offset);
+    border-top-color: $app-tooltip-background-color;
+  }
+
+  &:before {
+    bottom: remCalc(-$app-tooltip-y-offset - 2px);
+    border-top-color: $app-tooltip-shadow-color;
+  }
+}
+
+  .appTooltip__header {
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+/**
+ * Position tooltip box to left of arrow.
+ */
+.appTooltip--right,
+.appTooltip--bottomRight {
+  left: 0; /* [1] */
+  @include transform(translateX(-$app-tooltip-x-offset - $app-tooltip-x-edge-offset)); /* [1] */
+  &:before,
+  &:after {
+    left: $app-tooltip-x-offset; /* [1] */
+  }
+}
+
+/**
+ * Position tooltip box to left of arrow.
+ */
+.appTooltip--left,
+.appTooltip--bottomLeft {
+  left: auto;
+  right: 0;
+  @include transform(translateX($app-tooltip-x-offset + $app-tooltip-x-edge-offset));
+  &:before,
+  &:after {
+    left: auto;
+    right: $app-tooltip-x-offset;
+  }
+}
+
+/**
+ * Position tooltip box below arrow.
+ */
+.appTooltip--bottom,
+.appTooltip--bottomLeft,
+.appTooltip--bottomRight {
+  top: calc(100% + #{$app-tooltip-distance});
+  bottom: auto;
+
+  &:before,
+  &:after {
+    border-style: outset solid solid;
+  }
+
+  &:after {
+    top: remCalc(-$app-tooltip-y-offset);
+    border-top-color: transparent;
+    border-bottom-color: $app-tooltip-background-color;
+  }
+
+  &:before {
+    top: remCalc(-$app-tooltip-y-offset - 2px);
+    border-top-color: transparent;
+    border-bottom-color: $app-tooltip-shadow-color;
+  }
+}
+
+.appTooltip--wide {
+  padding: remCalc(28px 36px);
+  width: $app-tooltip-wide-width;
+}
+
+/**
+ * 1. Override default appTooltip width.
+ */
+.appTooltip--brief {
+  text-align: center;
+  width: initial; /* [1] */
+  white-space: nowrap;
+}
+
+.appTooltip--hint {
+  padding: 1px 9px;
+  white-space: nowrap;
+  width: auto;
+  font-size: 12px;
+  box-shadow: $app-low-light-box-shadow;
+}
+
+.appTooltip--dark {
+  color: #969BA3;
+  background-color: $app-container-dark-background-color;
+  border: 1px solid $app-line-dark-section-border-color;
+  box-shadow: $app-high-box-shadow;
+  padding: remCalc(10px 10px);
+
+  &:after {
+    border-top-color: $app-container-dark-background-color;
+  }
+
+  &:before {
+    border-top-color: $app-line-dark-section-border-color;
+  }
+
+  &.appTooltip--bottom,
+  &.appTooltip--bottomLeft,
+  &.appTooltip--bottomRight {
+    &:after {
+      border-top-color: transparent;
+      border-bottom-color: $app-container-dark-background-color;
+    }
+
+    &:before {
+      border-top-color: transparent;
+      border-bottom-color: $app-container-dark-background-color;
+    }
+  }
+}

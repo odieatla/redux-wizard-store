@@ -1,0 +1,19 @@
+/**
+ * THESE ARE ALL DEPRECATED 4/1/15.
+ */
+
+/**
+ * Use this trump to push down the content in an appPage, if there is an
+ * action bar present.
+ */
+.withActionBar {
+  margin-top: $app-action-bar-height !important;
+}
+
+/**
+ * Use this trump to push down the content in an appPage, if there is a cozy
+ * action bar present.
+ */
+.withCozyActionBar {
+  margin-top: $app-action-bar-cozy-height !important;
+}

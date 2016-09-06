@@ -32,18 +32,6 @@ class WizardList extends Component {
 	}
 }
 
-/*
-const WizardList = ({ wizards }) => (
-	<ul>
-		{ wizards.map(w => (
-				<WizardSummary
-					key={w.id}
-					{ ...w }
-				/>
-			))}
-	</ul>
-)
-*/
 WizardList.propTypes = {
 	wizards: PropTypes.arrayOf(PropTypes.shape({
 		id: PropTypes.number.isRequired,

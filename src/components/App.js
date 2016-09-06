@@ -1,12 +1,15 @@
 import React from 'react';
 import { Router, Route, Link, browserHistory } from 'react-router';
-import Header from './Header';
+import Header from '../components/Header';
 import FileUpload from '../containers/FileUpload';
 
+require('../stylesheets/ubnt/base/fonts/icons/style.scss')
+require('../stylesheets/style.scss')
+
 const App = ({ children }) => (
-	<div>
+	<div className="comWrapper">
 		<Header />
-		<div className="main">
+		<div className="comContent comContent--comfy">
 			{ children }
 		</div>
 		<FileUpload />

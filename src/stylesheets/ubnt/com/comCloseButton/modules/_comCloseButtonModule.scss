@@ -1,0 +1,15 @@
+%comCloseButton,
+.comCloseButton {
+  cursor: pointer;
+  color: $com-close-button-light-font-color;
+  @include transition(opacity 0.5s);
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+%comCloseButton--dark,
+.comCloseButton--dark {
+  color: $com-close-button-dark-font-color;
+}

@@ -1,0 +1,48 @@
+/**
+ * All inputs except radios and checkboxes, plus textarea and select elements.
+ */
+@mixin baseMakeFormBoxComponentStyles {
+  input[type="color"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="datetime-local "],
+  input[type="email"],
+  input[type="file"],
+  input[type="image"],
+  input[type="month"],
+  input[type="number"],
+  input[type="password"],
+  input[type="reset"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="time"],
+  input[type="url"],
+  input[type="week"],
+  output,
+  textarea {
+    @content;
+  }
+}
+
+/**
+ * Radios and checkboxes.
+ */
+@mixin baseMakeFormToggleComponentStyles {
+  input[type="radio"],
+  input[type="checkbox"] {
+    @content;
+  }
+}
+
+/**
+ * All form components.
+ */
+@mixin baseMakeFormComponentStyles {
+  input,
+  select,
+  output,
+  textarea {
+    @content;
+  }
+}

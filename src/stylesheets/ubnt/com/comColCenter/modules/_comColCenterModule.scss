@@ -1,0 +1,15 @@
+.comColCenter {
+  @include comMakeCenter();
+}
+
+.comColCenter--md {
+  @include respondTo(medium-up) {
+    @include comMakeCenter;
+  }
+}
+
+.comColCenter--lg {
+  @include respondTo(large-up) {
+    @include comMakeCenter;
+  }
+}

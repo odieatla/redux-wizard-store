@@ -1,0 +1,156 @@
+.comNewsletterSignup {
+  background: $com-newsletter-background-color;
+  color: $com-newsletter-font-color;
+  text-align: center;
+
+  // newsletter placeholder
+  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+      color:    #ccc;
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+     color:    #ccc;
+     opacity:  1;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+     color:    #ccc;
+     opacity:  1;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+     color:    #ccc;
+  }
+}
+  
+  .comNewsletterSignup__form {
+    @include respondTo(medium-up) {
+      height: $com-newsletter-content-height;
+      /* Fake (pseudo) element, that enables vertical-align */
+      &:before {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+      }
+    }
+  }
+
+  .comNewsletterSignup__text {
+    letter-spacing: 0.143em;
+    text-transform: uppercase;
+    line-height: 1;
+    font-size: 14px;
+    padding-bottom: 15px;
+
+    @include respondTo(medium-up) {
+      padding-bottom: 0;
+      display: inline-block;
+    }
+  }
+
+  input.comNewsletterSignup__input {
+    margin: 0 2.5% 10px 2.5%;
+    width: 95%;
+    border: 1px solid $com-newsletter-input-border-color;
+    background: $com-newsletter-input-background-color;
+    height: $com-newsletter-content-height;
+    padding-left: 12px;
+    padding-right: 12px;
+
+    @include respondTo(medium-up) {
+      display: inline-block;
+      width: 300px;
+      margin: 0 10px;
+    }
+
+    @media only screen and (min-width: 700px) {
+      width: 330px;
+    }
+  }
+
+  .comNewsletterSignup__button {
+
+    @include respondTo(medium-up) {
+      display: inline-block;
+    }
+
+    button {
+      line-height: 1.8;
+      margin-bottom: 0;
+      padding: 10px 48px;
+      color: $com-newsletter-button-font-color;
+      border-color: $com-newsletter-button-font-color;
+
+      &:hover {
+        color: $com-newsletter-button-hover-font-color;
+        border-color: $com-newsletter-button-hover-font-color;
+      }
+    }
+  }
+
+  .comNewsletterSignup__social {
+    display: none;
+    position: relative;
+    width: 170px;
+    height: 24px;
+    margin-left: 10px;
+
+    @include respondTo(large-up) {
+      display: inline-block;
+    }
+
+    a {
+      color: $com-newsletter-button-font-color;
+      border-color: $com-newsletter-button-font-color;
+      margin-left: 10px;
+      font-size: $com-newsletter-social-icon-font-size;
+      line-height: 1.4;
+      height: $com-newsletter-social-icon-font-size;
+    }
+
+    a:hover {
+      color: $com-newsletter-button-hover-font-color;
+      border-color: $com-newsletter-button-hover-font-color;
+    }
+  }
+
+  .comNewsletterSignup__socialContainer {
+    position: absolute;
+    text-align: left;
+    top: -8px;
+    left: 0;
+  }
+
+
+/* standout modifier */
+.comNewsletterSignup--standout {
+  .comNewsletterSignup {
+    background: $com-standout-newsletter-background-color;
+    color: $com-standout-newsletter-font-color;
+  }
+
+  input.comNewsletterSignup__input {
+    border: none;
+    background: $com-standout-newsletter-input-background-color;
+  }
+
+  .comNewsletterSignup__button {
+    button {
+      color: $com-standout-newsletter-button-font-color;
+      border-color: $com-standout-newsletter-button-font-color;
+
+      &:hover {
+        color: $com-standout-newsletter-button-hover-font-color;
+        border-color: $com-standout-newsletter-button-hover-font-color;
+      }
+    }
+  }
+
+  .comNewsletterSignup__social a {
+    color: $com-standout-newsletter-social-font-color;
+    border-color: $com-standout-newsletter-social-font-color;
+  } 
+
+  .comNewsletterSignup__social a:hover {
+    color: $com-standout-newsletter-social-hover-font-color;
+    border-color: $com-standout-newsletter-social-hover-font-color;
+  }
+}

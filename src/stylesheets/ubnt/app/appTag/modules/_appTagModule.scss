@@ -1,0 +1,38 @@
+.appTag {
+  background-color: $app-tag-background-color;
+  border: 1px solid $app-tag-border-color;
+  color: $app-tag-font-color;
+  padding: 0.3em 0.8em 0.4em;
+  font-size: emCalc(14px);
+  margin-bottom: remCalc(12px);
+  @include border-radius(10em);
+
+  & + & {
+    margin-left: 1ex;
+  }
+}
+
+  /**
+   * 1. ubnt-icon--x
+   */
+  .appTag__close {
+    font-family: 'ubnt';
+    display: inline-block;
+    color: $app-status-primary-color;
+    font-size: 0.6em;
+    margin-left: 0.8em;
+    cursor: pointer;
+    &:before {
+      content: "\e6cc"; /* [1] */
+    }
+    &:hover {
+      color: lighten($app-status-primary-color, 10%);
+    }
+  }
+
+/**
+ * A container element for app tags.
+ */
+.appTags {
+  @include appVerticalRhythm;
+}

@@ -1,0 +1,53 @@
+/*------------------------------------*\
+#PRODUCT COMPARISON
+\*------------------------------------*/
+
+.comContent {
+  width: 100%;
+  padding: 0;
+}
+
+  .comContent--blue {
+    @include background-image(linear-gradient(79deg, $com-content-blue-desktop-gradient-begin, $com-content-blue-desktop-gradient-end));
+    background-color: $com-content-blue-desktop-gradient-end;
+
+    @include respondTo(small-down) {
+      background-image: none;
+      background-color: $com-content-blue-mobile-background-color;
+    }
+  }
+
+  .comContent--secondary {
+    background-color: $com-content-secondary-background-color;
+    padding: 24px;
+  }
+
+  .comContent--light {
+    background-color: $com-content-light-background-color;
+  }
+
+  .comContent--standout {
+    background-color: $com-content-standout-background-color;
+  }
+
+  .comContent--comfy {
+    padding: 32px 0;
+  }
+
+  .comContent--cozy {
+    padding: 24px 0;
+  }
+
+  .comContent--borderBottom {
+    border-bottom: 1px solid $com-content-border-bottom-color;
+  }
+
+  .comContent--minHeight {
+    min-height: 500px;
+  }
+
+  .comContent--maxWidth {
+    max-width: $com-content-max-width;
+    margin-left: auto;
+    margin-right: auto;
+  }

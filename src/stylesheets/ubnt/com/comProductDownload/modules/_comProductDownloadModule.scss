@@ -1,0 +1,85 @@
+/*------------------------------------*\
+    #PRODUCT DOWNLOAD
+\*------------------------------------*/
+
+.comProductDownload {
+  text-align: center;
+  color: $com-product-download-font-color;
+  padding: 0 1rem;
+  margin-top: 48px;
+  margin-bottom: 24px;
+
+  @include respondTo(medium-up) {
+    padding: 0 35px;
+  }
+
+  @include respondTo(large-up) {
+    padding: 0 3.2rem;
+  }
+
+  hr {
+    margin-bottom: 24px;
+  }
+
+  a {
+    color: $com-product-download-link-color;
+  }
+
+  a:hover {
+    color: $com-product-download-hover-link-color;
+  }
+}
+
+ul.comProductDownload__list {
+  max-width: 1150px;
+  text-align: left;
+  padding: 0 10%;
+  list-style: none;
+  margin: 0 auto;
+
+  li {
+    white-space: nowrap;
+    height: 2rem;
+    margin-bottom: .8em;
+  }
+
+  .icon {
+    font-size: 1.5rem;
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: .2em;
+  }
+
+  .comProductDownload__name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    width: 92%;
+    vertical-align: middle;
+
+    sup {
+      top: -.6em;
+    }
+  }
+
+  @include respondTo(medium-up) {
+    padding: 0;
+
+    li {
+      display: inline-block;
+      margin-bottom: 0;
+      width: 48%;
+    }
+
+    .comProductDownload__name {
+      width: 80%;
+    }
+  }
+}
+
+.comProductDownload__link{
+  display: inline-block;
+  width: 100%;
+  @include fontSmoothing(antialiased);
+}

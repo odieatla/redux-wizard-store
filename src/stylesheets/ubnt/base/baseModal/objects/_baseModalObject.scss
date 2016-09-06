@@ -1,0 +1,56 @@
+/**
+ * Modal Object.
+ *
+ * 1. Provides for positioning of modal__close.
+ * 2. Hide modal on page-load.
+ * 3. Display higher than other elements.
+ * 4. Make modal narrow by default.
+ */
+.modal,
+.modal--narrow /* DEPRECATED 9/30/14 */ {
+  position: relative; /* [1] */
+  overflow: hidden; /* [2] */
+  z-index: $base-z-index-modal; /* [3] */
+  width: calc(100% - 1rem); /* [4] */
+  max-width: remCalc(800px); /* [4] */
+}
+
+  .modal__header {
+    /**
+     * DEPRECATED 11/11/14
+     */
+    h1,h2,h3,h4,h5,h6 {
+      margin-bottom: 0;
+    }
+  }
+
+  /**
+   * Modal close button
+   *
+   * 1. Position button at top right of modal.
+   */
+  .modal__close {
+    position: absolute; /* [1] */
+    cursor: pointer;
+  }
+
+/**
+ * DEPRECATED
+ * 11/11/14
+ */
+.modal--wide {
+  max-width: remCalc(1400px);
+}
+
+/**
+ * DEPRECATED
+ * 10/31/14
+ */
+.modal--comfy {
+
+  .modal__header,
+  .modal__content {
+    padding: $base-modal-comfy-padding;
+  }
+
+}

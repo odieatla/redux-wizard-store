@@ -1,0 +1,38 @@
+// Goes first because it contains base-font-size.
+@import "settings/appOverrideTypographySettings";
+// Goes first because grid depends upon breakpoints.
+@import "settings/appOverrideResponsiveSettings";
+// Goes first because a lot of things depend on colors.
+@import "settings/appDefaultColorSettings";
+
+// Import default settings
+@import "settings/appDefaultBorderSettings";
+@import "settings/appDefaultChromeSettings";
+@import "settings/appDefaultInfoBoxSettings";
+@import "settings/appDefaultLayoutSettings";
+@import "settings/appDefaultModalSettings";
+@import "settings/appDefaultShadowSettings";
+@import "settings/appDefaultTransitionSettings";
+
+// Import override settings (last because it uses settings defined above)
+@import "settings/appOverrideButtonSettings";
+@import "settings/appOverrideFlagSettings";
+@import "settings/appOverrideFormSettings";
+@import "settings/appOverrideGridSettings";
+@import "settings/appOverrideIconSettings";
+@import "settings/appOverrideIconTextSettings";
+@import "settings/appOverrideListSettings";
+@import "settings/appOverrideModalSettings";
+@import "settings/appOverrideStatusBallSettings";
+@import "settings/appOverrideStatusBarSettings";
+@import "settings/appOverrideTableSettings";
+@import "settings/appOverrideZIndexSettings";
+
+// Mixins.
+@import "mixins/appDropdownMixins";
+@import "mixins/appModalMixins";
+@import "mixins/appScrollbarMixins";
+
+// Trumps.
+@import "trumps/appActionBarTrumps";
+@import "trumps/appScrollableTrumps";

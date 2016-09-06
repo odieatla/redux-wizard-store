@@ -1,0 +1,99 @@
+/**
+ * 1. Position popover beyond the right edge of the nav.
+ * 2. Position popover to extend upwards above the side nav item.
+ * 3. Don't inherit any styles from parent (e.g. a button).
+ * 4. Sit on top of appGlobalSideNavTooltip.
+ * 5. Default to be hidden.
+ */
+.appGlobalSideNavPopover {
+  display: none; // 5
+  position: absolute;
+  color: $app-side-nav-popover-font-color;
+  left: 54px; // 1
+  bottom: -5px; // 2
+  z-index: 30; // 4
+  width: 660px;
+  font-size: 11px;
+  text-transform: none; // 3
+  text-align: left; // 3
+  cursor: auto; // 3
+  -webkit-font-smoothing: auto;
+
+  &:before,
+  &:after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    display: block;
+    content: " ";
+    border-color: transparent;
+    pointer-events: none;
+    border-width: 15px;
+    bottom: 10px;
+  }
+
+  &:before,
+  &:after {
+    border-style: solid solid solid outset;
+  }
+
+  &:after {
+    left: -28px;
+    border-right-color: $app-side-nav-popover-background-color;
+  }
+
+  &:before {
+    left: -29px;
+    border-right-color: $app-side-nav-popover-border-color;
+  }
+}
+
+.is-side-nav-popover-visible {
+  display: block;
+}
+
+.appGlobalSideNavPopover--small {
+  width: 480px;
+}
+
+  /**
+   * 1. Use background color on the inner element so that it gets cropped by
+   *    the parent element's overflow: none.
+   * 2. Use round corners to clip content.
+   */
+  .appGlobalSideNavPopover__inner {
+    background-color: $app-side-nav-popover-background-color; // 1
+    box-shadow: $app-high-box-shadow;
+    border: 1px solid $app-side-nav-popover-border-color;
+    border-radius: 5px;
+    overflow: hidden; // 2
+  }
+
+  /**
+   * 1. Position button at top right of popover.
+   */
+  .appGlobalSideNavPopover__close {
+    @extend %appCloseButton;
+    @extend %appCloseButton--dark;
+    position: absolute; // 1
+    cursor: pointer;
+    font-size: 12px;
+    top: 10px; // 1
+    right: 8px; // 1
+  }
+
+  /**
+   * 1. Use background color on the inner element so that it gets cropped by
+   *    the parent element's overflow: none.
+   */
+  .appGlobalSideNavPopover__header {
+    padding: 10px 12px 8px;
+    font-weight: 300;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .appGlobalSideNavPopover__content {
+    padding: 10px 12px 12px;
+  }

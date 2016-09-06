@@ -1,0 +1,40 @@
+@mixin appTabsVariation(
+  $border-bottom-color,
+  $font-color,
+  $hover-font-color,
+  $selected-font-color,
+  $selected-bottom-border-color,
+  $disabled-font-color
+) {
+
+  color: $font-color;
+  border-bottom-color: $border-bottom-color;
+
+  .tabs__item {
+
+    &:hover {
+      color: $hover-font-color;
+    }
+
+    /**
+     * This is the selected state for a single tab item.
+     *
+     * 1. Override children styles
+     */
+    &.is-tab-selected {
+      color: $selected-font-color;
+      border-bottom-color: $selected-bottom-border-color;
+    }
+
+    /**
+     * This is the disabled state for a single tab item.
+     *
+     * 1. Override children styles
+     */
+    &.is-tab-disabled {
+      color: $disabled-font-color;
+    }
+
+  }
+
+}

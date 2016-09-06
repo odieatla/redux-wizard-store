@@ -1,0 +1,10 @@
+hr, .comHr {
+  border-style: solid;
+  border-color: $com-hr-color;
+  border-bottom-width: 0;
+  @include comVerticalRhythm;
+}
+
+.comHr--dark {
+  border-color: $com-hr-dark-color;
+}

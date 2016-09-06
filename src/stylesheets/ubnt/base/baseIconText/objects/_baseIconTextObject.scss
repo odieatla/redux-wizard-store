@@ -1,0 +1,74 @@
+/**
+ * Icon with link text.
+ */
+
+/**
+ * 1. Space out lists of iconTexts.
+ */
+.iconText {
+  @include flexbox;
+  @include align-items(center);
+  padding-top: $base-icon-text-vertical-padding; /* [1] */
+  padding-bottom: $base-icon-text-vertical-padding; /* [1] */
+}
+
+  .iconText__icon {
+    font-size: $base-icon-text-font-size;
+    padding-right: remCalc(11px);
+  }
+
+.iconText--small {
+  .iconText__icon {
+    font-size: $base-icon-text-small-font-size;
+  }
+}
+
+.iconText--medium {
+  .iconText__icon {
+    font-size: $base-icon-text-medium-font-size;
+  }
+}
+
+.iconText--large {
+  .iconText__icon {
+    font-size: $base-icon-text-large-font-size;
+  }
+}
+
+/**
+ * 1. Space out condensed lists of iconTexts.
+ */
+.iconText--cozy {
+  padding-top: $base-icon-text-cozy-padding; /* [1] */
+  padding-bottom: $base-icon-text-cozy-padding; /* [1] */
+}
+
+/**
+ * 1. Space out expanded lists of iconTexts.
+ */
+.iconText--comfy {
+  padding-top: $base-icon-text-comfy-padding; /* [1] */
+  padding-bottom: $base-icon-text-comfy-padding; /* [1] */
+}
+
+/**
+ * 1. Position icon above the text.
+ * 2. Reset display value.
+ * 3. Center everything.
+ * 4. Spacing.
+ */
+.iconText--stacked {
+  display: inline-block; /* [2] */
+  text-align: center; /* [3] */
+
+  .iconText__icon {
+    display: block; /* [1] */
+    padding-right: 0; /* [4] */
+  }
+
+  .iconText__text {
+    padding-top: $base-icon-text-stacked-padding; /* [4] */
+    display: block; /* [1] */
+    width: auto; /* [3] */
+  }
+}

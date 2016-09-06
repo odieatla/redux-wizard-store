@@ -1,0 +1,77 @@
+/**
+ * The account links component located within the page’s header/top-bar.
+ *
+ * We make heavy use of Sass within this component to ensure that the location
+ * of the dropdown arrow remains consistent regardless of the size of the avatar.
+ *
+ * 1. Making sure these elements won't get distorted at small screen size.
+ */
+
+.appAccountLinks {
+  @include flex-shrink(0); /* [1] */
+  position: relative;
+  display: inline-block;
+  height: inherit;
+}
+
+  /**
+   * 1. Dropdown gets shown (via JS) by clicking trigger, force cursor state
+   *    to show user that element is clickable.
+   */
+  .appAccountLinks__trigger {
+    cursor: pointer; /* [1] */
+    height: inherit;
+  }
+
+    .appAccountLinks__avatar {
+      display: inline-block;
+      vertical-align: middle;
+      width: $app-account-links-avatar-size;
+      height: $app-account-links-avatar-size;
+    }
+
+    .appAccountLinks__username {
+      display: inline-block;
+      vertical-align: middle;
+      height: inherit;
+      text-align: right;
+      font-weight: 700;
+      font-size: remCalc(8px) * 1.6;
+      text-transform: uppercase;
+      letter-spacing: .25ex;
+      line-height: $app-global-header-height;
+      color: $app-account-links-username-font-color;
+      @include fontSmoothing;
+    }
+
+  .appAccountLinks__dropdown {
+    @include appMakeGlobalHeaderDropdown($app-account-links-width);
+    color: $app-account-links-dropdown-font-color;
+    line-height: normal;
+    padding-top: 1rem;
+    padding-bottom: 0.6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    top: 42px;
+  }
+
+    .appAccountLinks__user {
+      border-bottom: 1px solid $app-line-light-item-border-color;
+      padding-bottom: 0.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+      .appAccountLinks__infoPrimary {
+        font-size: remCalc(18px);
+      }
+
+      .appAccountLinks__infoSecondary {
+        color: $app-light-action-primary-background-color;
+        font-size: remCalc(10px);
+      }
+
+    .appAccountLinks__links {
+      text-align: left;
+      font-size: remCalc(16px);
+    }
+

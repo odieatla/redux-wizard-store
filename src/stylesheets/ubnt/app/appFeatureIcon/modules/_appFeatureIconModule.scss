@@ -1,0 +1,18 @@
+.appFeatureIcon {
+  width: $app-feature-icon-size;
+  height: $app-feature-icon-size;
+  border-radius: 100%;
+  background-color: $app-feature-icon-background-color;
+  box-shadow: inset 0 1px 2px rgba(#000000, .67);
+  @include flexCenter;
+}
+
+  .appFeatureIcon__content {
+    width: $app-feature-icon-content-size;
+    height: $app-feature-icon-content-size;
+    border-radius: 100%;
+    background-color: $app-feature-icon-content-background-color;
+    color: $app-feature-icon-content-font-color;
+    font-size: 2em;
+    @include flexCenter;
+  }

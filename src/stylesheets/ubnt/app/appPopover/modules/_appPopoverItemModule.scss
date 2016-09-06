@@ -1,0 +1,8 @@
+.is-popover-item-disabled {
+  color: $app-popover-disabled-font-color;
+  background-color: $app-popover-disabled-background-color;
+
+  &.appPopover__subHeader {
+    border-bottom: $app-header-disabled-border;
+  }
+}

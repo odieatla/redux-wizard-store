@@ -1,0 +1,100 @@
+/**
+ * 1. Make the size twice as large as the current font size
+ * 2. The padding is just over the size of 1ex, but since we've double the size
+ *    we need to compensate by making it smaller than a full ex.
+ */
+.appAlertIcon {
+
+  font-size: 2em; /* [1] */
+  padding: .75ex; /* [2] */
+  display: inline-block;
+  vertical-align: middle;
+  color: $app-alert-icon-default-font-color;
+
+}
+
+.appAlertIcon--primary {
+
+  color: $app-alert-icon-primary-font-color;
+
+}
+
+.appAlertIcon--success {
+
+  color: $app-alert-icon-success-font-color;
+
+}
+
+.appAlertIcon--warning {
+
+  color: $app-alert-icon-warning-font-color;
+
+}
+
+.appAlertIcon--danger {
+
+  color: $app-alert-icon-danger-font-color;
+
+}
+
+.appAlertIcon--round {
+
+  @include border-radius(100px);
+
+}
+
+.appAlertIcon--outline {
+  border-width: 1px;
+  border-style: solid;
+  border-color: $app-alert-icon-default-background-color;
+
+  &.appAlertIcon--primary {
+    border-color: $app-alert-icon-primary-background-color;
+  }
+
+  &.appAlertIcon--success {
+    border-color: $app-alert-icon-success-background-color;
+  }
+
+  &.appAlertIcon--warning {
+    border-color: $app-alert-icon-warning-background-color;
+  }
+
+  &.appAlertIcon--danger {
+    border-color: $app-alert-icon-danger-background-color;
+  }
+}
+
+/**
+ * 1. Override the color of the icon.
+ */
+.appAlertIcon--reverse {
+
+  color: $app-alert-icon-icon-font-color; /* [1] */
+  background-color: $app-alert-icon-default-background-color;
+
+  &.appAlertIcon--primary {
+
+    background-color: $app-alert-icon-primary-background-color;
+
+  }
+
+  &.appAlertIcon--success {
+
+    background-color: $app-alert-icon-success-background-color;
+
+  }
+
+  &.appAlertIcon--warning {
+
+    background-color: $app-alert-icon-warning-background-color;
+
+  }
+
+  &.appAlertIcon--danger {
+
+    background-color: $app-alert-icon-danger-background-color;
+
+  }
+
+}

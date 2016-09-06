@@ -1,0 +1,5 @@
+/**
+ * 1. Setting this to a whole value (e.g. 12px) will cause it to render as an
+ *    oval.
+ */
+$base-status-ball-size: emCalc(12.25px) !default; /* [1] */

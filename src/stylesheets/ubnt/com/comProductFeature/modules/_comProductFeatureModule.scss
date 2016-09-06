@@ -1,0 +1,103 @@
+/*------------------------------------*\
+#PRODUCT FEATURES
+\*------------------------------------*/
+
+.comProductFeature {
+  padding: 0 1.2rem;
+
+  @include respondTo(medium-up) {
+    padding: 0 95px;
+  }
+}
+
+  .comProductFeature__text {
+    text-align: center;
+    padding: 0;
+
+    @include respondTo(medium-up) {
+      padding: 0;
+    }
+
+    p {
+      color: $com-product-feature-text-color;
+      text-align: justify;
+      margin-bottom: 1rem;
+      @include fontSmoothing(antialiased);
+
+      @media (-webkit-min-device-pixel-ratio: 2) {
+        @include hyphenation;
+      }
+    }
+
+    ul {
+      text-align: justify;
+    }
+
+  }
+
+  .comProductFeature__text--mobile {
+    @include respondTo(medium-up) {
+      display: none !important;
+    }
+  }
+
+  .comProductFeature__text--desktop {
+    display: none;
+
+    @include respondTo(medium-up) {
+      display: block;
+    }
+  }
+
+  .comProductFeature__image {
+    text-align: center;
+    img {
+      max-width: none;
+      width: 100%;
+    }
+  }
+
+  .comProductFeature__image--mobile {
+    @include respondTo(medium-up) {
+      display: none !important;
+    }
+    @media only screen and (orientation: landscape) and (max-width: $base-upper-small) {
+      display: none;
+    }
+  }
+
+  .comProductFeature__image--desktop {
+    display: none;
+
+    @include respondTo(medium-up) {
+      display: block;
+    }
+    @media only screen and (orientation: landscape) and (max-width: $base-upper-small) {
+      display: block;
+    }
+  }
+
+  .comProductFeature__content {
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 1.6rem;
+    border-bottom: 1px solid $com-product-feature-border-color;
+
+    @include respondTo(medium-up) {
+      padding: 3rem 0;
+    }
+  }
+
+  .comProductFeature__container {
+    max-width: $com-content-max-width;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .comProductFeature__icon {
+    height: 100px;
+    .icon {
+      font-size: 13rem;
+      line-height: 0.5;
+    }
+  }

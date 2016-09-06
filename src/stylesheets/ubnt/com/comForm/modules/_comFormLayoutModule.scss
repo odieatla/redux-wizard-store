@@ -1,0 +1,39 @@
+label {
+  color: $com-form-label-color;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.comForm--description {
+  font-size: .875rem;
+  line-height: 1.5rem;
+  color: $com-form-description-font-color;
+  margin-left: 10px;
+}
+
+.comForm--required {
+  font-size: .875rem;
+  line-height: 1.5rem;
+  color: $com-form-required-default-color;
+  float: right;
+}
+
+label,
+.comForm--required {
+  &.is-input-invalid {
+    color: $com-form-required-invalid-color;
+  }
+}
+
+.comCaptchaWrapper {
+    position: relative;
+    margin-top: 36px;
+}
+
+.comCaptcha,
+%comCaptcha {
+  position: absolute;
+  top: -13px;
+  margin-left: 10px;
+}
+

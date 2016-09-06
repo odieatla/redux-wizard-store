@@ -1,0 +1,97 @@
+@mixin appMakeGlobalHeaderDropdown($width) {
+  position: absolute;
+  display: block;
+  top: $app-global-header-height + 3px;
+  text-align: left;
+  right: -14px;
+  width: $width;
+  background-color: $app-body-background-color;
+  border: 1px solid $app-switcher-border-color;
+  @include box-shadow(2px 2px 3px rgba(#000000,.15));
+
+  &:after,
+  &:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-color: transparent;
+    border-style: outset solid solid;
+  }
+
+  &:before {
+    top: -(remCalc(13px));
+    z-index: 1;
+    border-width: $app-global-header-dropdown-arrow-size;
+    border-bottom-color: $app-body-background-color;
+    right: ((remCalc(8px) * 4 / 2) - $app-global-header-dropdown-arrow-size) + $app-global-header-dropdown-spacing;
+  }
+
+  &:after {
+    top: -(remCalc(16px));
+    z-index: 0;
+    border-width: $app-global-header-dropdown-arrow-shadow-size;
+    border-bottom-color: $app-switcher-border-color;
+    right: ((remCalc(8px) * 4 / 2) - $app-global-header-dropdown-arrow-shadow-size) + $app-global-header-dropdown-spacing;
+  }
+}
+
+/**
+ * 1. It was a bit diffcult to match the countour shapes of this graphic in pure css.
+ *    Using a base64 svg data URI here to get around those limitations.
+ *    This will also render nicely on retina and non-retina displays.
+ */
+@mixin appMakeAppSwitcherIconShadow($icon) {
+  position: absolute;
+  z-index: 0;
+  background-size: 100%;
+  background-repeat: no-repeat;
+
+  @if $icon == billing {
+    top: remCalc(11px);
+    left: remCalc(13px);
+    width: remCalc(37.5px);
+    height: remCalc(39.5px);
+    background-image: url($app-switcher-icon-billing); /* [1] */
+  }
+
+  @if $icon == community {
+    top: remCalc(13px);
+    left: remCalc(11px);
+    width: remCalc(39.5px);
+    height: remCalc(37.5px);
+    background-image: url($app-switcher-icon-community); /* [1] */
+  }
+
+  @if $icon == control {
+    top: remCalc(11px);
+    left: remCalc(11.5px);
+    width: remCalc(37.5px);
+    height: remCalc(37.5px);
+    background-image: url($app-switcher-icon-control); /* [1] */
+  }
+
+  @if $icon == home {
+    top: remCalc(11px);
+    left: remCalc(12px);
+    width: remCalc(40.5px);
+    height: remCalc(39px);
+    background-image: url($app-switcher-icon-home); /* [1] */
+  }
+
+  @if $icon == market {
+    top: remCalc(10px);
+    left: remCalc(14px);
+    width: remCalc(33.5px);
+    height: remCalc(37px);
+    background-image: url($app-switcher-icon-market); /* [1] */
+  }
+
+  @if $icon == store {
+    top: remCalc(12px);
+    left: remCalc(11px);
+    width: remCalc(40px);
+    height: remCalc(39px);
+    background-image: url($app-switcher-icon-store); /* [1] */
+  }
+}

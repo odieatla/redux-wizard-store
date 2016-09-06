@@ -1,0 +1,36 @@
+
+/**
+ * 1. Make borders of direct descendents overlap.
+ * 2. When a user interacts with an element, its borders should be on top of
+ *    its neighbors borders.
+ */
+.appCompoundInput {
+  display: inline-block;
+
+  > * + * {
+    margin-left: -1px; /* [1] */
+  }
+
+  label,
+  input,
+  select,
+  button,
+  .appIconInput {
+    z-index: 1; /* [2] */
+    position: relative; /* [2] */
+    &:focus,
+    &:hover,
+    &:active {
+      z-index: 2; /* [2] */
+    }
+  }
+}
+
+/**
+ * 1. Give same styles as %flexGroup because if we @extend it then specificity
+ *    rules cause the display:flex property to be overridden.
+ */
+.appCompoundInput--flex {
+  @include flexGroup;
+  @include flex-grow;
+}

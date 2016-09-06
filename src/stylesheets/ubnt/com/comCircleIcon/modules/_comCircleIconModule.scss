@@ -1,0 +1,24 @@
+.comCircleIcon {
+  display: inline-block;
+  border: 3px solid $com-circle-border-color;
+  @include border-radius($com-circle-icon-radius);
+  @include transition-duration(.35s);
+  @include transition-property(border-color);
+  padding: remCalc(8px);
+  font-size: remCalc(36px);
+  color: $com-circle-border-color;
+
+  @include respondTo(medium-up) {
+    border-color: $com-circle-desktop-border-color;
+    color: $com-circle-desktop-font-color;
+  }
+
+  & + & {
+    margin-left: remCalc(28px);
+  }
+
+  &:hover {
+    color: $com-circle-border-color;
+    border-color: $com-circle-border-color;
+  }
+}

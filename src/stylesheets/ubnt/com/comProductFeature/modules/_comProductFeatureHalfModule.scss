@@ -1,0 +1,74 @@
+.comProductFeature--half-left {
+  @include respondTo(medium-up) {
+    display: table;
+    table-layout: fixed;
+  }
+
+  .comProductFeature__container {
+    max-width: $com-content-max-width/2;
+  }
+
+  @include respondTo(medium-up) {
+    @include flexbox();
+    @include align-items(stretch);
+
+    .comProductFeature__content {
+      display: block;
+      float: none;
+      padding: 3em 2em;
+    }
+
+    .comProductFeature__content:nth-of-type(odd) {
+      padding-left: 0;
+      .comProductFeature__container {
+        float: right;
+      }
+    }
+
+    .comProductFeature__content:nth-of-type(even) {
+      padding-right: 0;
+      .comProductFeature__container {
+        float: left;
+      }
+    }
+  }
+
+  .comProductFeature__video {
+    video {
+      width: 100%;
+      cursor: pointer;
+    }
+  }
+
+  .comProductFeature__vimeo__video__container {
+    position: relative;  
+    margin: 0 auto;
+    padding-top: 56.2%;
+    max-width: 426px;
+    
+    iframe {
+      width: 275px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      max-width: 426px;
+      max-height: 240px;
+
+      @include respondTo(medium-up) {
+        /* set fixed width to remove black bars on sides */
+        width: 100%;
+      }
+    }
+
+    &.comProductFeature__vimeo__video__container--constrain {
+      iframe {
+        @include respondTo(medium-up) {
+          width: 100%;
+        }
+      }
+
+      margin-bottom: $com-base-spacing-unit;
+    }
+  }
+}

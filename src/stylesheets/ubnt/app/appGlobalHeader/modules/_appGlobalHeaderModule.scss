@@ -1,0 +1,134 @@
+/**
+ * 1. Position layer.
+ * 2. Fixed position.
+ * 3. Anchored at top.
+ * 4. 100% width.
+ */
+.appGlobalHeader {
+  background-color: $app-global-header-background-color;
+  z-index: $base-z-index-global-header; /* [1] */
+  position: fixed; /* [2] */
+  top: 0; /* [3] */
+  left: 0; /* [4] */
+  right: 0; /* [4] */
+  height: $app-global-header-height;
+  line-height: $app-global-header-line-height;
+  color: $app-global-header-font-color;
+  @include flexbox;
+}
+
+  .appGlobalHeader__ubntLogo {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50px;
+    height: calc(100% - 14px);
+    font-size: 19px;
+    color: #fff;
+    border-right: 1px dotted #83D2F0;
+    &:hover {
+      color: white !important;
+    }
+  }
+
+    /**
+     * 1. Visually center icon.
+     */
+    .appGlobalHeader__ubntLogoInner {
+      @include flexbox;
+      @include align-items(center);
+      @include justify-content(center);
+      width: 100%;
+      height: 100%;
+      padding-left: 2px; /* 1 */
+    }
+
+  /*
+   * 1. Height can't extend beyond header height.
+   * 2. Crop off the icon, so that its hit area doesn't extend below the header.
+   */
+  .appGlobalHeader__logo {
+    display: inline-block;
+    vertical-align: middle;
+    height: inherit; /* 1 */
+    text-align: center;
+    padding-left: 12px;
+    overflow: hidden; /* 2 */
+
+    .icon {
+      color: $app-global-header-logo-color;
+      font-size: 57px;
+      line-height: 0.84;
+    }
+  }
+
+  .appGlobalHeader__version {
+    display: inline-block;
+    margin-left: 20px;
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: rgba(white, 0.75);
+    text-transform: uppercase;
+  }
+
+    .appGlobalHeader__versionItem {
+      display: inline-block;
+      & + & {
+        margin-left: 10px;
+      }
+    }
+
+  /**
+   * 1. Height can't extend beyond header height.
+   */
+  .appGlobalHeader__content {
+    height: inherit; /* [1] */
+  }
+
+ /**
+   * 1. Making sure left content does not get pushed down byt right content.
+   */
+  .appGlobalHeader__content--left {
+    @include flex-shrink(0); /* [1] */
+  }
+
+  /**
+   * 1. Position.
+   * 2. Making sure the right content takes up the full available space.
+   * 3. Flexbox is used so that items inside this div to reposition when browser is resized.
+   */
+  .appGlobalHeader__content--right {
+    text-align: right; /* [1] */
+    padding-right: 10px;
+    @include flex-grow(1); /* [2] */
+    @include flexbox; /* [3] */
+  }
+
+    /**
+     * 1. Vertically-align middle of header.
+     * 2. Height can't extend beyond header height.
+     * 3. This may be applied to a heading tag, so kill the bottom margin.
+     */
+    .appGlobalHeader__item {
+      display: inline-block; /* [1] */
+      line-height: $app-global-header-height; /* [1] */
+      height: inherit; /* [2] */
+      margin-bottom: 0; /* [3] */
+      font-size: remCalc(12.8px);
+      padding-left: remCalc(24px);
+    }
+
+  .appGlobalHeader__menu {
+
+     /**
+     * 1. Vertically-align with other content in header.
+     * 2. Height can't extend beyond header height.
+     */
+    .appMenu__link {
+      display: inline-block; /* [1] */
+      vertical-align: middle; /* [1] */
+      height: inherit; /* [2] */
+      margin-right: remCalc(12px);
+      @include fontSmoothing;
+    }
+
+  }

@@ -1,0 +1,12 @@
+// baseDefaults gets imported before all other base packages.
+// Only put styles and tools in here that absolutely must be imported before
+// other packages (i.e. they are a cross-cutting concern).
+
+// Import settings
+@import "settings/baseDefaultLayoutSettings";
+@import "settings/baseDefaultResponsiveSettings";
+@import "settings/baseDefaultZIndexSettings";
+
+// Import mixins
+@import "mixins/baseResponsiveMixins";
+@import "mixins/baseResponsiveVisibilityMixins";

@@ -1,0 +1,29 @@
+@mixin truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin fontSmoothing($value: antialiased) {
+  @if $value == antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+/**
+ * Setting this to hidden will typically solve webkit text flicker issues
+ * during transitions.
+ */
+@mixin backfaceVisibility($value: false) {
+  @if $value {
+    backface-visibility: $value;
+    -moz-backface-visibility: $value;
+    -ms-backface-visibility: $value;
+    -webkit-backface-visibility: $value;
+  }
+}

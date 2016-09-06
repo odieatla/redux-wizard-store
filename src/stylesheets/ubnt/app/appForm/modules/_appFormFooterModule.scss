@@ -1,0 +1,47 @@
+.appFormFooter {
+  height: $app-action-bar-height;
+  padding: 0 $app-padding;
+  background-color: $app-light-default-background-color;
+  @include flexGroup;
+  @include align-items(center);
+}
+
+  /**
+   * 1. The left and right sides should expand to fill the container.
+   */
+  .appFormFooter__left,
+  .appFormFooter__right {
+    @include flex-grow(1); /* [1] */
+  }
+
+  /**
+   * 1. Elements within the right side should align right.
+   */
+  .appFormFooter__right {
+    text-align: right; /* [1] */
+  }
+
+.appFormFooter--cozy {
+  height: $app-action-bar-cozy-height;
+  padding: 0 $app-cozy-padding;
+}
+
+.appFormFooter--standalone {
+  border-top: 1px solid $app-line-light-item-border-color;
+}
+
+.appFormFooter--flush {
+  padding: 0;
+}
+
+.appFormFooter--dark {
+  background-color: $app-form-dark-background-color;
+
+  &.appFormFooter--standalone {
+    border-top: 1px solid $app-form-dark-border-color;
+  }
+}
+
+.appFormFooter--transparent {
+  background-color: transparent !important;
+}

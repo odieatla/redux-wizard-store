@@ -1,0 +1,52 @@
+/**
+ * 1. Maintain button styles even if class is applied to an anchor tag.
+ */
+@mixin appMakeMainButton($background-color, $font-color: $app-dark-default-font-color, $state-factor: 1) {
+  color: $font-color;
+  text-decoration: none; /* [1] */
+  @if $background-color == transparent {
+    border-color: $background-color;
+  } @else {
+    border-color: darken($background-color, $app-main-button-border-darken-pct);
+  }
+  background-color: $background-color;
+
+  &:visited {
+    color: $font-color; /* [1] */
+    text-decoration: none; /* [1] */
+  }
+
+  &:hover {
+    color: $font-color; /* [1] */
+    text-decoration: none; /* [1] */
+    @if $background-color == transparent {
+      background-color: $background-color;
+    } @else {
+      background-color: lighten($background-color, $app-main-button-state-pct * $state-factor);
+    }
+  }
+
+  &:active {
+    color: $font-color; /* [1] */
+    text-decoration: none; /* [1] */
+    @if $background-color == transparent {
+      background-color: $background-color;
+    } @else {
+      background-color: darken($background-color, $app-main-button-state-pct * $state-factor);
+    }
+  }
+
+  @include baseMakeDisabledButtonStyle {
+    color: desaturate(rgba($font-color, $app-main-button-disabled-text-opacity), 100%);
+    opacity: $app-main-button-disabled-opacity;
+    @if $background-color == transparent {
+      border-color: $background-color;
+    } @else {
+      border-color: darken($background-color, $app-main-button-disabled-border-darken-pct);
+    }
+    &:hover,
+    &:active {
+      background-color: $background-color;
+    }
+  }
+}

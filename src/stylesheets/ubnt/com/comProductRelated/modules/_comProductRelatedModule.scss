@@ -1,0 +1,129 @@
+/*------------------------------------*\
+    #RELATED PRODUCTS
+\*------------------------------------*/
+
+.comProductRelated {
+  text-align: center;
+  color: $com-product-related-font-color;
+  padding: 0 1rem;
+  margin-top: 48px;
+  margin-bottom: 24px;
+
+  @include respondTo(medium-up) {
+    padding: 0 35px;
+  }
+
+  @include respondTo(large-up) {
+    padding: 0 3.2rem;
+  }
+
+  hr {
+    margin-bottom: 24px;
+  }
+
+  a {
+    color: $com-product-related-link-color;
+    @include fontSmoothing(antialiased);
+  }
+
+  a:hover, a:focus {
+    color: $com-product-related-hover-link-color;
+  }
+
+  img {
+    width: $com-product-related-image-width;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.comProductRelated__name {
+  clear: left;
+  display: inline-block;
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*------------------------------------*\
+[1] Fullwidth table is used for medium and up
+\*------------------------------------*/
+ul.comProductRelated__tabs {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-bottom: 24px;
+  display: block;
+
+  @include respondTo(small-down) { /* [1] */
+    display: none;
+  }
+
+  li {
+    display: inline-block;
+    text-align: center;
+    margin-top: 24px;
+    padding: 0 24px;
+    width: auto;
+  }
+
+  a {
+    border: 2px solid transparent;
+    padding: 8px 32px;
+    @include border-radius(10px);
+    @include transition-property(background-color);
+    @include transition-duration(.35s);
+
+    &.is-link-selected {
+      border-color: $com-product-related-link-color;
+    }
+  }
+
+}
+
+ul.comProductRelated__list {
+  width: 100%;
+  max-width: $com-content-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+
+  @include respondTo(small-down) { /* [1] */
+    display: none;
+  }
+
+  li {
+    float: none;
+    clear: none;
+    max-width: 49%;
+    display: inline-block;
+    width: 19.6%;
+    text-align: center;
+    margin: 24px 0;
+    padding: 0 24px;
+  }
+}
+
+/*------------------------------------*\
+[2] Carousel view is used for small viewport only
+\*------------------------------------*/
+.comProductRelated__carousel {
+  display: none;
+
+  @include respondTo(small-down) { /* [2] */
+    display: block;
+  }
+}
+
+.comProductRelated__dropdown {
+  display: none;
+
+  @include respondTo(small-down) { /* [2] */
+    display: block;
+  }
+}

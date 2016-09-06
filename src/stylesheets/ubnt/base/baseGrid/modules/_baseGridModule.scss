@@ -1,0 +1,120 @@
+// Container
+
+.container {
+  @include baseMakeGridContainerFixed($base-grid-gutter-width);
+}
+
+.container--centered {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container--responsive {
+
+  max-width: $base-grid-container-xsmall;
+
+  @include respondTo(small-only) {
+    max-width: $base-grid-container-small;
+  }
+  @include respondTo(medium-only) {
+    max-width: $base-grid-container-medium;
+  }
+  @include respondTo(large-only) {
+    max-width: $base-grid-container-large;
+  }
+  @include respondTo(xlarge-only) {
+    max-width: $base-grid-container-xlarge;
+  }
+  @include respondTo(xxlarge-up) {
+    max-width: $base-grid-container-xxlarge;
+  }
+}
+
+.container--fixed {
+  max-width: $base-max-row-width;
+}
+
+.container--smash {
+  margin: 0;
+  padding: 0;
+
+  & .row {
+    margin: 0;
+    padding: 0;
+
+    & div[class*="col--"] {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+//
+/**
+ * 1. Columns with a comfy margin on the left and right
+ */
+.container--comfy {
+  @include baseMakeGridContainerFixed($base-comfy-grid-gutter-width); /* [1] */
+  .row {
+    @include baseMakeGridRow($base-comfy-grid-gutter-width); /* [1] */
+  }
+  @include baseMakeComfyGridColumns(); /* [1] */
+}
+
+// Row
+
+.row {
+  @include baseMakeGridRow($base-grid-gutter-width);
+}
+
+.row--comfy {
+  margin-bottom: $base-comfy-row-margin;
+}
+
+.row--smash {
+  margin: 0;
+  padding: 0;
+
+  & div[class*="col--"] {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// Columns
+
+@include baseMakeGridColumns();
+
+.col--comfy {
+  margin-bottom: $base-comfy-row-margin;
+}
+
+.col--smash {
+  margin: 0;
+  padding: 0;
+}
+
+// Make responsive grid.
+
+@include baseMakeGrid(xs);
+
+@include respondTo(small-up) {
+  @include baseMakeGrid(sm);
+}
+
+@include respondTo(medium-up) {
+  @include baseMakeGrid(md);
+}
+
+@include respondTo(large-up) {
+  @include baseMakeGrid(lg);
+}
+
+@include respondTo(xlarge-up) {
+  @include baseMakeGrid(xlg);
+}
+
+@include respondTo(xxlarge-up) {
+  @include baseMakeGrid(xxlg);
+}
+

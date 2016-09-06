@@ -1,0 +1,6 @@
+@mixin baseMakeListItem {
+  li,
+  .list__item {
+    @content;
+  }
+}

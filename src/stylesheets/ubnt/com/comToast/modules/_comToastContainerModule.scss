@@ -1,0 +1,20 @@
+/**
+ * 1. Position at top of screen, full-width.
+ * 2. Display higher than other elements.
+ * 3. Don't block user interaction with elements below.
+ * 4. Cover up the header.
+ * 5. Center the toasts.
+ * 6. Stack them vertically.
+ */
+.comToastContainer {
+  position: fixed; /* [1] */
+  left: 0; /* [1] */
+  right: 0; /* [1] */
+  z-index: $base-z-index-alert; /* [2] */
+  pointer-events: none; /* [3] */
+  top: remCalc(5px); /* [4] */
+  @include flexbox; /* [5] */
+  @include align-items(center); /* [5] */
+  @include justify-content(center); /* [5] */
+  @include flex-direction(column); /* [6] */
+}

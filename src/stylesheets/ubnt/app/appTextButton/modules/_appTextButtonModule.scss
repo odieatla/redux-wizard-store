@@ -1,0 +1,16 @@
+/**
+ * A text only button. Resets all button styles. Overrides OK in the case.
+ */
+.appTextButton {
+  display: inline;
+  color: $app-link-color;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  @include box-shadow(none);
+
+  &:hover {
+    color: $app-link-hover-color;
+  }
+}

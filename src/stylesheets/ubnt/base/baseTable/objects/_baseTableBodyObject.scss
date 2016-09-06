@@ -1,0 +1,25 @@
+/**
+ * Note that these classes must be nested within a .table--scrollable to
+ * take effect.
+ */
+
+/**
+ * Tables with a short height, and scrollable content.
+ */
+.tbody--short {
+  height: $base-table-body-height-short;
+}
+
+/**
+ * Tables with a medium height, and scrollable content.
+ */
+.tbody--medium {
+  height: $base-table-body-height-medium;
+}
+
+/**
+ * Tables with a tall height, and scrollable content.
+ */
+.tbody--tall {
+  height: $base-table-body-height-tall;
+}

@@ -1,0 +1,44 @@
+.comProductFeature__download {
+  @extend .comProductFeature__watchVideo;
+}
+
+  /**
+   * 1. Flag Layout
+   */
+  .comProductFeature__download__content {
+    display: table; /* [1] */
+    width: 100%; /* [1] */
+    height: 100%;
+
+    .comProductFeature__download__content__body {
+      display: table-cell; /* [1] */
+      vertical-align: middle; /* [1] */
+
+      a{
+        vertical-align: middle;
+      }
+    }
+  }
+
+.comProductFeature--downloads-full {
+  @extend .comProductFeature--full;
+}
+
+/* custom downloads full */
+.comProductFeature--downloads-full {
+  .comProductFeature__download {
+    display: block;
+  }
+
+  color: #fff;
+
+  @include respondTo(medium-up) {
+    h2 {
+      font-size: 40px;
+    }
+
+    a {
+      margin-top: 1rem;
+    }
+  }
+}

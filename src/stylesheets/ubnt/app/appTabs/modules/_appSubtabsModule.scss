@@ -1,0 +1,110 @@
+.appSubtabs {
+
+  @include baseMakeTabs;
+
+  background-color: $app-tabs-light-background-color;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-top-width: 1px;
+  border-top-style: solid;
+
+  @include appSubtabsVariation(
+    $app-tabs-light-bottom-border-color,
+    $app-tabs-light-item-font-color,
+    $app-tabs-light-item-hover-font-color,
+    $app-tabs-light-item-selected-font-color,
+    $app-tabs-light-item-disabled-font-color,
+    $app-tabs-light-item-selected-font-color
+  );
+
+  /*
+   * 1. Override inherited fixed width, and allow tabs to grow wider if
+   *    necessary.
+   * 2. Create transitions for our font.
+   */
+  .tabs__item {
+
+    font-size: remCalc(11px);
+    padding: remCalc(23px 8px 20px);
+    position: relative;
+    line-height: 0;
+    width: auto; /* [1] */
+    min-width: 100px; /* [1] */
+    @include transition($app-link-transition); /* [2] */
+
+    .icon {
+      font-size: remCalc(15px);
+      vertical-align: middle;
+      margin-right: remCalc(6px);
+      line-height: 0;
+    }
+
+    &.is-tab-selected {
+      /**
+       * 1. Center arrow horizontally.
+      */
+      &:before,
+      &:after {
+        position: absolute;
+        width: 0;
+        height: 0;
+        display: block;
+        content: " ";
+        border-color: transparent;
+        pointer-events: none;
+        border-width: remCalc(7px);
+        left: 50%; /* [1] */
+        @include transform(translateX(-50%)); /* [1] */
+        border-style: solid solid outset;
+      }
+
+      /**
+       * 1. Stick the bottom out a little father than the top to make up for
+       *    browser antialising.
+       */
+      &:after {
+        bottom: remCalc(-12px); /* [1] */
+        border-top-color: $app-tabs-light-background-color;
+      }
+
+      /**
+       * 1. Stick the bottom out a little father than the top to make up for
+       *    browser antialising.
+       * 2. Dim the bottom arrow a bit because it's just a little too prominent.
+       */
+      &:before {
+        bottom: remCalc(-14px); /* [1] */
+        border-top-color: rgba($app-tabs-light-bottom-border-color, .75); /* [1] */
+      }
+    }
+
+  }
+}
+
+.appSubtabs--dark {
+  background-color: $app-tabs-dark-background-color;
+
+  @include appSubtabsVariation(
+    $app-tabs-dark-bottom-border-color,
+    $app-tabs-dark-item-font-color,
+    $app-tabs-dark-item-hover-font-color,
+    $app-tabs-dark-item-selected-font-color,
+    $app-tabs-dark-item-disabled-font-color,
+    $app-tabs-dark-item-selected-icon-color
+  );
+
+  .tabs__item {
+    &.is-tab-selected {
+      &:after {
+        border-top-color: $app-tabs-dark-background-color;
+      }
+      /**
+       * 1. Dim the bottom arrow a bit because it's just a little too prominent.
+       */
+      &:before {
+        border-top-color: rgba($app-tabs-dark-bottom-border-color, .75); /* [1] */
+      }
+    }
+  }
+
+}

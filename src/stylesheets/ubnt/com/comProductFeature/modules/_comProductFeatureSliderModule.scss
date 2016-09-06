@@ -1,0 +1,50 @@
+.comProductFeature--slider {
+  @extend .comProductFeature--textleft;
+}
+
+.comProductFeature--slider {
+  .comProductFeature__carousel {
+    padding-top: 3rem;
+  }
+
+  .comProductFeature__content {
+    padding-top: 0;
+  }
+
+  .comProductFeature__wrapper {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  .comProductFeature__text {
+    @include  respondTo(medium-only) {
+      padding-left: 40px;
+      padding-right: 0;
+    }
+  }
+  .comProductFeature__container {
+    direction: rtl;
+  }
+
+  .comProductFeature__text {
+    direction: ltr;
+  }
+
+  .comAnimateSlideUp {
+    @include opacity(1);
+    @include transform(translate(0));
+  }
+}
+
+/*  Slider Nav */
+.comProductFeature__sliderNav {
+  padding: 1.5rem 0 1rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.comProductFeature__sliderNavItem {
+    display: inline-block;
+    margin: 0 0.6rem;
+    font-size: 24px;
+    font-weight: 300;
+}

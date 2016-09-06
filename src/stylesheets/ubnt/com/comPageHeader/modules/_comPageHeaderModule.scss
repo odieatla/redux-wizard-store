@@ -1,0 +1,129 @@
+/*------------------------------------*\
+    #PageHeader
+\*------------------------------------*/
+
+.comPageHeader,
+%comPageHeader {
+  text-align: center;
+}
+
+  .comPageHeader__title {
+
+  }
+
+  .comPageHeader__image {
+    max-width: 100%;
+  }
+
+  .comPageHeader__text {
+    text-align: justify;
+    padding: 0 remCalc(20px);
+    font-size: remCalc(18px);
+    line-height: remCalc(24px);
+
+    @include respondTo(medium-up) {
+      text-align: center;
+    }
+  }
+
+  
+/* DARK */
+.comPageHeader--dark {
+  color: #fff;
+}
+
+/* SECONDARY */
+.comPageHeader--secondary {
+  position: relative;
+  height: $com-page-header-secondary-height;
+  width: 100%;
+
+  .comPageHeader__image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+
+    @include respondTo(large-up) {
+      display: block;
+    }
+  }
+
+  .comPageHeader__text {
+    font-size: remCalc(24px);
+    line-height: 1.3;
+    text-align: left;
+    padding: 0;
+    font-weight: 300;
+    color: $com-page-header-secondary-dark-color;
+    @include fontSmoothing(subpixel-antialiased);
+  }
+}
+
+/* STANDOUT */
+.comPageHeader--standout {
+  background-color: $com-page-header-standout-background-color;
+  color: #fff;
+}
+
+/* COZY */
+.comPageHeader--cozy {
+  .comPageHeader__title {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 3px 0;
+  }
+
+  .row {
+    padding-left: .9375rem;
+    padding-right: .9375rem;
+  }
+}
+
+.comGlobalFooter--fullTopBorder {
+  .comGlobalFooter__border {
+    margin-left: -89px;
+    width: 120%;
+  }
+}
+
+/* VERTICAL CENTER */
+.comPageHeader--verticalCenter {
+  display: table;
+
+  .comPageHeader__content {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.comPageHeader--condensed {
+  color: #FFFFFF;
+  
+  .comPageHeader__title {
+    line-height: 40px;
+    margin: 25px 0;
+  }
+
+  .comPageHeader__text {
+    padding-top: 40px;
+    text-align: right;
+    font-weight: 300;
+    font-size: remCalc(16px);
+    display: none;
+    @include fontSmoothing(subpixel-antialiased);
+
+    @include respondTo(large-up) {
+      display: block;
+    }
+  }
+}
+
+/* Polygons background */
+.comPageHeader__polygons {
+  background-color: $com-page-header-polygon-background-color;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url($com-images-path + $com-page-header-polygons-image-path);
+}

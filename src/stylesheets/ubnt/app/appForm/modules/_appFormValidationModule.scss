@@ -1,0 +1,124 @@
+/**
+ * Input feedback element. Expected to immediately follow an input.
+ *
+ * 1. Abide by z-index rules, so this element appears above an input and the
+ *    dropshadow it has due to an "invalid" state.
+ */
+.appInputFeedback {
+  position: relative; /* [1] */
+  width: 100%;
+  margin-top: $app-form-input-feedback-top-spacing;
+  line-height: 1.3;
+  font-size: remCalc(12px);
+  color: $app-form-input-feedback-font-color;
+
+  .is-validation-hidden ~ &,
+  .is-validation-hidden & {
+    display: none;
+  }
+}
+
+.appInputFeedback--success {
+  color: $app-status-success-color;
+}
+
+.appInputFeedback--warning {
+  color: $app-status-warning-color;
+}
+
+.appInputFeedback--danger {
+  color: $app-status-danger-color;
+}
+
+.appInputFeedback--dark {
+  color: $app-dark-default-font-color;
+}
+
+/**
+ * 1. Reset styles that affect position.
+ */
+.appInputFeedback--simple {
+  margin-top: 0; // 1
+  line-height: 1; // 1
+}
+
+/**
+ * Create invalid states, specific to form box controls.
+ */
+@include baseMakeFormComponentStyles {
+  /**
+   * 1. Show invalid state.
+   */
+  &:invalid,
+  &.is-input-invalid,
+  &.ng-invalid {
+    @include appMakeInvalidInput; /* [1] */
+  }
+
+  &.is-input-warning {
+    @include appMakeInvalidInput($app-status-warning-color);
+  }
+
+  &.is-input-success {
+    @include appMakeInvalidInput($app-status-success-color);
+  }
+}
+
+/**
+ * Hide descendent invalid states.
+ * 1. Override invalid states to make them appear valid.
+ */
+.is-validation-hidden {
+  @include baseMakeFormComponentStyles {
+    &:invalid,
+    &.is-input-invalid {
+      @include appMakeValidInput; /* [1] */
+    }
+  }
+}
+
+/**
+ * Hide sibling invalid states.
+ * 1. Override invalid states to make them appear valid.
+ */
+@include baseMakeFormComponentStyles {
+  &.is-validation-hidden {
+    &:invalid,
+    &.is-input-invalid {
+      @include appMakeValidInput; /* [1] */
+    }
+  }
+}
+
+.is-form-validation-visible {
+  .appInputFeedback {
+    display: block; /* [1] */
+  }
+
+  /**
+   * Reveal hidden descendent invalid states.
+   * 1. Override forced-valid states to make them appear invalid again.
+   */
+  .is-validation-hidden {
+    @include baseMakeFormComponentStyles {
+      &:invalid,
+      &.is-input-invalid {
+        @include appMakeInvalidInput; /* [1] */
+      }
+    }
+  }
+
+  /**
+   * Reveal hidden sibling invalid states.
+   * 1. Override forced-valid states to make them appear invalid again.
+   */
+  @include baseMakeFormComponentStyles {
+    &.is-validation-hidden {
+      &:invalid,
+      &.is-input-invalid {
+        @include appMakeInvalidInput; /* [1] */
+      }
+    }
+  }
+}
+

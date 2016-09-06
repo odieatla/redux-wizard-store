@@ -1,0 +1,7 @@
+// These components are deprecated.
+// TODO: Import these within a conditional, once we upgrade to a version of
+// Sass which supports this.
+@import "appModal/index";
+@import "appPage/index";
+@import "appSideMenu/index";
+@import "appSidePanel/index";

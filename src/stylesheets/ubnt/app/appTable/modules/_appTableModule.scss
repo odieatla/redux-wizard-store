@@ -1,0 +1,407 @@
+/**
+ * 1. Keep table columns aligned with headers.
+ * 2. Don't allow cells to push tbody wider than table width.
+ */
+.appTable {
+  table-layout: fixed; // 1
+
+  .thead,
+  thead {
+    border-bottom: $app-header-border;
+  }
+
+  /**
+   * 1. Text in headers looks weird when it wraps. Instead, it should just push
+   *    the column wider.
+   */
+  .thead .th,
+  thead th {
+    white-space: nowrap; /* [1] */
+  }
+
+  .thead .th,
+  .tfoot .td,
+  thead th,
+  tfoot td {
+    text-transform: uppercase;
+    font-size: remCalc(11px);
+    letter-spacing: emCalc(1px);
+    font-weight: 900;
+    @include fontSmoothing;
+  }
+
+  .tbody,
+  tbody {
+    line-height: $app-table-line-height;
+    @include appMakeLightScrollbar;
+  }
+
+  .tbody .td,
+  tbody td {
+    word-break: break-word; // 2
+  }
+
+  .th,
+  .td,
+  th,
+  td {
+    text-align: left;
+    padding: 0 $app-cozy-padding;
+  }
+
+  .th,
+  th {
+    padding-top: remCalc(21px);
+    padding-bottom: remCalc(7px);
+    &.is-column-sorted {
+      color: $app-link-color;
+    }
+    /**
+     * 1. Prevent the header from being selected when the user clicks it.
+     */
+    &.is-column-sortable {
+      cursor: pointer;
+      @include user-select(none); /* [1] */
+      &:hover {
+        color: $app-table-light-header-hover-font-color;
+      }
+    }
+  }
+
+  .td,
+  td {
+    padding-top: remCalc(9px);
+    padding-bottom: remCalc(9px);
+  }
+
+  &,
+  .th,
+  .td,
+  th,
+  td {
+    border-width: 0;
+    border-style: solid;
+  }
+
+  .tbody .td,
+  tbody td {
+    border-bottom-width: 1px;
+  }
+
+  .tr:last-child .td,
+  tr:last-child td {
+    border-bottom-width: 0px;
+  }
+
+}
+
+.appTable--condensed {
+  font-size: 11px;
+
+  .thead .th,
+  .tfoot .td,
+  thead th,
+  tfoot td {
+    font-size: 9px;
+  }
+
+  .th,
+  th {
+    padding-top: $app-table-condensed-row-padding;
+    padding-bottom: $app-table-condensed-row-padding;
+  }
+
+  .td,
+  td {
+    padding-top: $app-table-condensed-row-padding;
+    padding-bottom: $app-table-condensed-row-padding;
+  }
+
+  /**
+   * 1. Override inherited fixed height.
+   */
+  &.table--scrollable {
+    .thead,
+    thead {
+      height: auto; /* [1] */
+    }
+
+    .thead + .tbody,
+    thead + tbody {
+      margin-top: $app-table-cozy-header-height; /* [1] */
+    }
+  }
+
+  &.appTable--fullScrollable {
+    .tbody,
+    tbody {
+      height: calc(100% - #{$app-table-cozy-header-height}); /* [3] */
+    }
+
+    .thead,
+    thead {
+      height: $app-table-cozy-header-height !important;
+    }
+  }
+
+  .appStatusBall {
+    width: 10px !important;
+    height: 10px !important;
+  }
+}
+
+/**
+ * 1. Darken every other row, unless the row is selected.
+ * 2. Remove redundant border.
+ */
+.appTable--striped {
+  .tbody,
+  tbody {
+    .tr:nth-child(even):not(.is-row-selected),
+    tr:nth-child(even):not(.is-row-selected) {
+      background-color: #fafafa; /* [1] */
+    }
+    .td,
+    td {
+      border: none; /* [2] */
+    }
+  }
+
+  &.appTable--dark {
+    .tbody,
+    tbody {
+      .tr:nth-child(even):not(.is-row-selected),
+      tr:nth-child(even):not(.is-row-selected) {
+        background-color: #1A1C1F; /* [1] */
+      }
+      .td,
+      td {
+        border: none; /* [2] */
+      }
+    }
+  }
+}
+
+.appTable--noLines {
+  .td,
+  td {
+    border: none;
+  }
+}
+
+/**
+ * 1. When the table fills its container, it should have extra padding on
+ *    each side.
+ */
+.appTable--full {
+  .th,
+  .td,
+  th,
+  td {
+    &:first-child {
+      padding-left: $app-padding; /* [1] */
+    }
+    &:last-child {
+      padding-right: $app-padding; /* [1] */
+    }
+  }
+}
+
+.appTable--cozy {
+
+  font-size: remCalc(12px);
+
+  .thead .th,
+  .tfoot .td,
+  thead th,
+  tfoot td {
+    font-size: remCalc(9px);
+  }
+
+  .th,
+  th {
+    padding-top: remCalc(5px);
+    padding-bottom: remCalc(5px);
+  }
+
+  .td,
+  td {
+    padding-top: remCalc(5px);
+    padding-bottom: remCalc(5px);
+  }
+
+  /**
+   * 1. Override inherited fixed height.
+   */
+  &.table--scrollable {
+    .thead,
+    thead {
+      height: auto; /* [1] */
+    }
+
+    .thead + .tbody,
+    thead + tbody {
+      margin-top: $app-table-cozy-header-height; /* [1] */
+    }
+  }
+
+}
+
+.appTable--fixed {
+  table-layout: fixed;
+}
+
+.appTable--light {
+  color: $app-table-light-font-color;
+  background-color: $app-table-light-background-color;
+
+  /**
+   * 1. Fix bug that was causing the last cell to have a visible border.
+   */
+  .th,
+  th {
+    &:last-child {
+      border-right: 1px solid $app-table-light-background-color; /* [1] */
+    }
+  }
+
+  .td,
+  td {
+    border-color: $app-table-row-light-border-color;
+  }
+}
+
+.appTable--dark {
+  color: $app-table-dark-font-color;
+  background-color: $app-table-dark-background-color;
+
+  .thead,
+  thead {
+    border-bottom: 4px solid $app-table-dark-header-border-color;
+  }
+
+  /**
+   * 1. Fix bug that was causing the last cell to have a visible border.
+   */
+  .th,
+  th {
+    &:last-child {
+      border-right: 1px solid transparent; /* [1] */
+    }
+
+    &.is-column-sorted {
+      color: $app-link-dark-color;
+    }
+
+    &.is-column-sortable {
+      &:hover {
+        color: $app-link-dark-hover-color;
+      }
+    }
+  }
+
+  .td,
+  td {
+    border-color: $app-table-row-dark-border-color;
+  }
+
+  .tbody,
+  tbody {
+    @include appMakeDarkScrollbar;
+  }
+
+  &.appTable--topBorder {
+    border-top: 1px solid #272b30;
+  }
+
+  &.appTable--bottomBorder {
+    border-bottom: 1px solid #272b30;
+  }
+}
+
+.appTable--standalone {
+  &.appTable--light {
+    .tbody,
+    tbody {
+      border-bottom: $app-header-border;
+    }
+  }
+  &.appTable--dark {
+    .tbody,
+    tbody {
+      border-bottom: 4px solid $app-table-dark-header-border-color;
+    }
+  }
+}
+
+  /**
+   * 1. We don't want the flow of the header's content to change when the arrow
+   *    is shown on hover or click.
+   */
+  .appTable__sortArrow {
+    display: inline-block;
+    margin-left: remCalc(5px);
+    visibility: hidden; /* [1] */
+    .is-column-sorted &,
+    .is-column-sortable:hover & {
+      visibility: visible; /* [1] */
+    }
+  }
+
+  /**
+   * DEPRECATED 1/21/15
+   */
+  .appTable__text--loud {
+    .appTable--dark & {
+      color: $app-table-dark-body-loud-font-color;
+    }
+  }
+
+  .appTable__image {
+    height: remCalc(30px);
+    width: auto;
+    vertical-align: middle;
+  }
+
+/**
+ * 1. Fix display bugs with Firefox.
+ * 2. Make sure scrollbar doens't overlap header on IE 11.
+ * 3. Muscle layout into place.
+ * 4. Make sure columns stay aligned.
+ * 5. Use !important to override table--scrollable styles.
+ */
+.appTable--fullScrollable {
+
+  display: block; /* [1] */
+  height: 100%;
+
+  .thead,
+  thead {
+    position: static; /* [2] */
+    height: $app-table-header-height !important;
+  }
+
+  .tbody,
+  tbody {
+    margin-top: 0 !important; /* [2] */
+    height: calc(100% - #{$app-table-header-height}); /* [3] */
+  }
+
+  &.appTable--cozy {
+    .tbody,
+    tbody {
+      height: calc(100% - #{$app-table-cozy-header-height}); /* [3] */
+    }
+
+    .thead,
+    thead {
+      height: $app-table-cozy-header-height !important;
+    }
+  }
+
+  .tr,
+  tr {
+    table-layout: fixed; /* [4] */
+  }
+
+}

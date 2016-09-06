@@ -1,0 +1,58 @@
+.comProductFeature--mosaic {
+  @extend .comProductFeature--textleft;
+}
+
+.comProductFeature--mosaic {
+  padding: 0;
+
+  h2 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .comProductFeature__content {
+    @include respondTo(medium-up) {
+      padding: 0;
+    }
+    padding-top: 0;
+    padding-bottom: 0;
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+
+  .comProductFeature__image {
+    line-height: 0;
+  }
+
+  .comProductFeature__container:nth-child(even) {
+    direction: ltr;
+  }
+
+  .comProductFeature__container {
+    .comProductFeature__text {
+      padding: 2rem 15px 1rem 15px;
+      margin-bottom: 0;
+
+      @include respondTo(medium-up) {
+        padding: 1rem 2rem;
+      }
+
+      @include respondTo(large-up) {
+        padding: 1rem 7.5rem;
+      }
+    }
+  }
+
+  /* mosaic use full width even though text content is light */
+  .comProductFeature__wrapper {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .comProductFeature__container {
+    direction: rtl;
+  }
+
+  .comProductFeature__text {
+    direction: ltr;
+  }
+}

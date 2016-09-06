@@ -1,0 +1,26 @@
+// -----------------------------------------------------------------------------
+// INPUT
+// -----------------------------------------------------------------------------
+
+// Input
+$app-form-checkbox-size: 18px !default;
+$app-form-checkbox-cozy-size: 15px !default;
+$app-form-input-feedback-top-spacing: remCalc(6px);
+
+// Box comopnents
+$app-form-box-component-padding-top: remCalc(7px);
+$app-form-box-component-padding-bottom: remCalc(8px);
+$app-form-box-component-padding-left: remCalc(8px);
+$app-form-box-component-padding-right: remCalc(8px);
+$app-form-box-cozy-component-padding-top: remCalc(3px);
+$app-form-box-cozy-component-padding-bottom: remCalc(3px);
+$app-form-box-cozy-component-padding-left: remCalc(6px);
+$app-form-box-cozy-component-padding-right: remCalc(6px);
+$app-form-box-component-height: remCalc(34px);
+$app-form-box-cozy-component-height: remCalc(23px);
+
+// Range
+$app-input-range-track-height: 6px !default;
+$app-input-range-thumb-diameter: 18px !default;
+
+$app-form-inline-separation: remCalc(7px);

@@ -1,0 +1,120 @@
+/**
+ * 1. This panel will grow to fill its parent, while respecting any side
+ *    panels present.
+ */
+.appViewCenterPanel {
+  @include flex-grow(1); /* [1] */
+}
+
+/**
+ * 1. Light theme by default
+ * 2. Don't allow side panels to shrink in narrow windows.
+ */
+.appViewSidePanel {
+  position: relative;
+  height: 100%;
+  z-index: $app-z-index-side-panel;
+  background-color: $app-view-side-panel-light-background-color; /* [1] */
+  color: $app-view-side-panel-light-font-color; /* [1] */
+  overflow-y: auto;
+  @include appMakeLightScrollbar; /* [1] */
+  @include flex-shrink(0); /* [2] */
+}
+
+  /**
+   * 1. Position close button above other content.
+   */
+  .appViewSidePanelCloseButton {
+    @extend %appCloseButton;
+    position: absolute;
+    z-index: 1; /* [1] */
+    top: 12px;
+    right: 12px;
+    font-size: 12px;
+  }
+
+  .appViewSidePanel__title {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    border-bottom: 1px solid;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+
+    .appView--dark & {
+      color: #fff;
+      border-color: $app-view-side-panel-dark-border-color;
+    }
+  }
+
+  /**
+   * 1. Fixes weird IE11 bug where a scrollbar appears unless there is a clearfix
+   *    somewhere in the side panel.
+   */
+  .appViewSidePanel__inner {
+    height: 100%;
+    @include clearfix;
+  }
+
+.appViewSidePanel--left {
+  @include appMakeViewSidePanel($app-view-side-panel-width, "left", "closeable");
+}
+
+.appViewSidePanel--right {
+  @include appMakeViewSidePanel($app-view-side-panel-width, "right", "closeable");
+}
+
+/**
+ * 1. Make menu items comfy, and match the height of the action bar, in case
+ *    it's used in conjunction with a fixed action bar.
+ */
+.appViewSidePanel--menu,
+.appViewSidePanel--menuWide {
+  .appMenu__item {
+    padding: remCalc(16px 24px); /* [1] */
+  }
+}
+
+.appViewSidePanel--menu {
+  @include appMakeViewSidePanel($app-view-side-menu-width);
+}
+
+.appViewSidePanel--menuWide {
+  @include appMakeViewSidePanel($app-view-side-menu-wide-width);
+}
+
+.appViewSidePanel--navigation {
+  @include appMakeViewSidePanel($app-view-side-navigation-width);
+
+  border-right: none;
+  padding: 25px 15px;
+
+  .appMenu__item {
+    position: relative;
+    padding: 10px 30px;
+
+    &.is-menu-item-selected {
+      &:after {
+        position: absolute;
+        top: 0;
+        right: -$app-view-side-navigation-arrow-size;
+        width: 0;
+        height: 0;
+        display: block;
+        content: " ";
+        border-style: solid;
+        border-width: $app-view-side-navigation-arrow-size $app-view-side-navigation-arrow-size 0 0;
+        border-color: transparent;
+        border-top-color: $app-menu-selected-background-color;
+
+        .appView--dark & {
+          border-top-color: $app-menu-dark-selected-background-color;
+        }
+
+        .appView--light & {
+          border-top-color: $app-menu-light-selected-background-color;
+        }
+      }
+    }
+  }
+}

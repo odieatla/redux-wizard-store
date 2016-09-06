@@ -1,0 +1,72 @@
+/**
+ * 1. Remove default browser style.
+ */
+@include baseMakeFormComponentStyles {
+  @include appearance(none); /* [1] */
+}
+
+@include baseMakeFormToggleComponentStyles {
+  cursor: pointer;
+}
+
+// Label
+
+.label--right {
+  text-align: right;
+}
+
+.label--inline {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+// Select
+
+.select--full {
+  width: 100%;
+}
+
+.select--flex {
+  @include flex-grow;
+}
+
+// Input
+
+select,
+input[type="range"] {
+  cursor: pointer;
+}
+
+.input--full {
+  width: 100%;
+  margin-left: 0;
+}
+
+.input--flex {
+  @include flex-grow;
+}
+
+// Output
+
+output {
+  cursor: text;
+}
+
+.output--full {
+  width: 100%;
+}
+
+.output--flex {
+  @include flex-grow;
+}
+
+// Text area
+
+.textarea--full {
+  width: 100%;
+  margin-left: 0;
+}
+
+.textarea--flex {
+  @include flex-grow;
+}

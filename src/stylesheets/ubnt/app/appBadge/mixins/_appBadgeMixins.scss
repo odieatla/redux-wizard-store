@@ -1,0 +1,7 @@
+/**
+ * 1. Make border semi-transparent.
+ */
+@mixin appMakeBadge($color) {
+  border-color: rgba($color, .5); /* [1] */
+  color: $color;
+}

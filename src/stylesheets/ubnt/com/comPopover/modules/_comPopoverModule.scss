@@ -1,0 +1,272 @@
+/**
+ * 1. Expect developers to position this element absolutely on the screen, or
+ *    within the originating element (e.g. a button).
+ * 2. Don't inherit any styles from parent (e.g. a button).
+ * 3. Use round corners to clip content.
+ */
+.comPopover {
+  position: absolute; /* [1] */
+  z-index: $base-z-index-popover;
+  width: remCalc(150px);
+  font-size: remCalc(14px);
+  background-color: $com-popover-background-color;
+  color: $com-popover-font-color; /* [2] */
+  text-transform: none; /* [2] */
+  text-align: left; /* [2] */
+  list-style: none;
+
+  &:before,
+  &:after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    display: block;
+    content: " ";
+    border-color: transparent;
+    pointer-events: none;
+    border-width: $com-popover-arrow-size;
+  }
+}
+
+.comPopover__inner {
+  border: 1px solid $com-popover-border-color;
+  border-radius: remCalc(3px);
+  overflow: hidden; /* [3] */
+  margin: 0;
+}
+
+/**
+ * 1. Position button at top right of popover.
+ */
+.comPopover__close {
+  position: absolute; /* [1] */
+  cursor: pointer;
+  font-size: remCalc(12px);
+  top: 10px; /* [1] */
+  right: 8px; /* [1] */
+}
+
+.comPopover__header {
+  background-color: $com-popover-header-background-color;
+  padding: remCalc(7px 12px 8px);
+  font-weight: bold;
+  font-size: remCalc(16px);
+  border-bottom: 1px solid $com-line-light-section-border-color;
+}
+
+.comPopover__section {
+  padding: remCalc(7px 12px 7px);
+  border-bottom: 1px solid $com-line-light-item-border-color;
+}
+
+/**
+ * Content default
+ */
+.comPopover__content {
+  padding: 0.5rem;
+  line-height: 1.125rem;
+}
+
+/**
+ * Content for basic filter
+ */
+.comPopover--sort {
+  padding-right: remCalc(11px);
+  font-size: remCalc(14px);
+
+  .comPopover__content {
+    padding: 0;
+    a {
+      padding: .5rem;
+      display: block;
+      color: $com-popover-font-color;
+
+      &:hover {
+        color: $com-popover-font-color;
+      }
+    }
+
+    &:hover {
+      background-color: $com-popover-hover-background-color;
+    }
+  }
+}
+
+/**
+ * Icon for basic filter
+ */
+.comPopover--sort__icon {
+  font-size: .75rem;
+  margin-left: remCalc(7px);
+}
+
+.comPopover--closeable {
+  .comPopover__header {
+    padding-right: remCalc(28px);
+  }
+}
+
+/**
+ * Arrow is on the left.
+ */
+.comPopover--rightDown,
+.comPopover--rightUp {
+  left: calc(100% + #{$com-popover-offset});
+  &:before,
+  &:after {
+    border-style: solid solid solid outset;
+  }
+
+  &:after {
+    left: -12px;
+    border-right-color: $com-popover-background-color;
+  }
+
+  &:before {
+    left: -14px;
+    border-right-color: $com-popover-border-color;
+  }
+}
+
+/**
+ * Arrow is on the right.
+ */
+.comPopover--leftDown,
+.comPopover--leftUp {
+  right: calc(100% + #{$com-popover-offset});
+  &:before,
+  &:after {
+    border-style: solid outset;
+  }
+
+  &:after {
+    right: -13px;
+    border-left-color: $com-popover-background-color;
+  }
+
+  &:before {
+    right: -14px;
+    border-left-color: $com-popover-border-color;
+  }
+}
+
+/**
+ * Arrow is on the left or right top.
+ */
+.comPopover--rightDown,
+.comPopover--leftDown {
+  top: -4px;
+  &:before,
+  &:after {
+    top: 10px;
+  }
+}
+
+/**
+ * Arrow is on the left or right bottom.
+ */
+.comPopover--rightUp,
+.comPopover--leftUp {
+  bottom: -6px;
+  &:before,
+  &:after {
+    bottom: 10px;
+  }
+}
+
+/**
+ * Arrow is on the top.
+ */
+.comPopover--bottomLeft,
+.comPopover--bottomRight {
+  top: calc(100% + #{$com-popover-offset});
+  &:before,
+  &:after {
+    border-style: outset solid solid;
+  }
+
+  &:after {
+    top: -12px;
+    border-bottom-color: $com-popover-background-color;
+  }
+
+  &:before {
+    top: -14px;
+    border-bottom-color: $com-popover-border-color;
+  }
+}
+
+/**
+ * Arrow is on the bottom.
+ */
+.comPopover--topLeft,
+.comPopover--topRight {
+  bottom: calc(100% + #{$com-popover-offset});
+  &:before,
+  &:after {
+    border-style: solid solid outset;
+  }
+
+  &:after {
+    bottom: -13px;
+    border-top-color: $com-popover-background-color;
+  }
+
+  &:before {
+    bottom: -14px;
+    border-top-color: $com-popover-border-color;
+  }
+}
+
+/**
+ * Arrow is on the top or bottom right.
+ */
+.comPopover--bottomLeft,
+.comPopover--topLeft {
+  right: 0;
+  &:before,
+  &:after {
+    right: $com-popover-offset;
+  }
+}
+
+/**
+ * Arrow is on the top or bottom left.
+ */
+.comPopover--bottomRight,
+.comPopover--topRight {
+  left: 0;
+  &:before,
+  &:after {
+    left: $com-popover-offset;
+  }
+}
+
+.comPopover--wide {
+  width: remCalc(620px);
+}
+
+.comPopover--withHeader {
+  &.comPopover--rightDown {
+    &:after {
+      border-right-color: $com-popover-header-background-color;
+    }
+  }
+
+  &.comPopover--leftDown {
+    &:after {
+      border-left-color: $com-popover-header-background-color;
+    }
+  }
+  &.comPopover--bottomLeft,
+  &.comPopover--bottomRight {
+    &:after {
+      border-bottom-color: $com-popover-header-background-color;
+    }
+  }
+}
+
+.comPopoverText {
+  margin-left: 3px;
+}
+

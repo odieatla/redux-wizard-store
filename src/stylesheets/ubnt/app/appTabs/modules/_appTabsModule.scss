@@ -1,0 +1,59 @@
+.appTabs {
+  @include baseMakeTabs;
+
+  text-transform: uppercase;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+
+  @include appTabsVariation(
+    $app-tabs-light-bottom-border-color,
+    $app-tabs-light-item-font-color,
+    $app-tabs-light-item-hover-font-color,
+    $app-tabs-light-item-selected-font-color,
+    $app-tabs-light-item-selected-bottom-border-color,
+    $app-tabs-light-item-disabled-font-color
+  );
+
+  /**
+   * 1. Set the border as transparent so we can transition it later.
+   * 2. Create transitions for our font and border color, match the timing
+   *    used for our links.
+   * 3. Override inherited fixed width, and allow tabs to grow wider if
+   *    necessary.
+   */
+  .tabs__item {
+    font-size: remCalc(12px);
+    border-top: 3px solid transparent; /* [1] */
+    border-bottom: 3px solid transparent; /* [1] */
+    padding: remCalc(16px);
+    width: auto; /* [1] */
+    min-width: 100px; /* [1] */
+    @include transition(
+      $app-link-transition,
+      border-bottom-color $app-link-transition-timing $app-link-transition-ease
+    ); /* [2] */
+  }
+}
+
+.appTabs--dark {
+
+  @include appTabsVariation(
+    $app-tabs-dark-bottom-border-color,
+    $app-tabs-dark-item-font-color,
+    $app-tabs-dark-item-hover-font-color,
+    $app-tabs-dark-item-selected-font-color,
+    $app-tabs-dark-item-selected-bottom-border-color,
+    $app-tabs-dark-item-disabled-font-color
+  );
+
+}
+
+/**
+ * 1. Prevent text from wrapping.
+ */
+.appTabs--cozy {
+  .tabs__item {
+    padding: remCalc(9px 8px 7px);
+    width: auto; /* [1] */
+  }
+}

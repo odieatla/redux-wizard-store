@@ -1,0 +1,107 @@
+/**
+ * 1. Relatively position the close button.
+ * 2. The container has no pointer-events, so we need to re-enable them.
+ */
+.appToast {
+  @extend %flexFlag;
+  background-color: $app-info-box-dark-background-color;
+  color: $app-info-box-dark-font-color;
+  border: 1px solid $app-line-dark-item-border-color;
+  padding: 10px;
+  border-radius: $app-global-radius;
+  position: relative; /* [1] */
+  box-shadow: $app-high-box-shadow;
+  width: $app-toast-width;
+  pointer-events: auto; /* [2] */
+
+  & + & {
+    margin-top: remCalc(5px);
+  }
+}
+
+  /**
+   * 1. Make sure the content doesn't overlap the close button.
+   */
+  .appToast__close {
+    @extend %appCloseButton;
+    @extend %appCloseButton--dark;
+    position: absolute;
+    font-size: 10px; /* 1 */
+    top: 5px; /* 1 */
+    right: 5px; /* 1 */
+  }
+
+  .appToast__header {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: $app-info-box-content-spacing;
+  }
+
+  /**
+  * 1. Position icon so it is more visually aligned with the header.
+  * 2. Primary by default.
+  */
+  .appToast__icon {
+    position: relative; /* [1] */
+    color: $app-status-primary-color; /* [2] */
+    font-size: 16px;
+    width: 28px;
+    top: -2px;
+  }
+
+  /**
+   * 1. Make sure the content doesn't overlap the close button.
+   */
+  .appToast__content {
+    padding-right: 10px; /* 1 */
+    @extend %flexFlag__body;
+
+    p {
+      font-size: 12px;
+      margin-bottom: $app-info-box-content-spacing;
+    }
+  }
+
+  /**
+   * 1. If there is no header, the body needs to be moved upwards to align with
+   *    the icon.
+   */
+  .appToast__body {
+    margin-top: -3px; /* 1 */
+    .appToast__header + & {
+      margin-top: 10px; /* 1 */
+    }
+  }
+
+  /**
+   * 1. If there is a header, we don't need to push down the body.
+   */
+  .appToast__header +
+  .appToast__body {
+    margin-top: 0; /* [1] */
+  }
+
+.appToast--success {
+  .appToast__icon {
+    color: $app-status-success-color;
+  }
+}
+
+.appToast--warning {
+  .appToast__icon {
+    color: $app-status-warning-color;
+  }
+}
+
+.appToast--danger {
+  .appToast__icon {
+    color: $app-status-danger-color;
+  }
+}
+
+.appToast--default {
+  .appToast__icon {
+    color: $app-dark-default-font-color;
+  }
+}

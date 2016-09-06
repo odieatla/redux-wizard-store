@@ -1,0 +1,82 @@
+/**
+ * This is a counter that displays how many of
+ * something there is.
+ *
+ * 1. Makes the container slightly taller than the text inside.
+ * 2. Default width is slightly wider than text, but is horizontally
+ *    flexible to allow large numbers.
+ * 3. Allows usage of table-cell in .count__value.
+ */
+.count {
+
+  height: 1.6em; /* [1] */
+  min-width: 1.6em; /* [2] */
+  display: table; /* [3] */
+  font-weight: 700;
+  line-height: 1em;
+
+}
+
+  /**
+   * The count object is a counter that displays how many of
+   * something there is.
+   *
+   * 1. Table-cell to leverage vertical-align.
+   * 2. Centers text
+   */
+  .count__value {
+
+    display: table-cell; /* [1] */
+    text-align: center; /* [2] */
+    vertical-align: middle; /* [2] */
+    padding: 0 .3em;
+
+    /**
+     * Removes padding from the counter.
+     *
+     */
+    .count--smash & {
+
+      padding: 0;
+
+    }
+
+  }
+
+/**
+ * A counter with round corners.
+ */
+.count--round {
+
+  @include border-radius(2em);
+  padding: 0 .5ex;
+
+}
+
+/**
+ * A counter that is positioned to the far right of it's parent.
+ *
+ * 1. Used instead of float to avoid wrapping.
+ * 2. As size increases,
+ */
+.count--right {
+
+  position: absolute; /* [1] */
+  right: 0px;
+  top: 0px;
+
+}
+
+/**
+ * A counter that is positioned to the far right of it's parent.
+ *
+ * 1. Used instead of float to avoid wrapping.
+ * 2. Push it towards the outside of its container.
+ */
+.count--outerRight {
+
+  position: absolute; /* [1] */
+  right: -10px; /* [2] */
+  top: -2px;
+
+}

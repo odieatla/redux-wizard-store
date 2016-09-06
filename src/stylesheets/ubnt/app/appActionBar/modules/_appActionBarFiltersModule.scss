@@ -1,0 +1,68 @@
+.appActionBarFilters {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  .buttonGroup {
+    margin-bottom: 0;
+  }
+}
+
+  /**
+   * 1. Put a top and bottom margin for cases when the filters wrap.
+   */
+  .appActionBarFilter {
+    position: relative;
+    display: flex;
+    margin: 2px 0; /* [1] */
+
+    /**
+     * Add a right hand border. Must use &:after to prevent it from
+     * having a border radius.
+     */
+    &:not(:last-child):not(.appActionBarFilter--noBorder) {
+      padding-right: $app-action-bar-filter-spacer-margin / 2;
+      margin-right: $app-action-bar-filter-spacer-margin / 2;
+
+      &:after {
+        content: ' ';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        border-right: $app-action-bar-filter-spacer-width dotted #616770;
+        border-radius: 0;
+      }
+    }
+
+    /**
+     * Add some right hand spacing for non-bordered filters.
+     */
+    &.appActionBarFilter--noBorder:not(:last-child) {
+      margin-right: $app-action-bar-filter-spacer-margin / 2;
+    }
+
+    .appActionBar--dark & {
+      border-color: $app-table-dark-header-border-color;
+    }
+  }
+
+/**
+ * 1. Move the filters closer together on mobile browsers.
+ * 2. Remove the filter borders on mobile browsers.
+ */
+@include respondTo(xsmall-only) {
+  .appActionBarFilter,
+  .appActionBarFilter--noBorder:not(:last-child) {
+    margin-right: $app-action-bar-filter-spacer-cozy-margin / 2 !important;
+  }
+
+  .appActionBarFilter {
+    padding-right: 0 !important; /* [2] */
+
+    &:after {
+      content: none !important; /* [2] */
+    }
+  }
+}

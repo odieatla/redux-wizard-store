@@ -1,0 +1,181 @@
+/*------------------------------------*\
+#HERO PRODUCT
+\*------------------------------------*/
+/**
+* Hero modifier, used for products
+*/
+
+.comProductHero {
+  display: table;
+  width: 100%;
+
+  .row {
+    padding-left: 5%;
+    padding-right: 5%;
+
+    @include respondTo(medium-up) {
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+  }
+}
+
+.comProductHero__productImage {
+  @include respondTo(large-up) {
+    float: right !important;
+  }
+}
+
+  .comProductHero__imageContainer {
+    position: relative;
+  }
+
+  .comProductHero__image {
+    position: relative;
+    padding-left: 10%;
+    padding-right: 10%;
+
+    @include respondTo(medium-only) {
+      padding-left: 20%;
+      padding-right: 20%;
+    }
+
+    @include respondTo(large-up) {
+      position: absolute;
+      left: 0;
+      min-width: 1500px;
+      padding: 0;
+    }
+  }
+
+.comProductHero__productText {
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  display: table;
+
+  .icon::before {
+    display: block;
+  }
+
+    p {
+      margin-bottom: 12px;
+    }
+
+  @include respondTo(large-up) {
+    float: left !important;
+    text-align: left;
+    height: $com-product-hero-height;
+    padding: 2rem;
+
+    /* vertically center productText */
+    .comProductHero__productText__container {
+      display: table-cell;
+      vertical-align: middle;
+      padding-bottom: 2rem;
+    }
+  }
+}
+
+  .comProductHero__title {
+    margin: $com-base-spacing-unit 0 double($com-base-spacing-unit) 0;
+    white-space: nowrap;
+
+    @include respondTo(large-up) {
+      margin: 0;
+    }
+  }
+
+  .comProductHero__subTitle {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    margin-bottom: 12px;
+
+    @include respondTo(large-up) { 
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+
+  .comProductHero__description {
+    text-align: justify;
+
+    @media (-webkit-min-device-pixel-ratio: 2) {
+      @include hyphenation;
+    }
+
+    @include respondTo(large-up) {
+      text-align: left;
+    }
+  }
+
+.comProductHero__background {
+  position: absolute;
+  width: 100%;
+  height: $com-product-hero-height;
+}
+    
+.comProductHero--light {
+  color: $com-product-hero-light-font-color;
+  background-color: $com-product-hero-light-background-color;
+
+  .comProductHero__description {
+    color: $com-product-hero-light-description-color;
+  }
+
+  .comProductHero__background {
+    background: $com-product-hero-light-gradient-begin;
+    @include background-image(linear-gradient($com-product-hero-light-gradient-begin, $com-product-hero-light-gradient-end));  
+  }
+}
+
+.comProductHero--white {
+  color: $com-product-hero-white-font-color;
+  background-color: $com-product-hero-white-background-color;
+
+  .comProductHero__description {
+    color: $com-product-hero-white-description-color;
+  }
+}
+
+.comProductHero--dark {
+  color: $com-product-hero-dark-font-color;
+  background-color: $com-product-hero-dark-background-color;
+
+  .comProductHero__description {
+    color: $com-product-hero-dark-description-color;
+  }
+
+  .comProductHero__background {
+    background: $com-product-hero-dark-gradient-begin;
+    @include background-image(linear-gradient($com-product-hero-dark-gradient-begin, $com-product-hero-dark-gradient-end));  
+  }
+}
+
+.comProductHero--black {
+  color: $com-product-hero-black-font-color;
+  background-color: $com-product-hero-black-background-color;
+
+  .comProductHero__description {
+    color: $com-product-hero-black-description-color;
+  }
+
+  .comProductHero__background {
+    background: $com-product-hero-black-gradient-begin;
+    @include background-image(linear-gradient($com-product-hero-black-gradient-begin, $com-product-hero-black-gradient-end));  
+  }
+}
+
+.comProductHero__orReseller {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 16px;
+
+  a {
+    margin-left: 5px;
+    &:hover {
+      color: #fff;
+    }
+  }
+}

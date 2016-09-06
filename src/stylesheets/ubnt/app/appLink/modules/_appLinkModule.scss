@@ -1,0 +1,66 @@
+/**
+ * Plain link
+ */
+a,
+.appLink {
+  color: $app-link-color;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+
+  @include transition($app-link-transition);
+
+  &:hover,
+  &.is-link-selected {
+    color: $app-link-hover-color;
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+
+  &.is-link-disabled {
+    cursor: not-allowed;
+    color: $app-link-disabled-color;
+    pointer-events: none;
+    &:hover {
+      color: $app-link-disabled-color;
+    }
+  }
+}
+
+.appLink--secondary {
+  color: $app-link-secondary-color;
+
+  &:hover,
+  &.is-link-selected {
+    color: $app-link-secondary-hover-color;
+  }
+}
+
+.appLink--subtleDanger {
+  &:hover {
+    color: $app-status-danger-color;
+  }
+}
+
+.appLink--subtleSuccess {
+  &:hover {
+    color: $app-status-success-color;
+  }
+}
+
+.appLink--dark {
+  color: $app-link-dark-quiet-color;
+  &:hover {
+    color: $app-link-dark-hover-color;
+  }
+}
+
+/**
+ * 1. Expand link to horizontally fill container.
+ */
+.appLink--full {
+  display: block; /* [1] */
+}

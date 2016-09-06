@@ -1,0 +1,26 @@
+/**
+ * 1. Used to position input[type="file"] for file upload components.
+ */
+.appInputGroup {
+  position: relative; /* [1] */
+
+  > *:not(:first-child) {
+    margin-left: $app-form-inline-separation;
+  }
+
+  > * {
+    margin-bottom: 0;
+  }
+}
+
+.appInputGroup--flex {
+  @include flexGroup;
+}
+
+.appInputGroup--cram {
+  margin-bottom: remCalc(2px);
+}
+
+.appInputGroup--cozy {
+  margin-bottom: remCalc(5px);
+}

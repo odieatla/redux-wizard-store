@@ -1,0 +1,121 @@
+/**
+ * THIS COMPONENT IS DEPRECATED 4/1/15
+ */
+
+/**
+ * 1. Hide panel by default, by sliding it right it's entire width plus some
+ *    extra px to hide the box-shadow too. We have to use this funky double
+ *    translateX instead of calc() because of an IE11 bug
+ *    (http://stackoverflow.com/questions/21142923/ie-10-11-css-transitions-with-calc-do-not-work).
+ */
+.appSidePanel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: $app-side-panel-width;
+  z-index: $app-z-index-side-panel;
+  @include transform(translateX(100%) translateX(#{$app-side-panel-drop-shadow-distance})); /* [1] */
+  @include transition(transform $app-side-panel-transition-duration);
+
+  /**
+   * 1. Hide panel by default.
+   * 2. When panel is revealed, allow the border of the parent to show through.
+   */
+  & > & {
+    position: absolute;
+    left: 0;
+    right: auto;
+    z-index: -1;
+    @include transform(translateX(0)); /* [1] */
+    &.is-side-panel-open {
+      @include transform(translateX(-100%)); /* [2] */
+    }
+  }
+}
+
+  /**
+   * 1. Light theme by default
+   */
+  .appSidePanel__content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $app-side-panel-light-background-color; /* [1] */
+    color: $app-side-panel-light-font-color; /* [1] */
+    border-left: 1px solid $app-side-panel-light-border-color;
+    z-index: 1;
+    overflow-y: auto;
+    @include appMakeLightScrollbar;
+    @include transition(box-shadow $app-side-panel-transition-duration);
+  }
+
+    .appSidePanel__section {
+      padding: $app-side-panel-section-padding;
+      & + & {
+        border-top: 1px solid $app-side-panel-section-light-border-color;
+      }
+    }
+
+  /**
+   * 1. Position close button above other content.
+   */
+  .appSidePanel__close {
+    @extend %appCloseButton;
+    position: absolute;
+    z-index: 1; /* [1] */
+    top: remCalc(12px);
+    right: remCalc(12px);
+    font-size: remCalc(12px);
+  }
+
+/**
+ * 1. Make room for the header.
+ */
+.appSidePanel--withHeader {
+  top: $app-global-side-nav-with-header-offset; /* [1] */
+}
+
+.appSidePanel--small {
+  width: $app-side-panel-small-width;
+}
+
+.appSidePanel--dark {
+  .appSidePanel__content {
+    border-left: 1px solid $app-side-panel-dark-border-color;
+    background-color: $app-side-panel-dark-background-color;
+    color: $app-side-panel-dark-font-color;
+    @include appMakeDarkScrollbar;
+  }
+    .appSidePanel__close {
+      @extend %appCloseButton--dark;
+    }
+    .appSidePanel__section + .appSidePanel__section {
+      border-top: 1px solid $app-side-panel-section-dark-border-color;
+    }
+}
+
+.appSidePanel--noScroll {
+  > .appSidePanel__content {
+    overflow-y: hidden;
+  }
+}
+
+/**
+ * 1. Not every panel will want a box-shadow.
+ */
+.appSidePanel--shadow {
+  @include box-shadow(
+    -$app-side-panel-drop-shadow-distance 0 0 rgba(#000000, 0.1),
+    -1px 0 1px rgba(#000000, 0.2)
+  ); /* [1] */
+}
+
+/**
+ * 1. Reveal panel by sliding it left, back to original position.
+ */
+.is-side-panel-open {
+  @include transform(translateX(0)); /* [1] */
+}

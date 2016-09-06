@@ -1,0 +1,540 @@
+@include baseMakeFormComponentStyles {
+  @include transition(border-color 0.3s);
+
+  background-color: $app-form-light-background-color;
+
+  &[disabled],
+  &[disabled]:hover,
+  &.disabled,
+  &.disabled:hover {
+    cursor: not-allowed;
+    opacity: $app-form-disabled-opacity;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+/**
+ * 1. Tighten up font-sizes for all forms except radio and checkboxes.
+ */
+.appForm {
+  @include baseMakeFormBoxComponentStyles {
+    font-size: 12px; /* [1] */
+  }
+}
+
+/**
+ * 1. Vertically align these elements in case they are being displayed inline
+ *    with other elements.
+ */
+@mixin getFormBoxComponentStyles {
+  padding-top: $app-form-box-component-padding-top;
+  padding-bottom: $app-form-box-component-padding-bottom;
+  padding-left: $app-form-box-component-padding-left;
+  padding-right: $app-form-box-component-padding-right;
+  color: $app-form-light-font-color;
+  border-width: 1px;
+  border-style: solid;
+  vertical-align: middle; /* [1] */
+  border-color: $app-form-light-border-color;
+  @include border-radius(0px);
+
+  &:hover,
+  &:focus {
+    border-color: $app-form-light-hover-border-color;
+  }
+}
+
+@include baseMakeFormBoxComponentStyles {
+  @include getFormBoxComponentStyles;
+  .appForm--cozy & {
+    padding-top: $app-form-box-cozy-component-padding-top;
+    padding-bottom: $app-form-box-cozy-component-padding-bottom;
+    padding-left: $app-form-box-cozy-component-padding-left;
+    padding-right: $app-form-box-cozy-component-padding-right;
+  }
+}
+
+select {
+  @include getFormBoxComponentStyles;
+  .appForm--cozy & {
+    padding-left: $app-form-box-cozy-component-padding-left;
+    background-position: right emCalc(10px) top emCalc(7px);
+    background-size: emCalc(12px);
+    padding-top: emCalc(5px);
+    padding-bottom: emCalc(5px);
+  }
+}
+
+/**
+ * 1. Set an explicit height to fix bugs in IE10.
+ */
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="file"],
+input[type="image"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="reset"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select {
+  height: $app-form-box-component-height; /* [1] */
+  .appForm--cozy & {
+    height: $app-form-box-cozy-component-height; /* [1] */
+  }
+}
+
+select[multiple] {
+  height: ( 3 * $app-form-box-component-height); /* [1] */
+  .appForm--cozy & {
+    height: ( 3 * $app-form-box-cozy-component-height); /* [1] */
+  }
+}
+
+/**
+ * 1. Position input to fill container.
+ * 2. Hide input.
+ * 3. Make it appear clickable.
+ */
+input[type="file"] {
+  position: absolute; /* [1] */
+  top: 0; /* [1] */
+  left: 0; /* [1] */
+  right: 0; /* [1] */
+  bottom: 0; /* [1] */
+  padding: 0 !important; /* [1] */
+  margin: 0 !important; /* [1] */
+  opacity: 0; /* [2] */
+  cursor: pointer !important; /* [3] */
+
+  &[disabled],
+  &[disabled]:hover,
+  &.disabled,
+  &.disabled:hover {
+    cursor: not-allowed !important; /* [3] */
+    opacity: 0;
+  }
+}
+
+.appForm--cozy {
+  font-size: 11px;
+}
+
+/**
+ * 1. Hardcode line-height or else it gets messed up for some reason.
+ * 2. Center vertically and horizontally.
+ * 3. ubnt-icon--check
+ */
+input[type="checkbox"] {
+  background-color: $app-form-light-checkbox-background-color;
+  border: 1px solid $app-form-light-border-color;
+  border-radius: 2px;
+  width: $app-form-checkbox-size;
+  height: $app-form-checkbox-size;
+  line-height: emCalc(16px); /* [1] */
+  @include transition(background-color 0.2s ease);
+
+  &:before {
+    position: relative; /* [2] */
+    top: -0.04em; /* [2] */
+    left: 0.245em; /* [2] */
+    font-family: 'ubnt'; /* [3] */
+    content: "\e613"; /* [3] */
+    font-size: 0.8em;
+    opacity: 0;
+    color: #ffffff;
+    @include transition(opacity 0.2s ease);
+  }
+
+  &:checked {
+    background-color: $app-link-color;
+    border-color: $app-form-light-checkbox-selected-color;
+    &:before {
+      opacity: 1;
+    }
+  }
+
+  .appForm--dark & {
+    border-color: $app-form-dark-checkbox-border-color;
+    background-color: $app-form-dark-checkbox-background-color;
+    &:checked {
+      border-color: $app-form-dark-checkbox-selected-color;
+      background-color: $app-form-dark-checkbox-selected-color;
+    }
+  }
+
+  .appForm--cozy & {
+    width: $app-form-checkbox-cozy-size;
+    height: $app-form-checkbox-cozy-size;
+  }
+
+  & + label {
+    opacity: 0.6;
+    @include transition(opacity 0.2s ease);
+  }
+
+  &:checked + label {
+    opacity: 1;
+  }
+
+  /**
+   * Intended for use inside of a condensed table.
+   *
+   * 1. Fit a checkbox inside of a condensed thead.
+   */
+  &.appCheckbox--condensed {
+    width: 13px; // 1
+    height: 13px; // 1
+    font-size: 10px; // 1
+  }
+}
+
+/**
+ * 1. Place form element inline with labels and text.
+ * 2. Overcome specificity when within a dark form.
+ * 3. Make dot inside a checked radio box bigger for cozy forms.
+ */
+input[type="radio"] {
+  background-color: $app-form-light-checkbox-background-color;
+  border: 1px solid $app-form-light-border-color;
+  width: $app-form-checkbox-size;
+  height: $app-form-checkbox-size;
+  vertical-align: sub; /* [1] */
+  @include box-shadow(0 0 0 0 $app-form-light-checkbox-selected-color inset);
+  @include border-radius($app-form-checkbox-size);
+  @include transition(box-shadow 0.2s linear, background-color 0.1s linear);
+
+  .appForm--dark & {
+    border-color: $app-form-dark-checkbox-border-color;
+    &:checked {
+      background-color: $app-form-dark-radio-selected-background-color;
+    }
+  }
+
+  /* Comes after dark form, so its styles are overridden. */
+  &:checked {
+    border-color: $app-form-light-checkbox-selected-color;
+    @include box-shadow(0 0 0 5px $app-form-light-checkbox-selected-color inset);
+  }
+
+  .appForm--cozy & {
+    width: $app-form-checkbox-cozy-size;
+    height: $app-form-checkbox-cozy-size;
+    &:checked {
+      @include box-shadow(0 0 0 4px $app-form-light-checkbox-selected-color inset); /* [3] */
+    }
+  }
+}
+
+/**
+ * 1. Make clickable labels appear clickable.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  & + label[for] {
+    cursor: pointer; /* 1 */
+  }
+  &.disabled + label,
+  &[disabled] + label {
+    opacity: $app-form-disabled-opacity;
+    cursor: not-allowed;
+  }
+}
+
+/**
+ * Textarea elements
+ *
+ * 1. Limits resizable textareas from expanding beyond their container.
+ */
+textarea {
+  max-width: 100%; /* [1] */
+}
+
+/**
+ * Declare this before the select declaration because the padding-right style
+ * needs to override the form box padding.
+ *
+ * 1. Don't depend on inherited line-height;
+ * 2. Applies a default padding that must be overridden by padding-right.
+ */
+.appFormDropdown {
+  cursor: pointer;
+  position: relative;
+  line-height: normal; /* [1] */
+  @include user-select(none);
+  @include getFormBoxComponentStyles; /* [2] */
+}
+
+/**
+ * Select element specific properties.
+ *
+ * Declare this after the appFormDropdown declaration because the padding-right
+ * style needs to override the form box padding.
+ *
+ * 1. Base64 SVG image for select arrow. We use background-image because we don't
+ *    want to override the light background color of form box component styles.
+ * 2. Position arrow at right of select element.
+ * 3. Arrow size.
+ * 4. Don't overlap text with arrow. Overrides default form box padding.
+ */
+select,
+.appFormDropdown {
+  display: inline-block;
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4wLjIsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwb2x5Z29uIGZpbGw9IiNBQUFBQUEiIHBvaW50cz0iNDg0LjY4NywxMTkuMDMgMjU2LDM0Ny43MTYgMjcuMzEzLDExOS4wMyA0LjY4NywxNDEuNjU3IDIzMy4zNzMsMzcwLjM0MyAyNTYsMzkyLjk3IA0KCTI3OC42MjcsMzcwLjM0MyA1MDcuMzEzLDE0MS42NTcgIi8+DQo8L3N2Zz4NCg==");
+  /* [1] */
+  background-repeat: no-repeat;
+  text-indent: 0.01px; /* [1] */
+  text-overflow: ''; /* [1] */
+  background-position: right emCalc(10px) top emCalc(8px); /* [2] */
+  background-size: emCalc(15px); /* [3] */
+  padding-right: emCalc(38px); /* [4] */
+}
+
+select[multiple] {
+  background-image: none;
+  padding-right: $app-form-box-component-padding-right;
+}
+
+/**
+ * Change background SVG image select arrow for firefox.
+ * Unfortunately, firefox doesn't allow its default arrow styling to be altered.
+ *
+ * 1. Apply CSS to FF only (https://developer.mozilla.org/en-US/docs/Web/CSS/@document).
+ * 2. Just use the FF arrow for now.
+ */
+@-moz-document url-prefix() { /* [1] */
+  select {
+    background: none; /* [2] */
+  }
+}
+
+/**
+ * Output element
+ */
+output {
+  display: inline-block;
+  line-height: normal;
+}
+
+/**
+ * Input range specific properties.
+ * First, let's define a few settings and reset some properties.
+ */
+input[type="range"] {
+  @include appearance(none);
+  outline: none;
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+/**
+ * Input range track styling.
+ *
+ * 1. Unfortunately, we need to duplicate these properties
+ *    for each pseudo element. Only Chrome, FF, IE10+
+ *    supported.
+ */
+input[type="range"]::-webkit-slider-runnable-track { /* [1] */
+  background-color: $app-input-range-light-track-background-color;
+  height: $app-input-range-track-height;
+  border-radius: $app-input-range-track-height / 2;
+}
+
+input[type="range"]::-moz-range-track {
+  background-color: $app-input-range-light-track-background-color;
+  height: $app-input-range-track-height;
+  border-radius: $app-input-range-track-height / 2;
+}
+
+/**
+ * 1. Hides tick marks.
+ * 2. Reset defaults.
+ */
+input[type="range"]::-ms-track {
+  color: transparent; /* [1] */
+  border: none; /* [2] */
+  background: none; /* [2] */
+  height: $app-input-range-track-height;
+}
+
+/**
+ * Track styles for left of thumb.
+ */
+input[type="range"]::-ms-fill-lower {
+  background-color: $app-input-range-light-track-background-color;
+  border-radius: $app-input-range-track-height / 2;
+}
+
+/**
+ * Track styles for right of thumb.
+ */
+input[type="range"]::-ms-fill-upper {
+  background-color: $app-input-range-light-track-background-color;
+  border-radius: $app-input-range-track-height / 2;
+}
+
+/**
+ * IE range tooltip.
+ *
+ * 1. Hide for now.
+ */
+input[type="range"]::-ms-tooltip {
+  display: none; /* [1] */
+}
+
+/**
+ * Input range thumb styles
+ *
+ * 1. Vertically center thumb with track.
+ */
+input[type="range"]::-webkit-slider-thumb {
+  @include appearance(none);
+  border-radius: 100%;
+  background-color: $app-input-range-light-thumb-background-color;
+  height: $app-input-range-thumb-diameter;
+  width: $app-input-range-thumb-diameter;
+  margin-top: -(($app-input-range-thumb-diameter / 2) - ($app-input-range-track-height / 2)); /* [1] */
+}
+
+input[type="range"]:active::-webkit-slider-thumb {
+  outline: none;
+}
+
+/**
+ * 1. Reset default styles.
+ */
+input[type="range"]::-moz-range-thumb {
+  border-radius: 100%;
+  height: $app-input-range-thumb-diameter;
+  width: $app-input-range-thumb-diameter;
+  border: none; /* [1] */
+  background: none; /* [1] */
+  background-color: $app-input-range-light-thumb-background-color;
+}
+
+input[type="range"]::-moz-range-thumb {
+  outline: none;
+}
+
+/**
+ * 1. Reset default styles.
+ */
+input[type="range"]::-ms-thumb {
+  border-radius: 100%;
+  background-color: $app-input-range-light-thumb-background-color;
+  height: $app-input-range-thumb-diameter;
+  width: $app-input-range-thumb-diameter;
+  border: none; /* [1] */
+}
+
+input[type="range"]:active::-ms-thumb {
+  border: none;
+}
+
+/**
+ * 1. In aligned forms, the range input needs to be vertically aligned with the
+ *    label.
+ */
+.appInputRange--aligned {
+  margin-top: 4px; /* [1] */
+}
+
+/**
+ * 1. Color labels.
+ * 2. Override default font color for dark form elements.
+ * 3. Explicitly set text color for select options. Windows Chrome 35
+ *    uses the custom set text color of the select on a white background
+ *    which decreases readability on for light text colors.
+ * 4. Explicitly set the select menu dropdown background color so it
+ *    behaves consistently across all browsers.
+ */
+.appForm--dark {
+  color: $app-form-dark-font-color; /* [1] */
+
+  @mixin getDarkFormBoxComponentStyles {
+    color: $app-form-dark-font-color;
+    border-color: $app-form-dark-border-color;
+    background-color: $app-form-dark-background-color;
+
+    &:hover,
+    &:focus {
+      border-color: $app-form-dark-hover-border-color;
+    }
+  }
+
+  @include baseMakeFormBoxComponentStyles {
+    @include getDarkFormBoxComponentStyles;
+  }
+
+  select,
+  .appFormDropdown {
+    @include getDarkFormBoxComponentStyles;
+  }
+
+  select:not([multiple]) option {
+    color: $app-form-light-font-color; /* 3 */
+    background-color: #f0f0f0; /* 4 */
+  }
+
+  label {
+    color: $app-form-label-dark-font-color; /* 2 */
+  }
+
+  .appSubHeading {
+    color: $app-subheading-dark-font-color;
+  }
+
+  .appSubHeading--standalone {
+    border-bottom-color: $app-subheading-dark-border-color;
+  }
+
+  @include baseMakeFormToggleComponentStyles {
+    background-color: $app-form-dark-checkbox-background-color;
+  }
+
+  /**
+   * Input range specific properties.
+   * First, let's define a few settings and reset some properties.
+   */
+  input[type="range"]::-webkit-slider-runnable-track {
+    background-color: $app-input-range-dark-track-background-color;
+  }
+
+  input[type="range"]::-moz-range-track {
+    background-color: $app-input-range-dark-track-background-color;
+    border: none;
+  }
+
+  input[type="range"]::-ms-fill-lower {
+    background-color: $app-input-range-dark-track-background-color;
+  }
+
+  input[type="range"]::-ms-fill-upper {
+    background-color: $app-input-range-dark-track-background-color;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    background-color: $app-input-range-dark-thumb-background-color;
+    box-shadow: 0 0 5px rgba(0,0,0,.5);
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    background-color: $app-input-range-dark-thumb-background-color;
+  }
+
+  input[type="range"]::-ms-thumb {
+    background-color: $app-input-range-dark-thumb-background-color;
+  }
+}

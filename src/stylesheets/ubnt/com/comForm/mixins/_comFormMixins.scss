@@ -1,0 +1,12 @@
+@mixin comFormDefaults() {
+  background-color: $com-input-background-color;
+  font-family: $com-input-font-family;
+  margin-bottom: $com-base-spacing-unit;
+  height: double($com-base-spacing-unit);
+
+  &:focus,
+  &:active {
+    outline-color: transparent;
+    outline-style: none;
+  }
+}

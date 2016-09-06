@@ -1,0 +1,30 @@
+/**
+ * 1. Label is set to be larger than the icon container
+ * 2. Since label is larger, needs to shift left 1/2 of the difference to keep centered
+ */
+.comStatboxIcon {
+  display: inline-block;
+  border: 2px solid $com-statbox-border-color;
+  @include border-radius($com-statbox-icon-radius);
+  padding: 6px 9px;
+  position: relative;
+  font-size: remCalc(36px);
+  text-align: center;
+
+  .icon {
+    margin-bottom: 4px
+  }
+
+  & + & {
+    margin-left: 20px;
+  }
+}
+
+  .comStatboxIcon__label {
+    position: absolute;
+    line-height: 1;
+    top: remCalc(60px);
+    font-size: remCalc(11px);
+    width: 146%; /* [1]  */
+    left: -23%; /* [2] */
+  }

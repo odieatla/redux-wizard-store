@@ -1,0 +1,54 @@
+.appStatusBall {
+  vertical-align: middle;
+  width: 14px;
+  height: 14px;
+  background-color: $app-status-ball-default-color;
+
+  &.is-status-ball-disabled {
+    background-color: $app-status-ball-disabled-background-color;
+  }
+}
+
+.appStatusBall--offline {
+  background-color: $app-status-ball-offline-color;
+}
+
+.appStatusBall--dark {
+  background-color: $app-status-ball-dark-color;
+}
+
+.appStatusBall--positive {
+  background-color: $app-status-ball-positive-color;
+}
+
+.appStatusBall--warning {
+  background-color: $app-status-ball-warning-color;
+}
+
+.appStatusBall--danger {
+  background-color: $app-status-ball-danger-color;
+}
+
+/**
+ * Busy state for status ball.
+ */
+@include keyframes(appStatusBallBusyAnimation) {
+  0%   { background-color: $app-status-ball-busy-color-1; }
+  100% { background-color: $app-status-ball-busy-color-2; }
+}
+
+/*
+ * 1. Since we can't use !important in our animation we make our state more
+ *    specific this way.
+ */
+.appStatusBall {
+  &.is-status-ball-busy {
+    @include animation(appStatusBallBusyAnimation .5s alternate infinite);
+  }
+}
+
+.appStatusBallLabel {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: remCalc(8px);
+}

@@ -1,0 +1,72 @@
+@mixin appMakeDarkScrollbar {
+
+  /**
+   * 1. Set width and height of scrollbar for webkit browsers.
+   */
+  &::-webkit-scrollbar {
+    width: 12px; /* [1] */
+    height: 12px; /* [1] */
+  }
+
+  /**
+   * 1. The border will allow us to visually "squeeze" the scrollbar-thumb
+   *    to be thinner.
+   * 2. Clip the background to the content-box, instead of the border-box.
+   *    This allows the border style (1) to have a visual effect.
+   */
+  &::-webkit-scrollbar-thumb {
+    background-color: $app-scrollbar-dark-color;
+    border: 4px solid transparent; /* [1] */
+    background-clip: content-box; /* [2] */
+    @include border-radius(10px);
+  }
+
+  /**
+   * 1. We don't want to see the background of the scrollbar.
+   */
+  &::-webkit-scrollbar-track {
+    background-color: transparent; /* [1] */
+  }
+
+}
+
+@mixin appMakeLightScrollbar {
+
+  /**
+   * 1. Set width and height of scrollbar for webkit browsers.
+   */
+  &::-webkit-scrollbar {
+    width: 12px; /* [1] */
+    height: 12px; /* [1] */
+  }
+
+  /**
+   * 1. The border will allow us to visually "squeeze" the scrollbar-thumb
+   *    to be thinner.
+   * 2. Clip the background to the content-box, instead of the border-box.
+   *    This allows the border style (1) to have a visual effect.
+   */
+  &::-webkit-scrollbar-thumb {
+    background-color: $app-scrollbar-light-color;
+    border: 4px solid transparent; /* [1] */
+    background-clip: content-box; /* [2] */
+    @include border-radius(10px);
+  }
+
+  /**
+   * 1. We don't want to see the background of the scrollbar.
+   */
+  &::-webkit-scrollbar-track {
+    background-color: transparent; /* [1] */
+  }
+
+}
+
+@mixin appMakeScrollable($important: false) {
+  @if $important == true {
+    overflow-y: auto !important;
+  } @else {
+    overflow-y: auto;
+  }
+  @include appMakeLightScrollbar;
+}

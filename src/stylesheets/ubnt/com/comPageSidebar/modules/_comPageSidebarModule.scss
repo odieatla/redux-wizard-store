@@ -1,0 +1,36 @@
+/*------------------------------------*\
+    #PageSidebar
+\*------------------------------------*/
+
+.comPageSidebar {
+  padding: $com-page-sidebar-padding;
+  background-color: $com-page-sidebar-background-color;
+}
+
+  .comPageSidebar__title {
+    font-weight: 700;
+    margin-bottom: 0.25em;
+    margin-top: 0;
+  }
+
+  .comPageSidebar__listTitle {
+    margin-top: 24px;
+    margin-bottom: 0;
+  }
+
+  .comPageSidebar__firstListTitle {
+    margin-top: 0;
+  }
+
+  .comPageSidebar__list {
+    display: none;
+    @include respondTo(medium-up) {
+      display: block;
+    }
+  }
+
+  .comPageSidebar__select {
+    @include respondTo(medium-up) {
+      display: none;
+    }
+  }

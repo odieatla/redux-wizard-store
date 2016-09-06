@@ -1,0 +1,14 @@
+// We use this mixin to create the structure of a reveal modal
+//
+// $base-style - Provides reveal base styles, can be set to false to override. Default: true, Options: false
+// $width - Sets reveal width Default: $reveal-default-width || 80%
+//
+@mixin comModalBase(
+  $base-style:true,
+  $width:$reveal-default-width) {
+  
+  @if $width {
+    margin-left: -($width / 2);
+    width: $width;
+  }
+}

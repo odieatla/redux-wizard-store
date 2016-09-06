@@ -1,0 +1,9 @@
+/**
+ * 1. Push away from the input above.
+ */
+.appInputHelp {
+  margin-top: $app-form-input-feedback-top-spacing; /* [1] */
+  font-size: remCalc(12px);
+  line-height: remCalc(16px);
+  color: $app-form-input-help-font-color;
+}

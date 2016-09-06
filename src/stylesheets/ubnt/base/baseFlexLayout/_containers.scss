@@ -1,0 +1,115 @@
+/**
+ * This container orders items horizontally, top-aligned.
+ */
+@mixin shelf {
+  display: flex;
+  flex-wrap: wrap;
+}
+.shelf,
+%shelf {
+  @include shelf;
+}
+
+/**
+ * This container orders items horizontally, centered.
+ */
+@mixin shelfCenter {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.shelfCenter,
+%shelfCenter {
+  @include shelfCenter;
+}
+
+/**
+ * This container orders items horizontally, bottom-aligned.
+ */
+@mixin shelfBottom {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+.shelfBottom,
+%shelfBottom {
+  @include shelfBottom;
+}
+
+/**
+ * This container stacks items vertically, left-aligned.
+ */
+@mixin stack {
+  display: flex;
+  flex-direction: column;
+}
+.stack,
+%stack {
+  @include stack;
+}
+
+/**
+ * This container stacks items vertically, centered.
+ */
+@mixin stackCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.stackCenter,
+%stackCenter {
+  @include stackCenter;
+}
+
+/**
+ * This container stacks items vertically, right-aligned.
+ */
+@mixin stackRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.stackRight,
+%stackRight {
+  @include stackRight;
+}
+
+/**
+ * This container centers items both horizontally and vertically.
+ *
+ * 1. Default to stacking items vertically.
+ */
+@mixin frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; /* 1 */
+}
+.frame,
+%frame {
+  @include frame;
+}
+
+/**
+ * Make the items of this container be spaced apart, leaving some space between
+ * the items at either end and the container's edges.
+ */
+@mixin spreadApart {
+  justify-content: space-around;
+}
+.spreadApart,
+%spreadApart {
+  @include spreadApart;
+}
+
+/**
+ * Make the items of this container be spaced apart as much as possible,
+ * with the items at either end laying flush against the container's edges.
+ */
+@mixin splitApart {
+  justify-content: space-between;
+}
+.splitApart,
+%splitApart {
+  @include splitApart;
+}

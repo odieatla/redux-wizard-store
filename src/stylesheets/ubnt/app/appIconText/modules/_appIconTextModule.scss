@@ -1,0 +1,30 @@
+.appIconText {
+  padding-top: 0;
+  padding-bottom: 0;
+
+  .iconText__icon {
+    @include flex-shrink(0);
+    font-size: 1.4em;
+    padding-right: 0;
+    margin-right: 0.5em;
+    vertical-align: middle;
+  }
+
+  .iconText__text {
+    vertical-align: middle;
+  }
+
+  /**
+   * 1. Support icon text in reversed order.
+   */
+  .iconText__text + .iconText__icon {
+    margin-left: 0.5em; /* 1 */
+    margin-right: 0; /* 1 */
+  }
+}
+
+.appIconText--large {
+  .iconText__icon {
+    font-size: 16px;
+  }
+}

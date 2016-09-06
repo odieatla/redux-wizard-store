@@ -1,0 +1,13 @@
+/**
+ * 1. Fit into the enclosing block element, e.g. p or h1.
+ * 2. Don't word wrap to next line because that would mess up the visual
+ *    integrity of the tag.
+ * 3. Don't inherit the enclosing element's font weight.
+ */
+ %tag,
+.tag {
+  display: inline-block; /* [1] */
+  line-height: 1; /* [1] */
+  white-space: nowrap; /* [2] */
+  font-weight: normal; /* [3] */
+}

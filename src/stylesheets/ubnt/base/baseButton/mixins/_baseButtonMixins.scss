@@ -1,0 +1,10 @@
+@mixin baseMakeDisabledButtonStyle() {
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus,
+  &.is-button-disabled,
+  &.is-button-disabled:hover,
+  &.is-button-disabled:focus {
+    @content
+  }
+}

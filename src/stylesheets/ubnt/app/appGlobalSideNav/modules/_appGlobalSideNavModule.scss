@@ -1,0 +1,160 @@
+/**
+ * 1. Make sure tooltips are not cropped off.
+ * 2. Nav is perpetually collapsed.
+ * 3. Make room for the header.
+ */
+.appGlobalSideNav {
+  overflow: visible; // 1
+  width: $app-global-side-nav-width-medium; // 2
+  padding: 13px 0 5px;
+  background: $app-global-side-nav-background-color;
+  color: $app-global-side-nav-font-color;
+  font-size: $app-global-side-nav-font-size;
+  position: fixed;
+  z-index: $base-z-index-global-nav;
+  bottom: 0;
+  top: $app-global-side-nav-with-header-offset; /* 3 */
+  left: 0;
+
+  /**
+   * 1. Position appCount relative to the icon
+   */
+  .appCount {
+    position: absolute; /* 1 */
+    top: 4px; /* 1 */
+    right: 5px;
+    font-size: 0.7rem;
+  }
+}
+
+  .appGlobalSideNav__item {
+    @extend %flexFlag;
+    // min-width: $app-global-side-nav-width-medium;
+    color: $app-global-side-nav-font-color;
+    font-size: $app-global-side-nav-font-size;
+
+    & + & {
+      margin-top: 18px;
+    }
+
+    &:hover {
+      .appGlobalSideNav__itemIcon {
+        color: $app-global-side-nav-hover-icon-color;
+      }
+      .appGlobalSideNav__itemText {
+        color: $app-global-side-nav-hover-font-color;
+      }
+    }
+
+    /**
+     * Item selected state
+     */
+    &.is-item-selected {
+      .appGlobalSideNav__itemIcon {
+        color: $app-global-side-nav-selected-icon-color;
+      }
+      .appGlobalSideNav__itemText {
+        color: $app-global-side-nav-selected-font-color;
+      }
+    }
+  }
+
+      .appGlobalSideNav__itemIcon {
+        @include transition($app-link-transition);
+        padding: 0;
+        font-size: 19px;
+        color: $app-global-side-nav-icon-color;
+        display: inline-block;
+      }
+
+      /**
+       * 1. Vertically center text with icon.
+       * 2. Manually align text with the icon.
+       */
+      .appGlobalSideNav__itemText {
+        @extend %flexFlag__body;
+        font-size: inherit;
+        padding-left: 11px;
+        padding-top: 3px; /* [2] */
+        text-transform: uppercase;
+        color: $app-global-side-nav-font-color;
+        min-height: 15px; /* [1] */
+        @include transition($app-link-transition);
+        @include backfaceVisibility(hidden);
+      }
+
+  .appGlobalSideNav__primaryMenu,
+  .appGlobalSideNav__secondaryMenu {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    @include fontSmoothing;
+    a {
+      color: $app-global-side-nav-font-color;
+
+      &:hover {
+        color:  $app-global-side-nav-hover-font-color;
+      }
+    }
+  }
+
+  .appGlobalSideNav__secondaryMenu {
+    bottom: 10px;
+  }
+
+    /**
+     * 1. Position child tooltip absolutely.
+     * 2. Remove original min-width.
+     * 3. Remove original margin-top.
+     * 4. We can't flexbox here because of the absolutely-positioned children
+     *    (tooltips and popovers) which every browser handles differently.
+     */
+    .appGlobalSideNav__item {
+      cursor: pointer;
+      position: relative; // 1
+      min-width: 0; // 2
+      padding-top: 9px;
+      padding-bottom: 9px;
+      padding-left: 0; /* 4 */
+      padding-right: 0; /* 4 */
+      text-align: center; /* 4 */
+      display: block; /* 4 */
+      text-transform: uppercase;
+      @include user-select(none);
+
+      & + & {
+        margin-top: 0; // 3
+      }
+
+      &.is-item-disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+    }
+
+      /**
+       * 1. Act as a hit area for the item, when the item contains other
+       *    interactive components, such as popovers.
+       * 2. Sit above other components, like appCount.
+       */
+      .appGlobalSideNav__itemTrigger {
+        position: absolute; // 1
+        top: 0; // 1
+        left: 0; // 1
+        right: 0; // 1
+        bottom: 0; // 1
+        z-index: 100 // 2
+      }
+
+  .appGlobalSideNav__secondaryMenu {
+    position: absolute;
+    bottom: 22px;
+    width: 100%;
+  }
+
+    /*
+     * 1. Mimics size of a list item (when feature flagging sections).
+     */
+    .appGlobalSideNav__listItemPlaceholder {
+      height: 28px; /* [1] */
+    }

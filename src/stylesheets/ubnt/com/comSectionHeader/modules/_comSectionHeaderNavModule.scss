@@ -1,0 +1,10 @@
+.comSectionHeader__nav {
+  margin: $com-section-header-nav-margin;
+}
+
+.comSectionHeader__navItem {
+  display: inline-block;
+  margin: $com-section-header-nav-item-margin;
+  font-size: $com-section-header-nav-item-font-size;
+  letter-spacing: $com-section-header-nav-item-letter-spacing;
+}

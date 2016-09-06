@@ -1,0 +1,154 @@
+/*------------------------------------*\
+#PRODUCT COMPARISON
+\*------------------------------------*/
+
+/*------------------------------------*\
+[1] Carousel view is used for small viewport only
+[2] Fullwidth tablie is used for medium and up
+\*------------------------------------*/
+
+.comProductCompare {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  @include fontSmoothing(antialiased);
+
+  table thead {
+    background: transparent;
+  }
+  
+  table tr.even, table tr.alt, table tr:nth-of-type(even) {
+    background: transparent;
+  }
+  
+  sup {
+    top: -0.8em;
+  }
+
+  @include respondTo(medium-up) {
+    padding: 0 35px;
+  }
+
+  @include respondTo(large-up) {
+    padding: 0 3.2rem;
+  }
+}
+  .comProductCompare__footnote {
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    text-align: right;
+    padding-top: 0.5em;
+  }
+
+  .comProductCompare__title {
+    color: $com-product-compare-cell-font-color;
+  }
+
+.comProductCompare__modelName {
+  color: $com-product-compare-model-name-font-color;
+}
+
+.comProductCompare__image {
+  margin-bottom: 1rem;
+
+  @include respondTo(medium-up) {
+    padding: 0 1em;
+  }
+
+  img {
+    @media 
+    (-webkit-min-device-pixel-ratio: 2), 
+    (min-resolution: 192dpi) { 
+      max-height: 132px;
+    }
+  }
+}
+
+.comProductCompare__table--carousel { 
+  display: none;
+
+  @include respondTo(small-down) { /* [1] */
+    display: block;
+  }
+
+  font-size: $com-product-compare-cell-font-size;
+
+  .comProductCompare__table__keys {
+    float: left;
+    display: inline-block;
+    width: 30%;
+
+    .comProductCompare__table__cell {
+      font-weight: 700;
+    }
+  }
+
+  .comProductCompare__table__cell--first {
+    height: $com-product-compare-first-cell-height;
+    text-align: left;
+  }
+
+  .comProductCompare__table__cell {
+    padding: 6px 0;
+    border-bottom: 1px solid $com-product-compare-border-color;
+    line-height: 1.125rem;
+    color: $com-product-compare-cell-font-color;
+    text-align: left;
+  }
+
+  .comProductCompare__table__cell:last-child {
+    border: 0;
+  }
+
+  .comProductCompare__table__itemsWrapper {
+    width: 70%;
+    float: left;
+  }
+
+  .comProductCompare__table__items {
+    float: left;
+    white-space: nowrap;
+    padding-left: 0!important;
+    overflow: hidden;
+  }
+
+  .comProductCompare__table__item {
+    display: inline-block;
+  }
+
+  .comProductCompare__image {
+    height: 133px;
+    text-align: left;
+  }
+
+  .comProductCompare__modelName {
+    font-weight: 700;
+    height: 18px;
+    line-height: 18px;
+    letter-spacing: -1px;
+  }
+}
+
+.comProductCompare__table--fullwidth {
+  display: none;
+  
+  @include respondTo(medium-up) { /* [2] */
+    display: block;
+  }
+
+  .comTable{
+
+    table-layout: fixed;
+
+    tbody td {
+      border-bottom: 1px solid $com-product-compare-border-color;
+      color: $com-product-compare-cell-font-color;
+      font-size: $com-product-compare-cell-font-size;
+    }
+    tr th {
+      border-bottom-width: 0;
+      vertical-align: bottom;
+      font-size: $com-product-compare-cell-font-size;
+    }
+  }
+}

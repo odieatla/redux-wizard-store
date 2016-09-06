@@ -1,0 +1,38 @@
+/**
+ * 1. Hide warning by default.
+ * 2. Apply this state to force it to be visible for IE9 and under.
+ * 3. Fill entire screen and block user interaction with the app.
+ */
+.appOutdatedBrowserWarning {
+  display: none !important; /* [1] */
+  top: 0 !important; /* [3] */
+  bottom: 0 !important; /* [3] */
+  right: 0 !important; /* [3] */
+  &.is-warning-visible {
+    display: block !important; /* [2] */
+  }
+  .appToast {
+    position: absolute; /* [3] */
+    top: 0; /* [3] */
+    left: 0; /* [3] */
+    right: 0; /* [3] */
+    bottom: 0; /* [3] */
+    max-width: none; /* [3] */
+    width: auto; /* [3] */
+  }
+}
+
+/**
+ * 1. Display specifically on IE10 and IE11.
+ * 2. Then hide for IE11.
+ * Reference: http://stackoverflow.com/questions/20541306/how-to-write-a-css-hack-for-ie-11/22085269#22085269
+ */
+@media all and (-ms-high-contrast: none) {
+  .appOutdatedBrowserWarning {
+    display: block !important; /* [1] */
+  }
+  *::-ms-backdrop,
+  .appOutdatedBrowserWarning {
+    display: none !important; /* [2] */
+  }
+}

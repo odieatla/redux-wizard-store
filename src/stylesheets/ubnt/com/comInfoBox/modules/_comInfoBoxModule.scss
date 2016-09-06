@@ -1,0 +1,122 @@
+.comInfoBox {
+  @extend %flexFlag;
+  color: $com-primary-font-color;
+  padding: 24px;
+  border-radius: 3px;
+  border: 1px solid #bfbfbf;
+}
+
+  /**
+  * 1. Position icon so it is more visually aligned with the header.
+  *    Use margin-top instead of top, to affect layout.
+  * 2. Primary by default.
+  */
+  .comInfoBox__icon {
+    font-size: 50px;
+    color: $com-status-primary-color; /* [2] */
+    width: 80px;
+  }
+
+  .comInfoBox__content {
+    @extend %flexFlag__body;
+
+    p {
+      margin-bottom: $com-info-box-content-spacing;
+    }
+  }
+
+    /**
+     * 1. Only push body down if preceded by a header.
+     */
+    .comInfoBox__header {
+      font-size: 18px;
+      & + .comInfoBox__body {
+        margin-top: 8px; /* 1 */
+      }
+    }
+
+    /**
+     * 1. Push the body down so the first line of text is vertically-
+     *    centered with the icon.
+     */
+    .comInfoBox__body {
+      margin-top: 10px; /* [1] */
+    }
+
+    /**
+     * 1. If there is a header, we don't need to push down the body.
+     */
+    .comInfoBox__header +
+    .comInfoBox__body {
+      margin-top: 0; /* [1] */
+    }
+
+    .comInfoBox__footer {
+      padding-top: $com-padding / 2;
+      text-align: right;
+    }
+
+.comInfoBox--noBorder {
+  border: none;
+}
+
+.comInfoBox--success {
+  .comInfoBox__icon {
+    color: $com-status-success-color;
+  }
+}
+
+.comInfoBox--warning {
+  .comInfoBox__icon {
+    color: $com-status-warning-color;
+  }
+}
+
+.comInfoBox--danger {
+  .comInfoBox__icon {
+    color: $com-status-danger-color;
+  }
+}
+
+.comInfoBox--default {
+  .comInfoBox__icon {
+    color: $com-primary-font-color;
+  }
+}
+
+.comInfoBox--cozy {
+  padding: 10px;
+
+  .comInfoBox__body {
+    margin-top: 0; /* [1] */
+  }
+
+  .comInfoBox__icon {
+    font-size: 20px;
+    width: 28px;
+  }
+
+  .comInfoBox__close {
+    top: 8px;
+  }
+
+  /**
+   * 1. Only push body down if preceded by a header.
+   */
+  .comInfoBox__header {
+    font-size: 14px;
+    font-weight: bold;
+    & + .comInfoBox__body {
+      margin-top: 8px; /* 1 */
+    }
+  }
+
+  .comInfoBox__content {
+    p {
+      font-size: 12px;
+      margin-bottom: $com-info-box-cozy-content-spacing;
+    }
+  }
+
+}
+

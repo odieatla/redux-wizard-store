@@ -1,0 +1,86 @@
+/*------------------------------------*\
+    #BUTTONS
+\*------------------------------------*/
+
+.comMainButton {
+  font-weight: 400;
+  cursor: pointer;
+  line-height: normal;
+  margin-bottom: 20px;
+  padding: 1rem 2rem 1rem+remCalc(1) 2rem;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1rem;
+  background-color: $com-main-button-default-background-color;
+  color: $com-main-button-default-font-color;
+  border: 0;
+  display: inline-block;
+
+  @include appearance(none);
+  @include transition(background-color 300ms ease-out);
+  @include border-radius($com-main-button-radius);
+
+  &:hover,
+  &:focus  {
+    color: $com-main-button-default-font-color;
+    background-color: $com-main-button-default-hover-background-color;
+  }
+
+  &:focus,
+  &:active {
+    color: $com-main-button-default-font-color;
+    outline-color: transparent;
+    outline-style: none;
+  }
+
+  &.is-button-disabled {
+    cursor: not-allowed;
+    color: $com-main-button-disabled-font-color;
+    pointer-events: none;
+    @include comMakeMainButton($com-main-button-disabled-gradient-begin, $com-main-button-disabled-gradient-end, $com-main-button-disabled-hover-gradient-begin, $com-main-button-disabled-hover-gradient-end);
+  }
+
+  & + & {
+    margin-left: 1rem;
+  }
+}
+
+.comMainButton--primary {
+  @include comMakeMainButton($com-main-button-primary-gradient-begin, $com-main-button-primary-gradient-end, $com-main-button-primary-hover-gradient-begin, $com-main-button-primary-hover-gradient-end);
+}
+
+.comMainButton--secondary {
+  @include comMakeMainButton($com-main-button-secondary-gradient-begin, $com-main-button-secondary-gradient-end, $com-main-button-secondary-hover-gradient-begin, $com-main-button-secondary-hover-gradient-end);
+}
+
+.comMainButton--darken {
+  @include comMakeMainButton($com-main-button-darken-gradient-begin, $com-main-button-darken-gradient-end, $com-main-button-darken-hover-gradient-begin, $com-main-button-darken-hover-gradient-end);
+}
+
+.comMainButton--reverse {
+  color: $com-main-button-reverse-font-color;
+  
+  &:hover,
+  &:focus  {
+      color:  $com-main-button-reverse-hover-font-color;
+  }
+
+  @include comMakeMainButton($com-main-button-reverse-gradient-begin, $com-main-button-reverse-gradient-end, $com-main-button-reverse-hover-gradient-begin, $com-main-button-reverse-hover-gradient-end);
+}
+
+.comMainButton--cozy {
+  padding: 0.5rem 1.5rem;
+  font-size: 0.875rem;
+}
+
+.comMainButton--cancel {
+  background-image: linear-gradient($com-main-button-group-gradient-begin,$com-main-button-group-gradient-end);
+  color: $com-main-button-group-color;
+  border: 1px solid $com-main-button-group-border-color;
+
+  &:hover {
+    background-image: linear-gradient($com-main-button-group-hover-gradient-begin,$com-main-button-group-hover-gradient-end);
+    color: $com-main-button-group-hover-color;
+  }
+}

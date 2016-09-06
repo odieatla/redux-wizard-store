@@ -1,0 +1,46 @@
+// Base.
+
+/**
+ * Import styles in your project like this in your main.scss file:
+ *
+ * ```
+ * // First import layout and tools, for use when building project styles.
+ * @import "path/to/bower_components/css-base/src/baseLayout/index";
+ * @import "path/to/bower_components/css-base/src/baseTools/index";
+ *
+ * // Import your theme-specific defaults.
+ * @import "src/theme-styles/defaultsFile"
+ *
+ * // Import the rest of base by importing this file.
+ * @import "path/to/bower_components/css-base/src/base";
+
+ * // Lastly, import your theme's styles.
+ * @import "src/theme-styles/mainFile"
+ * ```
+ */
+
+@import "baseDefaults/index";
+@import "baseAccessibility/index";
+@import "baseAnimation/index";
+@import "baseAvatar/index";
+@import "baseButton/index";
+@import "baseClearfix/index";
+@import "baseCount/index";
+@import "baseFlag/index";
+@import "baseFlexGrid/index";
+@import "baseFlexLayout/index";
+@import "baseForm/index";
+@import "baseGrid/index";
+@import "baseIcon/index";
+@import "baseIconText/index";
+@import "baseImage/index";
+@import "baseList/index";
+@import "baseModal/index";
+@import "baseNormalize/index";
+@import "baseStatusBall/index";
+@import "baseStatusBar/index";
+@import "baseTable/index";
+@import "baseTabs/index";
+@import "baseTag/index";
+@import "baseToggle/index";
+@import "baseTypography/index";

@@ -1,0 +1,512 @@
+/*------------------------------------*\
+    #STATUS
+\*------------------------------------*/
+/**
+ * Status colors.
+ *
+ * 1. Gray
+ * 2. UBNT Blue
+ * 3. Blue
+ * 4. Green
+ * 5. Yellow
+ * 6. Red
+ */
+$com-status-static-color: #cccccc; /* [1] */
+$com-status-primary-color: #00a0df; /* [2] */
+$com-status-info-color: #14b0f6; /* [3] */
+$com-status-success-color: #13bb72; /* [4] */
+$com-status-warning-color: #f09300; /* [5] */
+$com-status-danger-color: #ff3000; /* [6] */
+$com-status-primary-hover-color: #0788ba;
+
+/*------------------------------------*\
+    #DEFAULT
+\*------------------------------------*/
+$com-primary-background-color: #fafafa;
+$com-primary-font-color: #17191d;
+$com-primary-link-color: $com-status-primary-color;
+$com-primary-hover-link-color: #17191d;
+$com-primary-border-color: #c9c9c9;
+
+$com-secondary-border-color: #bbbbbd;
+
+/*------------------------------------*\
+    #ACTION
+\*------------------------------------*/
+$com-action-primary-background-color: $com-status-primary-color;
+$com-action-primary-background-gradient-begin: $com-status-info-color;
+$com-action-primary-font-color: #ffffff;
+
+$com-action-secondary-background-color: #96989e;
+
+/*------------------------------------*\
+    #QUIET
+\*------------------------------------*/
+$com-quiet-primary-background-color: #cacaca;
+$com-quiet-primary-font-color: rgba(23,25,29,.5);
+
+$com-quiet-secondary-background-color: #DEDEE0;
+
+/*------------------------------------*\
+    #STANDOUT
+\*------------------------------------*/
+$com-standout-primary-background-color: #519cd2;
+$com-standout-primary-border-color: rgba(white,.3);
+$com-standout-primary-font-color: #fdfdfd;
+$com-standout-primary-link-color: #e4ecf1;
+
+$com-standout-secondary-background-color: #24a1df;
+
+
+/*------------------------------------*\
+    #BODY COLORS
+\*------------------------------------*/
+$com-body-background-color: #f0f0f0;
+$com-body-font-color:       $com-primary-font-color;
+
+/*------------------------------------*\
+    #JQUERY UI WIDGET COLORS
+\*------------------------------------*/
+$com-form-search-jqueryui-widget-border-color: $com-status-static-color;
+$com-form-search-jqueryui-widget-base-font-color: $com-primary-font-color;
+$com-form-search-jqueryui-widget-background-color: #EBEBED;
+
+/*------------------------------------*\
+    #MAIN BUTTON
+\*------------------------------------*/
+$com-main-button-default-font-color: #ffffff;
+$com-main-button-default-background-color: $com-action-primary-background-color;
+$com-main-button-default-hover-background-color: #0080b2;
+
+/*------------------------------------*\
+    #DISABLED BUTTON
+\*------------------------------------*/
+$com-main-button-disabled-font-color: $com-quiet-primary-font-color;
+$com-main-button-disabled-gradient-begin: $com-quiet-primary-background-color;
+$com-main-button-disabled-gradient-end: $com-quiet-primary-background-color;
+$com-main-button-disabled-hover-gradient-begin: $com-quiet-primary-background-color;
+$com-main-button-disabled-hover-gradient-end: $com-quiet-primary-background-color;
+
+/*------------------------------------*\
+    #PRIMARY BUTTON
+\*------------------------------------*/
+$com-main-button-primary-gradient-begin: $com-action-primary-background-gradient-begin;
+$com-main-button-primary-gradient-end: #0e8ec9;
+$com-main-button-primary-hover-gradient-begin: $com-action-primary-background-gradient-begin;
+$com-main-button-primary-hover-gradient-end: $com-action-primary-background-color;
+
+/*------------------------------------*\
+    #SECONDARY BUTTON
+\*------------------------------------*/
+$com-main-button-secondary-gradient-begin: $com-action-secondary-background-color;
+$com-main-button-secondary-gradient-end: #575657;
+$com-main-button-secondary-hover-gradient-begin: $com-action-secondary-background-color;
+$com-main-button-secondary-hover-gradient-end: #666666;
+
+/*------------------------------------*\
+    #DARKEN BUTTON
+\*------------------------------------*/
+$com-main-button-darken-gradient-begin: #3c3d3f;
+$com-main-button-darken-gradient-end: #27282a;
+$com-main-button-darken-hover-gradient-begin: #575657;
+$com-main-button-darken-hover-gradient-end: #27282a;
+
+/*------------------------------------*\
+    #REVERSE BUTTON
+\*------------------------------------*/
+$com-main-button-reverse-font-color: $com-primary-link-color;
+$com-main-button-reverse-hover-font-color: $com-primary-font-color;
+$com-main-button-reverse-gradient-begin: #ffffff;
+$com-main-button-reverse-gradient-end: #ffffff;
+$com-main-button-reverse-hover-gradient-begin: #ffffff;
+$com-main-button-reverse-hover-gradient-end: #ffffff;
+
+/*------------------------------------*\
+    #GROUP BUTTONS
+\*------------------------------------*/
+$com-main-button-group-border-color: $com-primary-border-color;
+$com-main-button-group-color: $com-primary-font-color;
+$com-main-button-group-hover-color: $com-primary-font-color;
+$com-main-button-group-selected-font-color: #ffffff;
+$com-main-button-group-gradient-begin: #f5f5f5;
+$com-main-button-group-gradient-end: #f5f5f5;
+$com-main-button-group-hover-gradient-begin: #d5d8db;
+$com-main-button-group-hover-gradient-end: #d5d8db;
+$com-main-button-group-selected-gradient-begin: $com-action-primary-background-gradient-begin;
+$com-main-button-group-selected-gradient-end: $com-action-primary-background-color;
+$com-main-button-group-selected-hover-gradient-begin: $com-action-primary-background-gradient-begin;
+$com-main-button-group-selected-hover-gradient-end: $com-action-primary-background-color;
+
+/*------------------------------------*\
+    #TEXT BUTTON
+\*------------------------------------*/
+$com-text-button-color: $com-primary-link-color;
+$com-text-button-hover-color: $com-primary-hover-link-color;
+
+/*------------------------------------*\
+    CIRCLE ICON
+\*------------------------------------*/
+$com-circle-border-color: $com-primary-border-color;
+$com-circle-font-color: $com-primary-border-color;
+$com-circle-desktop-border-color: #ffffff;
+$com-circle-desktop-font-color: #ffffff;
+
+/*------------------------------------*\
+    FEATURE ICON
+\*------------------------------------*/
+$com-feature-icon-background-color: #d9d9d9;
+$com-feature-icon-content-background-color: #2b3038;
+$com-feature-icon-content-font-color: #d9d9d9;
+
+/*------------------------------------*\
+    STATBOX ICON
+\*------------------------------------*/
+$com-statbox-border-color: #000000;
+$com-statbox-font-color: #000000;
+
+/*------------------------------------*\
+    CLOSE BUTTON
+\*------------------------------------*/
+$com-close-button-light-font-color: #1b262c !default;
+$com-close-button-dark-font-color: #ffffff !default;
+
+/*------------------------------------*\
+    CLEAR BUTTON
+\*------------------------------------*/
+$com-clear-button-default-font-color: #000000;
+$com-clear-button-default-hover-font-color: #888888;
+$com-clear-button-reverse-font-color: #ffffff;
+$com-clear-button-reverse-hover-font-color: #cae3f3;
+$com-clear-button-disabled-font-color: $com-quiet-primary-font-color;
+$com-clear-button-standout-font-color: $com-status-primary-color;
+$com-clear-button-standout-hover-font-color: $com-status-primary-hover-color;
+
+/*------------------------------------*\
+    CLEAR BUTTON - FILL
+\*------------------------------------*/
+$com-clear-button-fill-default-font-color: #ffffff;
+$com-clear-button-fill-default-hover-font-color: #ffffff;
+$com-clear-button-fill-default-background-color: $com-status-primary-color;
+$com-clear-button-fill-default-hover-background-color: $com-status-primary-hover-color;
+$com-clear-button-fill-dark-font-color: #ffffff;
+$com-clear-button-fill-dark-hover-font-color: #ffffff;
+$com-clear-button-fill-dark-background-color: #474f57;
+$com-clear-button-fill-dark-hover-background-color: #575657;
+
+/*------------------------------------*\
+    CONTENT - BLUE(STANDOUT)
+\*------------------------------------*/
+$com-content-blue-mobile-background-color: $com-standout-primary-background-color;
+$com-content-blue-desktop-gradient-begin: $com-standout-primary-background-color;
+$com-content-blue-desktop-gradient-end: #39739d;
+
+/*------------------------------------*\
+    CONTENT - MODIFIERS
+\*------------------------------------*/
+$com-content-secondary-background-color: $com-quiet-secondary-background-color;
+$com-content-light-background-color: #f8f8f8;
+$com-content-standout-background-color: $com-status-primary-color;
+$com-content-border-bottom-color: #bbbbbd;
+
+/*------------------------------------*\
+    FORM COMPONENTS
+\*------------------------------------*/
+$com-input-font-color: rgba(0,0,0,0.75);
+$com-input-background-color: #ffffff;
+$com-input-focus-background-color: $com-primary-background-color;
+$com-input-border-color: #bebec0;
+$com-input-focus-border-color: $com-primary-link-color;
+$com-input-disabled-background-color: #dddddd;
+
+// We use this to style the glowing effect of inputs when focused
+$com-glowing-effect-color: $com-input-focus-border-color;
+
+// Select variables
+$com-select-background-color: #ffffff;
+
+// Radio variables
+$com-radio-background-color: #cbcbcc;
+$com-radio-checked-background-color: $com-action-primary-background-color;
+
+// Checkbox variables
+$com-checkbox-check-color: $com-status-info-color;
+$com-checkbox-border-color: $com-primary-border-color;
+
+// Dark variables
+$com-input-dark-font-color: $com-standout-primary-font-color;
+$com-input-dark-border-color: $com-standout-primary-border-color;
+$com-input-dark-focus-border-color: #ffffff;
+
+// Blue variables
+$com-input-blue-background-color: $com-standout-primary-background-color;
+
+/*------------------------------------*\
+    FORM LAYOUT
+\*------------------------------------*/
+$com-form-label-color: $com-primary-font-color;
+$com-form-description-font-color: #82868d;
+$com-form-required-default-color: #82868d;  
+$com-form-required-invalid-color: $com-status-danger-color;
+
+/*------------------------------------*\
+    FORM SEARCH
+\*------------------------------------*/
+$com-form-search-clear-button-background-color: $com-quiet-secondary-background-color;
+$com-form-search-submit-button-background-color: #272C31;
+$com-form-search-submit-button-border-color: #ffffff;
+$com-form-search-submit-button-font-color: #ffffff;
+
+/*------------------------------------*\
+    GLOBAL FOOTER
+\*------------------------------------*/
+$com-global-footer-background-color: $com-primary-background-color;
+$com-global-footer-icon-color: $com-status-primary-color;
+$com-global-footer-border-color: $com-status-static-color;
+$com-global-footer-title-color: #666666;
+$com-global-footer-legal-color: #666666;
+
+/*------------------------------------*\
+    GLOBAL HEADER
+\*------------------------------------*/
+$com-global-header-background-color: #11181C;
+$com-global-header-logo-background-color: $com-status-primary-color;
+$com-global-header-logo-font-color: #ffffff;
+
+$com-global-header-nav-item-link-color: #AEB4B7;
+$com-global-header-nav-item-link-color-selected: $com-status-primary-color;
+$com-global-header-nav-item-link-color-hover: #FFFFFF;
+
+// -----------------------------------------------------------------------------
+// INFO BOX
+// -----------------------------------------------------------------------------
+
+/**
+ * Light theme.
+ */
+$com-info-box-light-background-color: $com-primary-background-color !default;
+$com-info-box-light-font-color: $com-primary-font-color !default;
+
+/**
+ * Dark theme - Not currently used
+ */
+$com-info-box-dark-background-color: $com-quiet-primary-background-color !default;
+$com-info-box-dark-font-color: $com-quiet-primary-font-color !default;
+$com-info-box-dark-border-color: $com-standout-primary-border-color !default;
+
+/*------------------------------------*\
+    LINK
+\*------------------------------------*/
+$com-link-color: $com-primary-link-color;
+$com-link-hover-color: $com-primary-font-color;
+$com-link-selected-color: $com-primary-link-color;
+$com-link-secondary-color: $com-primary-font-color;
+$com-link-secondary-hover-color: $com-primary-link-color;
+$com-link-reverse-font-color: #ffffff;
+$com-link-reverse-hover-font-color: #ffffff;
+
+/*------------------------------------*\
+    MODAL
+\*------------------------------------*/
+$com-modal-backdrop-background-color: rgba(black,0.45);
+$com-modal-background-color: #ffffff;
+$com-modal-border-color: #666666;
+$com-modal-close-font-color: $com-status-primary-color;
+$com-modal-close-background-color: #ffffff;
+$com-modal-close-border-color: #eaeaec;
+
+/*------------------------------------*\
+    NEWSLETTER SIGNUP
+\*------------------------------------*/
+$com-newsletter-background-color: #eeeeee;
+$com-newsletter-font-color: #666666;
+$com-newsletter-input-border-color: #d8d8d8;
+$com-newsletter-input-background-color: #f6f6f6;
+$com-newsletter-button-font-color: $com-status-primary-color;
+$com-newsletter-button-hover-font-color: $com-status-primary-hover-color;
+$com-newsletter-social-font-color: $com-status-primary-color;
+$com-standout-newsletter-background-color: $com-status-primary-color;
+$com-standout-newsletter-font-color: #ffffff;
+$com-standout-newsletter-input-background-color: #ffffff;
+$com-standout-newsletter-button-font-color: #ffffff;
+$com-standout-newsletter-button-hover-font-color: #cae3f3;
+$com-standout-newsletter-social-font-color: #ffffff;
+$com-standout-newsletter-social-hover-font-color: #cae3f3;
+
+/*------------------------------------*\
+    PAGE HEADER
+\*------------------------------------*/
+$com-page-header-secondary-dark-color: #B2B2B2;
+$com-page-header-standout-background-color: #127ab1;
+$com-page-header-polygon-background-color: #0C1522;
+
+/*------------------------------------*\
+    PAGE SIDEBAR
+\*------------------------------------*/
+$com-page-sidebar-background-color: $com-quiet-secondary-background-color;
+
+/*------------------------------------*\
+    PAGE SUBNAV
+\*------------------------------------*/
+$com-page-subnav-border-color: #7198c0;
+$com-page-subnav-font-color: #ffffff;
+$com-page-subnav-link-color: #A0B9D5;
+$com-page-subnav-hover-link-color: #FFFFFF;
+
+/* light */
+$com-page-subnav-light-border-color: $com-secondary-border-color;
+$com-page-subnav-light-font-color: $com-primary-font-color;
+$com-page-subnav-light-link-color: $com-primary-font-color;
+$com-page-subnav-light-hover-link-color: #00A0DE;
+
+/* dark */
+$com-page-subnav-dark-select-background-color: #000000;
+$com-page-subnav-dark-select-border-color: #555555;
+$com-page-subnav-dark-select-font-color: #CCCCCC;
+$com-page-subnav-dark-select-hover-font-color: $com-status-primary-color;
+$com-page-subnav-dark-link-color: #ffffff;
+$com-page-subnav-dark-hover-link-color: $com-status-primary-color;
+$com-page-subnav-dark-border-color: #303031;
+
+/* sticky */
+$com-page-subnav-sticky-font-color: $com-primary-font-color;
+$com-page-subnav-sticky-background-color: rgba(234,234,236,.85);
+$com-page-subnav-sticky-link-color: $com-primary-font-color;
+$com-page-subnav-sticky-hover-link-color: $com-status-primary-color;
+
+/*------------------------------------*\
+    POPOVER
+\*------------------------------------*/
+$com-popover-background-color: #ffffff;
+$com-popover-hover-background-color: #ebebed;
+$com-popover-font-color: #555555;
+$com-popover-border-color: $com-secondary-border-color;
+$com-popover-header-background-color: #f6f6f6;
+$com-line-light-section-border-color: #c4c4c4;
+$com-line-light-item-border-color: #c4c4c4;
+
+/*------------------------------------*\
+    PRODUCT COMPARE
+\*------------------------------------*/
+$com-product-compare-cell-font-color: #666;
+$com-product-compare-border-color: rgba(0,0,0,0.03);
+$com-product-compare-model-name-font-color: $com-primary-font-color;
+
+/*------------------------------------*\
+    PRODUCT DOWNLOAD
+\*------------------------------------*/
+$com-product-download-font-color: #ffffff;
+$com-product-download-link-color: $com-standout-primary-link-color;
+$com-product-download-hover-link-color: $com-primary-hover-link-color;
+
+/*------------------------------------*\
+    PRODUCT FEATURE
+\*------------------------------------*/
+$com-product-feature-text-color: #868788;
+$com-product-feature-border-color: rgba(black,0.1);
+
+/* video */
+$com-product-feature-video-headline-font-color: #666666;
+
+/* downloads */
+$com-product-feature-downloads-background-color: $com-standout-secondary-background-color;
+$com-product-feature-downloads-font-color: #ffffff;
+$com-product-feature-downloads-black-background-color: #000000;
+
+/* full */
+$com-product-feature-full-font-color: #ffffff;
+$com-product-feature-full-close-color: #ffffff;
+$com-product-feature-full-text-shadow-color: rgba(black,.7);
+$com-product-feature-full-overlay-background-color: #000000;
+
+/* price */
+$com-product-feature-price-background-color: $com-standout-secondary-background-color;
+$com-product-feature-price-font-color: #ffffff;
+$com-product-feature-price-hover-font-color: #cae3f3;
+$com-product-feature-price-button-font-color: $com-standout-secondary-background-color;
+$com-product-feature-price-button-background-color: #ffffff;
+$com-product-feature-price-hover-button-background-color: #eeeeee;
+
+/*------------------------------------*\
+    PRODUCT HERO
+\*------------------------------------*/
+$com-product-hero-light-font-color: #5a6f76;
+$com-product-hero-light-background-color: #d8d8d8;
+$com-product-hero-light-description-color: #6e7c81;
+$com-product-hero-light-gradient-begin: #d7d7d7;
+$com-product-hero-light-gradient-end: #f0f0f0;
+
+$com-product-hero-dark-font-color: #ffffff;
+$com-product-hero-dark-background-color: #414755;
+$com-product-hero-dark-description-color: #cccccc;
+$com-product-hero-dark-gradient-begin: #31343d;
+$com-product-hero-dark-gradient-end: #474c5c;
+
+$com-product-hero-black-font-color: #ffffff;
+$com-product-hero-black-background-color: #000000;
+$com-product-hero-black-description-color: #bbbbbb;
+$com-product-hero-black-gradient-begin: #0f0f10;
+$com-product-hero-black-gradient-end: #1a1c20;
+
+$com-product-hero-white-font-color: #58585a;
+$com-product-hero-white-background-color: #ffffff;
+$com-product-hero-white-description-color: #666666;
+
+/*------------------------------------*\
+    PRODUCT LIST
+\*------------------------------------*/
+$com-product-list-name-color: $com-status-primary-color;
+$com-product-list-name-border-color: #bbbbbb;
+$com-product-list-description-color: #616770;
+
+/*------------------------------------*\
+    PRODUCT RELATED
+\*------------------------------------*/
+$com-product-related-font-color: $com-standout-primary-font-color;
+$com-product-related-link-color: $com-standout-primary-link-color;
+$com-product-related-hover-link-color: #ffffff;
+$com-product-related-dropdown-background-color: $com-standout-primary-background-color;
+
+/*------------------------------------*\
+    PRODUCT SECTION
+\*------------------------------------*/
+$com-product-section-title-font-color: #1c222a;
+$com-product-section-title-border-color: #bcbcbe;
+$com-product-section-name-font-color: $com-status-primary-color;
+
+/*------------------------------------*\
+    SECTION HEADER
+\*------------------------------------*/
+$com-section-header-secondary-header-border-color: $com-secondary-border-color;
+
+/*------------------------------------*\
+    SECTION FEATURE
+\*------------------------------------*/
+$com-section-feature-footnote-font-color: #777777;
+
+/*------------------------------------*\
+    TABLE
+\*------------------------------------*/
+$com-table-row-font-color: #222222;
+$com-table-stripe-background-color: #ffffff;
+$com-table-row-header-font-color: #ffffff;
+$com-table-row-header-background-color: $com-action-primary-background-color;
+$com-table-large-border-color: $com-secondary-border-color;
+$com-table-small-border-color: #acacac;
+
+/*------------------------------------*\
+    TAGS
+\*------------------------------------*/
+$com-tags-background-color: #ebebeb;
+$com-tags-font-color: #616770;
+$com-tags-content-type-font-color: #00A0E4;
+
+/*------------------------------------*\
+    TYPOGRAPHY
+\*------------------------------------*/
+$com-hr-color: $com-secondary-border-color;
+$com-hr-dark-color: $com-standout-primary-border-color;
+
+/*------------------------------------*\
+    WRAPPER
+\*------------------------------------*/
+$com-wrapper-background-color: $com-primary-background-color;

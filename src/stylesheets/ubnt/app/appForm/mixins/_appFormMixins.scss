@@ -1,0 +1,14 @@
+/**
+ * 1. This shadow can look a little weird because it doens't affect the DOM
+ *    flow. So it can get very close to the element that's below this input.
+ *    We can't solve this with a margin-bottom or border-bottom because if the
+ *    input is in an inline form then its height will get increased, and that
+ *    could look weird.
+ */
+@mixin appMakeInvalidInput($color: $app-status-danger-color) {
+  box-shadow: 0px 4px 0px $color; /* [1] */
+}
+
+@mixin appMakeValidInput {
+  box-shadow: none;
+}

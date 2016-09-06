@@ -1,0 +1,129 @@
+// -----------------------------------------------------------------------------
+// CONTAINERS
+// -----------------------------------------------------------------------------
+
+/**
+ * 1. Support IE10.
+ */
+@mixin flexbox($important: false) {
+  @if $important == true {
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -moz-flex !important;
+    display: -ms-flex !important;
+    display: -ms-flexbox !important; /* [1] */
+    display: flex !important;
+  } @else {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -ms-flexbox; /* [1] */
+    display: flex;
+  }
+}
+
+@mixin flex-direction($values) {
+  -webkit-flex-direction: $values;
+  -ms-flex-direction: $values;
+  flex-direction: $values;
+}
+
+@mixin flex-wrap($value) {
+  -webkit-flex-wrap: $value;
+  flex-wrap: $value;
+}
+
+@mixin flex-flow($values) {
+  -webkit-flex-flow: $values;
+  flex-flow: $values;
+}
+
+/**
+ * 1. Support IE10.
+ */
+@mixin justify-content($values) {
+  -webkit-justify-content: $values;
+  -ms-justify-content: $values;
+  justify-content: $values;
+  -ms-flex-pack: $values; /* [1] */
+}
+
+/**
+ * 1. Support IE10.
+ */
+@mixin align-items($values) {
+  -webkit-align-items: $values;
+  -ms-align-items: $values;
+  -ms-flex-align: $values; /* [1] */
+  align-items: $values;
+}
+
+@mixin align-content($value) {
+  -webkit-align-content: $value;
+  align-content: $value;
+}
+
+// -----------------------------------------------------------------------------
+// ITEMS
+// -----------------------------------------------------------------------------
+
+@mixin order($value) {
+  -webkit-order: $value;
+  -ms-flex-order: $value;
+  order: $value;
+}
+
+/**
+ * 1. Support IE10.
+ */
+@mixin flex-grow($amount: 1) {
+  -webkit-flex-grow: $amount;
+  -ms-flex: $amount; /* [1] */
+  flex-grow: $amount;
+}
+
+@mixin flex-shrink($amount: 0) {
+  -webkit-flex-shrink: $amount;
+  flex-shrink: $amount;
+}
+
+@mixin flex-basis($value) {
+  -webkit-flex-basis: $value;
+  flex-basis: $value;
+}
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex: $values;
+  -webkit-flex: $values;
+  -ms-flex: $values;
+  flex: $values;
+}
+
+@mixin align-self($value) {
+  -webkit-align-self: $value;
+  align-self: $value;
+}
+
+// -----------------------------------------------------------------------------
+// PATTERNS
+// -----------------------------------------------------------------------------
+
+/**
+ * A container for one or more fixed-width items, and one fluid-width item.
+ * The fluid-width item will expand so that the items fill the container.
+ */
+@mixin flexGroup($important: false) {
+  @include flexbox($important);
+  @include align-items(flex-start);
+}
+
+/**
+ * A container that vertically and horizontally centers its child.
+ */
+@mixin flexCenter {
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(center);
+}

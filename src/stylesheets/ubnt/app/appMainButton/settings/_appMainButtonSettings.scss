@@ -1,0 +1,21 @@
+$app-main-button-state-pct: 3% !default;
+$app-main-button-border-darken-pct: 2% !default;
+$app-main-button-shadow: 0 1px 3px rgba(0, 0, 0, .25) !default;
+$app-main-button-disabled-shadow: none;
+$app-main-button-radius: 3px !default;
+$app-main-button-disabled-border-darken-pct: 8% !default;
+$app-main-button-disabled-text-opacity: .8 !default;
+$app-main-button-disabled-opacity: 0.3 !default;
+$app-main-button-spacing: .5em !default;
+
+$app-main-button-filter-color: #31373a;
+
+$app-main-button-group-filter-background-color: $app-main-button-filter-color;
+$app-main-button-group-filter-font-color: $app-main-button-filter-color;
+$app-main-button-group-filter-selected-background-color: $app-main-button-filter-color;
+$app-main-button-group-filter-selected-font-color: $app-main-button-group-selected-font-color;
+
+$app-main-button-group-dark-background-color: $app-main-button-filter-color;
+$app-main-button-group-dark-font-color: #ccc;
+$app-main-button-group-dark-selected-background-color: $app-main-button-filter-color;
+$app-main-button-group-dark-selected-font-color: $app-main-button-group-selected-font-color;

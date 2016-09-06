@@ -1,0 +1,52 @@
+/**
+ * Remove the bullet-points and any indents from lists.
+ *
+ * @extend this class when creating a list-based component if you want to
+ * get rid of the bullets.
+ */
+.list,
+%list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @include baseMakeListItem {
+    margin: $base-list-padding 0;
+    padding: 0;
+  }
+}
+
+.list--inline {
+  @include clearfix;
+  @include baseMakeListItem {
+    float: left;
+    margin: 0 $base-list-inline-margin;
+  }
+  &.list--comfy {
+    @include baseMakeListItem {
+      margin: 0 $base-list-comfy-inline-margin;
+    }
+  }
+  &.list--cozy {
+    @include baseMakeListItem {
+      margin: 0 $base-list-cozy-inline-margin;
+    }
+  }
+}
+
+.list--comfy {
+  @include baseMakeListItem {
+    margin: $base-list-comfy-padding 0;
+  }
+}
+
+.list--cozy {
+  @include baseMakeListItem {
+    margin: $base-list-cozy-padding 0;
+  }
+}
+
+.list--smash {
+  @include baseMakeListItem {
+    margin: 0;
+  }
+}

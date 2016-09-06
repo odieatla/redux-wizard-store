@@ -1,0 +1,11 @@
+.appFormGroup {
+  @include appVerticalRhythm;
+}
+
+.appFormGroup--cozy {
+  margin-bottom: remCalc(14px);
+}
+
+.appFormGroup--smash {
+  margin-bottom: 0;
+}

@@ -1,0 +1,57 @@
+// Tools are used to create defaults.
+// @import "../node_modules/css-base/src/baseTools/index";
+// @import "../node_modules/css-base/src/baseLayout/index";
+
+// If Com defaults.
+@import "comDefaults/index";
+
+// Base.
+// @import "../node_modules/css-base/src/base";
+
+/**
+ * Import all the components for the theme.
+ */
+
+// Contains vertical rhythm.
+// @import "comNormalize/index";
+
+@import "comGlobalHeader/index";
+@import "comFormSearch/index";
+@import "comContent/index";
+@import "comWrapper/index";
+/*
+@import "comButton/index";
+@import "comDeeplink/index";
+@import "comCircleIcon/index";
+@import "comColCenter/index";
+@import "comClearButton/index";
+@import "comCloseButton/index";
+@import "comFadeInTransition/index";
+@import "comFeatureIcon/index";
+@import "comForm/index";
+@import "comGlobalFooter/index";
+@import "comIconProduct/index";
+@import "comImageGallery/index";
+@import "comInfoBox/index";
+@import "comLink/index";
+@import "comModal/index";
+@import "comNewsletterSignup/index";
+@import "comPageHeader/index";
+@import "comPageSubNavigation/index";
+@import "comPopover/index";
+@import "comProductCompare/index";
+@import "comProductDownload/index";
+@import "comProductFeature/index";
+@import "comProductHero/index";
+@import "comProductList/index";
+@import "comProductRelated/index";
+@import "comProductSection/index";
+@import "comSectionFeature/index";
+@import "comSectionHeader/index";
+@import "comStatboxIcon/index";
+@import "comTable/index";
+@import "comTags/index";
+@import "comToast/index";
+@import "comTypography/index";
+@import "comPageSidebar/index";
+*/

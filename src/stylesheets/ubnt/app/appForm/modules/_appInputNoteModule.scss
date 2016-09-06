@@ -1,0 +1,60 @@
+/**
+ * 1. Align with label's baseline.
+ * 2. Style as "optional" by default.
+ */
+.appInputNote {
+  display: inline-block;
+  float: right;
+  font-size: .75rem;
+  font-weight: normal;
+  text-align: right;
+  text-transform: uppercase;
+  margin-top: remCalc(2px); /* [1] */
+  color: $app-form-input-note-font-color; /* [2] */
+
+  .appForm--cozy & {
+    margin-top: remCalc(4px);
+  }
+}
+
+.appInputNote--cozy {
+  float: none;
+  margin-left: remCalc(5px);
+}
+
+.appInputNote--aligned,
+.appInputNote--alignedRadio {
+  display: block;
+  float: none;
+  text-align: left;
+}
+
+/**
+ * 1. Align with baseline of inputs and selects in aligned form.
+ */
+.appInputNote--aligned {
+  margin-top: remCalc(13px);
+}
+
+/**
+ * 1. Align with baseline of radio buttons and checkboxes in aligned form.
+ */
+.appInputNote--alignedRadio {
+  margin-top: remCalc(5px); /* [1] */
+}
+
+.appInputNote--primary {
+  color: $app-status-primary-color;
+}
+
+.appInputNote--success {
+  color: $app-status-success-color;
+}
+
+.appInputNote--danger {
+  color: $app-status-danger-color;
+}
+
+.appInputNote--secondary {
+  text-transform: none;
+}

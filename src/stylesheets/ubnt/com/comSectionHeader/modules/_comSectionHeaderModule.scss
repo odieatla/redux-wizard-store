@@ -1,0 +1,214 @@
+/*------------------------------------*\
+    #SECTION HEADER
+\*------------------------------------*/
+
+.comSectionHeader {
+  
+}
+
+  .comSectionHeader__header {
+    text-align: center;
+    margin-bottom: 24px;
+    margin-top: 0;
+  }
+
+  .comSectionHeader__icon--large {
+    margin-bottom: -10px;
+    margin-top: -30px;
+  }
+
+  .comSectionHeader__icon {
+    font-size: $com-section-header-icon-font-size;
+    height: $com-section-header-icon-height;
+    line-height: 1;
+    margin-bottom: -20px;
+  }
+
+  /* Some icons don't match up to the same size */
+  .comSectionHeader__icon--large {
+    font-size: $com-section-header-icon-large-font-size;
+    height: $com-section-header-icon-large-height;
+    line-height: 1;
+  }
+
+  .comSectionHeader__title {
+    text-align: center;
+    font-weight: $com-section-header-title-font-weight;
+    margin-bottom: 1.5rem;
+    font-size: $com-section-header-title-font-size;
+    line-height: $com-section-header-title-line-height;
+    @include fontSmoothing(antialiased);
+
+    @include respondTo(small-down) {
+      font-size: 32px;
+      line-height: 38px;
+    }
+  }
+
+  .comSectionHeader__title--cozy {
+    font-size: 28px;
+    line-height: 36px;
+
+    @include respondTo(small-down) {
+      font-size: 24px;
+      line-height: 30px;
+    }
+  }
+
+  .comSectionHeader__text {
+    text-align: center;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+  }
+  
+  //section header align left default, center for xlg up
+  .comSectionHeader__text--xlgCenter {
+    text-align: justify;
+
+    @include respondTo(xlarge-up) {
+      text-align: center;
+    }
+  }
+
+.comSectionHeader--secondary {
+  
+  .comSectionHeader__header {
+    text-align: left;
+    margin-bottom: 24px;
+    margin-top: 0;
+    display: table;
+    width: 100%;
+    border-bottom: 1px solid $com-section-header-secondary-header-border-color;
+  }
+
+  .comSectionHeader__icon {
+    display: inline-block;
+    vertical-align: bottom;
+    width: $com-section-header-secondary-icon-width;
+    height: $com-section-header-secondary-icon-height;
+    font-size: $com-section-header-secondary-icon-font-size;
+    position: relative;
+
+    > .icon {
+      line-height: 1.1;
+      position: absolute;
+      top: -50%;
+      left: 0;
+      margin-top: -0.1em;
+    }
+  }
+  
+  .comSectionHeader__title {
+    font-size: 20px;
+    text-align: left;
+    margin-bottom: 0;
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: $com-section-header-secondary-title-font-size;
+  }
+
+  /* airfiber */
+  &.comSectionHeader--airfiber {
+    .comSectionHeader__icon {
+      width: $com-section-header-secondary-airfiber-icon-width;
+      font-size: $com-section-header-secondary-airfiber-icon-font-size;
+    }
+  }
+
+  /* airmax */
+  &.comSectionHeader--airmax {
+    .comSectionHeader__icon {
+      > .icon {
+        @include respondTo(medium-up) {
+          margin-top: -0.13em;
+        }
+      }
+    }
+  }
+
+  /* edgemax */
+  &.comSectionHeader--edgemax {
+    .comSectionHeader__icon {
+      width: $com-section-header-secondary-edgemax-icon-width;
+      font-size: $com-section-header-secondary-edgemax-icon-font-size;
+    }
+  }
+
+  /* unifi */
+  &.comSectionHeader--unifi {
+    .comSectionHeader__icon {
+      width: $com-section-header-secondary-unifi-icon-width;
+      font-size: $com-section-header-secondary-unifi-icon-font-size;
+
+      > .icon {
+        @include respondTo(medium-up) {
+          margin-top: -0.04em;
+        }
+      }
+    }
+  }
+
+  /* unifi video */
+  &.comSectionHeader--unifiVideo {
+    .comSectionHeader__icon {
+      width: $com-section-header-secondary-unifi-video-icon-width;
+      font-size: $com-section-header-secondary-unifi-video-icon-font-size;
+
+      > .icon {
+        @include respondTo(medium-up) {
+          margin-top: -0.14em;
+        }
+      }
+    }
+  }
+
+  /* unifi voip */
+  &.comSectionHeader--unifiVoip {
+    .comSectionHeader__icon {
+      width: $com-section-header-secondary-unifi-voip-icon-width;
+      font-size: $com-section-header-secondary-unifi-voip-icon-font-size;
+
+      > .icon {
+        @include respondTo(medium-up) {
+          margin-top: -0.18em;
+        }
+      }
+    }
+  }
+
+  /* mfi */
+  &.comSectionHeader--mfi {
+    .comSectionHeader__icon {
+      width: $com-section-header-secondary-mfi-icon-width;
+      font-size: $com-section-header-secondary-mfi-icon-font-size;
+
+      > .icon {
+        @include respondTo(medium-up) {
+          margin-top: -0.15em;
+        }
+      }
+    }
+  }
+}
+
+@include respondTo(small-down) {
+  .comSectionHeader--secondary {
+    .comSectionHeader__icon {
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+      
+      > .icon {
+        left: 0;
+        right: 0;
+        margin: 0;
+        top: -25%;
+      }
+    }
+
+    .comSectionHeader__title {
+      display: block;
+      text-align: center;
+    }
+  }
+}

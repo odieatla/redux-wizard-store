@@ -1,0 +1,9 @@
+.comFadeInTransition {
+  @include opacity(0);
+  @include transition-duration(0.3s);
+  @include transition-property(opacity);
+
+  &.is-faded-in {
+    @include opacity(1);
+  }
+}

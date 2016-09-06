@@ -1,0 +1,117 @@
+.comClearButton {
+  font-weight: bold;
+  letter-spacing: 0.167em;
+  cursor: pointer;
+  line-height: normal;
+  margin-bottom: 20px;
+  padding: 0.8rem 3rem 0.8rem+remCalc(1) 3rem;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 1px solid $com-clear-button-default-font-color;
+  color: $com-clear-button-default-font-color;
+  display: inline-block;
+
+  @include appearance(none);
+  @include transition(
+    opacity $com-animation-transition-time $com-animation-easing, 
+    transform $com-animation-transition-time $com-animation-easing, 
+    color $com-hover-transition-time $com-hover-easing, 
+    border $com-hover-transition-time $com-hover-easing,
+    background $com-hover-transition-time $com-hover-easing
+  );
+
+  &:hover,
+  &:focus  {
+    color: $com-clear-button-default-hover-font-color;
+    border-color: $com-clear-button-default-hover-font-color;
+  }
+
+  &:focus,
+  &:active {
+    outline-color: transparent;
+    outline-style: none;
+  }
+
+  &.is-button-disabled {
+    cursor: not-allowed;
+    color: $com-clear-button-disabled-font-color;
+    pointer-events: none;
+    border-color: $com-clear-button-disabled-font-color;
+  }
+
+  & + & {
+    margin-left: 1rem;
+  }
+}
+
+.comClearButton--reverse {
+  border-color: $com-clear-button-reverse-font-color;
+  color: $com-clear-button-reverse-font-color;
+
+  &:hover,
+  &:focus  {
+    color: $com-clear-button-reverse-hover-font-color;
+    border-color: $com-clear-button-reverse-hover-font-color;
+  }
+
+}
+
+.comClearButton--standout {
+  border-color: $com-clear-button-standout-font-color;
+  color: $com-clear-button-standout-font-color;
+
+  &:hover,
+  &:focus  {
+    color: $com-clear-button-standout-hover-font-color;
+    border-color: $com-clear-button-standout-hover-font-color;
+  }
+
+}
+
+.comClearButton--cozy {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.comClearButton--fill {
+  border: none;
+  background: $com-clear-button-fill-default-background-color;
+  color: $com-clear-button-fill-default-font-color;
+
+  &:hover, &:focus {
+    color: $com-clear-button-fill-default-hover-font-color;
+    background: $com-clear-button-fill-default-hover-background-color;
+  }
+}
+
+.comClearButton--fillDark {
+  border: none;
+  background: $com-clear-button-fill-dark-background-color;
+  color: $com-clear-button-fill-dark-font-color;
+
+  &:hover, &:focus {
+    color: $com-clear-button-fill-dark-hover-font-color;
+    background: $com-clear-button-fill-dark-hover-background-color;
+  }
+}
+
+.comClearButton--tiny {
+  padding: 3px 27px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.comClearButton--download {
+  font-size: 10px;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  padding: 0.15rem 0.75rem;
+  letter-spacing: 0.05em;
+  font-weight: normal;
+}

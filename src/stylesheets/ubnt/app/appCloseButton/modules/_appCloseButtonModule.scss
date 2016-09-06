@@ -1,0 +1,15 @@
+%appCloseButton,
+.appCloseButton {
+  cursor: pointer;
+  color: $app-close-button-light-color;
+  @include transition(opacity 0.5s);
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+%appCloseButton--dark,
+.appCloseButton--dark {
+  color: $app-close-button-dark-color;
+}

@@ -1,0 +1,58 @@
+/**
+ * 1. Position tooltip beyond the right edge of the nav.
+ * 2. Disallow line-breaks.
+ * 3. Sit on top of appGlobalSideNavPopover.
+ */
+.appGlobalSideNavTooltip {
+  position: absolute;
+  background-color: $app-side-nav-tooltip-background-color;
+  border: 1px solid $app-line-dark-container-border-color;
+  color: $app-dark-default-font-color;
+  text-transform: uppercase;
+  display: none;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  top: 3px;
+  left: 53px; // 1
+  white-space: nowrap; // 2
+  z-index: 100; // 3
+  @include fontSmoothing;
+
+  &:before,
+  &:after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    display: block;
+    content: " ";
+    border-color: transparent;
+    pointer-events: none;
+    border-width: 15px;
+    top: -1px;
+  }
+
+  &:before,
+  &:after {
+    border-style: solid solid solid outset;
+  }
+
+  &:after {
+    left: -28px;
+    border-right-color: $app-side-nav-tooltip-background-color;
+  }
+
+  &:before {
+    left: -29px;
+    border-right-color: $app-line-dark-container-border-color;
+  }
+}
+
+.appGlobalSideNavTooltipContainer,
+.appGlobalSideNav__item {
+  &:hover {
+    .appGlobalSideNavTooltip {
+      display: block;
+    }
+  }
+}

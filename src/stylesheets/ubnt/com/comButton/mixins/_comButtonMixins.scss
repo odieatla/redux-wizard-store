@@ -1,0 +1,9 @@
+@mixin comMakeMainButton($gradient-begin, $gradient-end, $hover-gradient-begin, $hover-gradient-end) {
+  background-color: $gradient-begin;
+  @include background-image(linear-gradient($gradient-begin, $gradient-end));
+    
+  &:hover,
+  &:focus  {
+    @include background-image(linear-gradient($hover-gradient-begin, $hover-gradient-end));
+  }
+}

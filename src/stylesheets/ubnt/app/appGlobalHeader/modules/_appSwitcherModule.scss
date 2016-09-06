@@ -1,0 +1,118 @@
+/**
+ * Global App Switcher Object.
+ *
+ * 1. Unitless line-height to prevent child elements from inheriting an arbitrary
+ *    value from a parent that is more likely to need overriding.
+ * 2. Hacky solution for misalignment of dropdown with other dropdowns in the
+ *    header.
+ */
+.appSwitcher {
+  @include appMakeGlobalHeaderDropdown(320px);
+  margin-top: -1px; /* [2] */
+  top: 43px;
+
+  padding: $app-global-header-dropdown-spacing;
+  padding-left: $app-global-header-dropdown-spacing * .5;
+  padding-right: $app-global-header-dropdown-spacing * .5;
+
+  ul {
+    margin-bottom: 0;
+    line-height: 1; /* [1] */
+  }
+}
+
+  /**
+   * List items inside application switcher.
+   *
+   * 1. Apply bottom spacing to first 3 items.
+   * 2. Bumped the font size for this icon a bit for a better alignment / size match for its svg shadow
+   *    that is layered underneath.
+   */
+  .appSwitcher__item {
+    display: inline-block;
+    width: $app-switcher-item-width;
+    text-align: center;
+    line-height: $app-switcher-item-line-height;
+
+    &:nth-child(-n+3) {
+      margin-bottom: remCalc(12px); /* [1] */
+    }
+
+    .icon {
+      position: relative;
+      display: table-cell;
+      vertical-align: middle;
+      color: #ffffff;
+      text-shadow: 1px 1px 2px rgba(#000000, 0.2);
+      font-size: remCalc(26px);
+
+      &.ubnt-icon--target {
+        font-size: remCalc(28px); /* [1] */
+      }
+    }
+  }
+
+    /**
+     * 1. Layers this pseudo element underneath the `.appSwitcher__linkContent` element.
+     */
+    .appSwitcher__link {
+      position: relative;
+      display: block;
+
+      &:after {
+        position: absolute;
+        content: "";
+        top: remCalc(42px);
+        left: 50%;
+        width: $app-switcher-link-shadow-width;
+        height: remCalc(10px);
+        margin-left: -($app-switcher-link-shadow-width / 2);
+        z-index: 0; /* [1] */
+        @include background(radial-gradient(ellipse at center, rgba(#262626,1) 0%, rgba(#262626,0.30) 30%, rgba(#262626,0) 55%));
+      }
+
+      &:hover {
+        .appSwitcher__itemText {
+          color: $app-link-hover-color;
+        }
+      }
+    }
+
+      /**
+       * 1. Original size is retina, but is constrained to fit within its container.
+       * 2. It was a bit diffcult to match the gradients and beveling effects with pure css for this graphic.
+       *    Using a base64 png data URI, here, to get around those limitations.
+       */
+      .appSwitcher__linkContent {
+        position: relative;
+        margin: 0 auto;
+        margin-bottom: remCalc(8px);
+        width: remCalc(48px);
+        height: remCalc(48px);
+        overflow: hidden;
+        z-index: 1;
+        border-radius: 100%;
+        background-size: 100%; /* [1] */
+        background-image: url($app-switcher-icon-background); /* [2] */
+
+        @include flexbox();
+        @include flex-direction(column);
+        @include justify-content(center);
+        @include align-items(center);
+      }
+
+        .appSwitcher__iconShadow {}
+
+        @each $icon in $app-switcher-icons {
+          .appSwitcher__iconShadow--#{$icon} {
+            @include appMakeAppSwitcherIconShadow(#{$icon});
+          }
+        }
+
+      .appSwitcher__itemText {
+        text-transform: uppercase;
+        font-size: remCalc(12px);
+        letter-spacing: emCalc(1.5px);
+        color: $app-switcher-item-text-color;
+        @include transition($app-link-transition);
+      }

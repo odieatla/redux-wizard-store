@@ -1,0 +1,74 @@
+/*------------------------------------*\
+    #SETTINGS
+\*------------------------------------*/
+
+/**
+* Global Image Path
+*/
+$com-images-path: '../../images/' !default;
+$com-body-image-path: 'site-bg.jpg' !default;
+
+/**
+ * These are very basic, high-level default settings to get a project started.
+ */
+$base-font-size:            16px;
+$com-base-font-size:        $base-font-size;
+$com-base-line-height:      24px !default;
+
+/**
+ * These are private variables that should not be reassigned, overridden, or
+ * modified. They are for use internally by the framework.
+ */
+$com-base-spacing-unit:     $com-base-line-height !default;
+$com-base-micro-unit:       $com-base-line-height/6 !default;
+
+/**
+ * Headings sizes. Defined these in pixels for the framework to convert into
+ * rems (and place on the baseline) later on.
+ */
+$com-heading-size-1:    56px !default;
+$com-heading-size-2:    36px !default;
+$com-heading-size-3:    28px !default;
+$com-heading-size-4:    24px !default;
+$com-heading-size-5:    20px !default;
+$com-heading-size-6:    16px !default;
+
+/**
+ * jQuery Widget
+ */
+$com-form-search-jqueryui-widget-font-size: remCalc(14px);
+
+// -----------------------------------------------------------------------------
+// PADDING
+// -----------------------------------------------------------------------------
+
+$com-padding: 24px;
+$com-cozy-padding: 12px;
+
+// -----------------------------------------------------------------------------
+// BORDER RADIUS
+// -----------------------------------------------------------------------------
+
+$com-global-radius: 3px !default;
+
+// -----------------------------------------------------------------------------
+// CONTENT MAX WIDTH
+// -----------------------------------------------------------------------------
+
+$com-content-max-width: 1600px;
+
+
+// -----------------------------------------------------------------------------
+// ANIMATION SETTINGS
+// -----------------------------------------------------------------------------
+
+$com-animation-transition-time: .9s;
+$com-animation-easing: cubic-bezier(0.26,.46,.45,.95);
+
+// -----------------------------------------------------------------------------
+// HOVER SETTINGS
+// -----------------------------------------------------------------------------
+
+$com-hover-transition-time: .3s;
+$com-hover-easing: ease-out;
+

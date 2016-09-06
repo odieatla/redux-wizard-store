@@ -1,0 +1,75 @@
+/**
+ * Buttons can be grouped together when wrapped with the buttonGroup object.
+ *
+ * 1. Allows vertical alignment and to leverage table-layout:fixed.
+ * 2. Creates equally sized buttons inside the buttonGroup.
+ * 3. Conforms to full width of parent container.
+ * 4. Reset ul styles, which may or may not be present.
+ */
+
+.buttonGroup {
+  display: table; /* [1] */
+  table-layout: fixed; /* [2] */
+  width: 100%; /* [3] */
+  list-style: none; /* [4] */
+  margin: 0; /* [4] */
+  padding: 0; /* [4] */
+
+  /**
+   * When buttons are inside a buttonGroup they require certian
+   * default button styles cleared.
+   *
+   * 1. Creates equally sized buttons inside the buttonGroup.
+   * 2. Remove the shadows from the buttons because they overlap. The theme's
+   *    buttonGroup should re-apply this shadow to the buttonGroup element.
+   * 3. Buttons should be flush against one another.
+   * 4. Buttons in the middle should not have any rounded corners.
+   * 5. First and last buttons should only have border radius on outer edges.
+   */
+  button,
+  .button {
+    display: table-cell; /* [1] */
+    vertical-align: middle;
+    @include box-shadow(none); /* [2] */
+    &:not(:first-child):not(:last-child) {
+      margin-left: 0; /* [3] */
+      margin-right: 0; /* [3] */
+      @include border-radius(0); /* [4] */
+    }
+    &:first-child:not(:last-child) {
+      @include border-right-radius(0); /* [5] */
+    }
+    &:last-child:not(:first-child) {
+      @include border-left-radius(0); /* [5] */
+    }
+  }
+
+  /**
+   * 1. Remove doubled-up borders created by buttons being flush up against
+   *    one another.
+   */
+  li + li {
+    button,
+    .button,
+    &.button {
+      border-left: 0; /* [1] */
+    }
+  }
+}
+
+.buttonGroup--shrink {
+  display: block;
+  width: auto;
+}
+
+  /**
+   * DEPRECATED
+   *
+   * These children of the buttonGroup provide the layout of individual
+   * buttons in the group.
+   *
+   * 1. Needed in order to take advantage of parent display:table
+   */
+  .buttonGroup__item {
+    display: table-cell; /* [1] */
+  }

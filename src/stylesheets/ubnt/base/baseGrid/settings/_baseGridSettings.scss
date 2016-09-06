@@ -1,0 +1,16 @@
+/**
+ * 1. Padding between columns. Gets divided in half for the left and right.
+ */
+$base-max-row-width: remCalc(960px) !default;
+$base-comfy-row-margin: 1rem !default;
+$base-grid-columns: 12 !default;
+$base-grid-gutter-width: remCalc(10px) !default; /* [1] */
+$base-comfy-grid-gutter-width: remCalc(30px) !default; /* [1] */
+
+// Responsive container sizes.
+$base-grid-container-xsmall: 100% !default;
+$base-grid-container-small: remCalc(400px) !default;
+$base-grid-container-medium: remCalc(600px) !default;
+$base-grid-container-large: remCalc(900px) !default;
+$base-grid-container-xlarge: remCalc(1200px) !default;
+$base-grid-container-xxlarge: remCalc(1600px) !default;

@@ -1,0 +1,21 @@
+@mixin appVerticalRhythm($size: normal, $direction: bottom, $important: false) {
+  $margin: $app-vertical-rhythm;
+
+  @if $size == smash {
+    $margin: $app-vertical-rhythm / 6;
+  } @else if $size == condensed {
+    $margin: $app-vertical-rhythm / 4;
+  } @else if $size == cozy {
+    $margin: $app-vertical-rhythm / 2;
+  } @else if $size == comfy {
+    $margin: $app-vertical-rhythm * 1.25;
+  } @else if $size == breezy {
+    $margin: $app-vertical-rhythm * 1.5;
+  }
+
+  @if $direction == bottom {
+    margin-bottom: $margin if($important, !important, null);
+  } @else if $direction == top {
+    margin-top: $margin if($important, !important, null);
+  }
+}

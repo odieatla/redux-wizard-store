@@ -1,0 +1,11 @@
+/**
+ * 1. Display higher than other elements.
+ * 2. Light theme by default.
+ */
+@mixin appMakeDropdown {
+  z-index: $base-z-index-dropdown; /* [1] */
+  border: 1px solid $app-dropdown-light-border-color; /* [2] */
+  background-color: $app-dropdown-light-background-color; /* [2] */
+  color: $app-dropdown-light-font-color; /* [2] */
+  box-shadow: $app-low-light-box-shadow; /* [2]] */
+}

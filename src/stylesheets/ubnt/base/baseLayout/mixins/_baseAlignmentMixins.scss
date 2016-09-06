@@ -1,0 +1,13 @@
+@mixin verticalCenterParent {
+  &:before {
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+  }
+}
+
+@mixin verticalCenterChild {
+  display: inline-block;
+  vertical-align: middle;
+}

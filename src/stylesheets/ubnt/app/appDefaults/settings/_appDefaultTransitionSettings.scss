@@ -1,0 +1,43 @@
+// -----------------------------------------------------------------------------
+// GENERAL
+// -----------------------------------------------------------------------------
+
+// Transitions
+$app-layout-responsive-transition-duration: .5s !default;
+
+// -----------------------------------------------------------------------------
+// GLOBAL HEADER
+// -----------------------------------------------------------------------------
+
+/**
+ * 1. The speed of the transition between the wide to medium breakpoints.
+ */
+$app-global-header-responsive-transition-duration: $app-layout-responsive-transition-duration !default; /* [1] */
+
+// -----------------------------------------------------------------------------
+// GLOBAL SIDE NAV
+// -----------------------------------------------------------------------------
+
+// Transition
+/**
+ * 1. The speed of the transition between the wide to medium breakpoints.
+ */
+$app-global-side-nav-responsive-transition-duration: $app-layout-responsive-transition-duration !default; /* [1] */
+
+// -----------------------------------------------------------------------------
+// PAGE
+// -----------------------------------------------------------------------------
+
+// Transition
+/**
+ * 1. The speed of the transition between the wide to medium breakpoints.
+ */
+$app-page-responsive-transition-duration: $app-layout-responsive-transition-duration !default; /* [1] */
+
+// -----------------------------------------------------------------------------
+// LINK
+// -----------------------------------------------------------------------------
+
+$app-link-transition-timing: .2s !default;
+$app-link-transition-ease: ease-out !default;
+$app-link-transition: color $app-link-transition-timing $app-link-transition-ease !default;

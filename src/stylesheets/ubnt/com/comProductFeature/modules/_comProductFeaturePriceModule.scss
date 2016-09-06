@@ -1,0 +1,79 @@
+.comProductFeature--price {
+  background-color: $com-product-feature-price-background-color;
+  font-weight: 300;
+  padding: 0 1em;
+
+  .comProductFeature__container {
+    @include respondTo(medium-up) {
+      display: table;
+      margin: 0 auto;
+    }
+  }
+
+  .comProductFeature__text,
+  .comProductFeature__cta {
+    @include respondTo(medium-up) {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+
+  .comProductFeature__text {
+    color: $com-product-feature-price-font-color;
+
+    h2 {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+
+      @include respondTo(medium-only) {
+        font-size: 1.6rem;
+        margin-bottom: 0;
+      }
+      @include respondTo(large-up) {
+        font-size: 2rem;
+        margin-bottom: 0;
+      }
+    }
+
+    p {
+      display: none;
+    }
+  }
+
+  .comProductFeature__cta {
+    text-align: center;
+    line-height: 3em;
+    @include respondTo(medium-only) {
+      font-size: 0.8rem;
+    }
+    @include respondTo(medium-up) {
+      padding-left: 3em;
+    }
+
+    a.comProductFeature__cta--dealer,
+    span {
+      color: $com-product-feature-price-font-color;
+      font-size: 1.2em;
+      @include respondTo(medium-up) {
+        font-size: 1.5em;
+      }
+    }
+
+    span {
+      padding: 0.4em;
+      @include respondTo(medium-up) {
+        display: inline;
+      }
+    }
+
+    .comProductFeature__cta--dealer {
+      border-bottom: 1px solid $com-product-feature-price-font-color;
+      &:hover {
+        color: $com-product-feature-price-hover-font-color;
+        border-bottom: 1px solid $com-product-feature-price-hover-font-color;
+      }
+    }
+
+  }
+}

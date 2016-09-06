@@ -1,0 +1,124 @@
+/**
+ * Respond to media queries.
+ * e.g:
+ *
+    .full-width-on-mobile-and-bigscreentv {
+        width: 50%;
+        @include respondTo(small-only xxlarge-only) {
+            width: 100%;
+        }
+    }
+ *
+ */
+
+@mixin respondTo($screenSizes) {
+
+  @if index($screenSizes, xsmall-only) {
+    @media #{$base-xsmall-only} {
+      @content;
+    }
+  }
+
+  @if index($screenSizes, xsmall-up) {
+    @media #{$base-xsmall-up} {
+      @content;
+    }
+  }
+
+  @if index($screenSizes, xsmall-down) {
+    @media #{$base-xsmall-down} {
+      @content;
+    }
+  }
+
+  @if index($screenSizes, small-up) {
+    @media #{$base-small-up} {
+      @content;
+    }
+  }
+
+  @if index($screenSizes, small-down) {
+    @media #{$base-small-down} {
+      @content;
+    }
+  }
+
+  @if index($screenSizes, small-only) {
+    @media #{$base-small-only} {
+      @content;
+    }
+  }
+
+  @if index($screenSizes, medium-up) {
+    @media #{$base-medium-up} {
+      @content;
+    }
+  }
+
+  @if index($screenSizes, medium-down) {
+    @media #{$base-medium-down} {
+      @content;
+    }
+  }
+
+  @if index($screenSizes, medium-only) {
+    @media #{$base-medium-only} {
+      @content;
+    }
+  }
+
+  @if index($screenSizes, large-up) {
+    @media #{$base-large-up} {
+      @content;
+    }
+  }
+
+  @if index($screenSizes, large-down) {
+    @media #{$base-large-down} {
+      @content;
+    }
+  }
+
+  @if index($screenSizes, large-only) {
+    @media #{$base-large-only} {
+      @content;
+    }
+  }
+
+  @if index($screenSizes, xlarge-up) {
+      @media #{$base-xlarge-up} {
+      @content;
+    }
+  }
+
+  @if index($screenSizes, xlarge-down) {
+    @media #{$base-xlarge-down} {
+      @content;
+    }
+  }
+
+  @if index($screenSizes, xlarge-only) {
+    @media #{$base-xlarge-only} {
+      @content;
+    }
+  }
+
+  @if index($screenSizes, xxlarge-up) {
+    @media #{$base-xxlarge-up} {
+      @content;
+    }
+  }
+
+  @if index($screenSizes, xxlarge-down) {
+    @media #{$base-xxlarge-down} {
+      @content;
+    }
+  }
+
+  @if index($screenSizes, xxlarge-only) {
+    @media #{$base-xxlarge-only} {
+      @content;
+    }
+  }
+
+}

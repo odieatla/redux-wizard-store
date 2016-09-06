@@ -1,0 +1,62 @@
+/**
+ * Functions borrowed from Foundation.
+ */
+
+// It strips the unit of measure and returns it
+@function stripUnit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+// New Syntax, allows to optionally calculate on a different base value to counter compounding effect of rem's.
+// Call with 1, 2, 3 or 4 parameters, 'px' is not required but supported
+// remCalc(10 20 30px 40);
+// Space delimited, if you want to delimit using comma's, wrap it in another pair of brackets
+// remCalc((10, 20, 30, 40px));
+// Optionally call with a different base (eg: 8px) to calculate rem.
+// remCalc(16px 32px 48px, 8px);
+// If you require to comma separate your list
+// remCalc((16px, 32px, 48), 8px);
+
+@function toRem($value, $base-value: $base-font-size)  {
+  $value: stripUnit($value) / stripUnit($base-value) * 1rem;
+  @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+  @return $value;
+}
+
+@function remCalc($values, $base-value: $base-font-size) {
+  $base-max: length($values);
+
+  @if $base-max == 1 { @return toRem(nth($values, 1), $base-value); }
+
+  $remValues: ();
+  @for $i from 1 through $base-max {
+    $remValues: append($remValues, toRem(nth($values, $i), $base-value));
+  }
+  @return $remValues;
+}
+
+@function toEm($value, $base-value: $base-font-size)  {
+  $value: stripUnit($value) / stripUnit($base-value) * 1em;
+  @if ($value == 0em) { $value: 0; } // Turn 0em into 0
+  @return $value;
+}
+
+@function emCalc($values, $base-value: $base-font-size) {
+  $base-max: length($values);
+
+  @if $base-max == 1 { @return toEm(nth($values, 1), $base-value); }
+
+  $emValues: ();
+  @for $i from 1 through $base-max {
+    $emValues: append($emValues, toEm(nth($values, $i), $base-value));
+  }
+  @return $emValues;
+}
+
+@function double($size) {
+  @return $size * 2;
+}
+
+@function halve($size) {
+  @return $size * .5;
+}

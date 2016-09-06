@@ -1,0 +1,53 @@
+/**
+ * Disabled state for table row.
+ */
+.is-row-disabled {
+  .appTable--light & {
+    color: $app-table-light-row-disabled-font-color;
+  }
+  .appTable--dark & {
+    color: $app-table-dark-row-disabled-font-color;
+  }
+}
+
+/**
+ * 1. is-row-disabled only applies a disabled appearance, so we need to provide
+ *    an additional state for making it non-interactive.
+ */
+.is-row-inactive {
+  pointer-events: none; // 1
+}
+
+.is-row-selected {
+  .appTable--light & {
+    background-color: $app-table-light-row-selected-background-color;
+  }
+  .appTable--dark & {
+    color: $app-table-dark-row-selected-font-color;
+    background-color: $app-table-dark-row-selected-background-color;
+  }
+}
+
+/**
+ * 1. Highlight row on hover, unless it's selected. Make it important so it
+ *    overrides the striped background color.
+ */
+.appTable--hoverable {
+  .tbody,
+  tbody {
+    .tr:hover:not(.is-row-selected),
+    tr:hover:not(.is-row-selected) {
+      background-color: $app-table-light-row-hover-background-color !important; /* [1] */
+    }
+  }
+  &.appTable--dark {
+    .tbody,
+    tbody {
+      .tr:hover:not(.is-row-selected),
+      tr:hover:not(.is-row-selected) {
+        background-color: $app-table-dark-row-hover-background-color !important;
+        color: $app-table-dark-row-hover-font-color;
+      }
+    }
+  }
+}

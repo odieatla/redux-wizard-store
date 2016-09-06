@@ -1,0 +1,21 @@
+/**
+ * Where `margin-bottom` is concerned,this value will be the same as the
+ * base line-height. This allows us to keep a consistent vertical rhythm.
+ * As per: csswizardry.com/2012/06/single-direction-margin-declarations
+ */
+hgroup, hr,
+ul, ol, dl,
+blockquote, address,
+table,
+fieldset, figure,
+pre {
+  @include appVerticalRhythm;
+}
+
+/*
+ * DEPRECATED 11/3/14 (use @include appVerticalRhythm instead)
+ * @extend this class to fit a block element into the vertical rhythm.
+ */
+%appVerticalRhythm {
+  margin-bottom: remCalc(24px);
+}

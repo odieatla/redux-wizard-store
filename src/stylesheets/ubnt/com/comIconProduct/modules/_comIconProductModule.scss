@@ -1,0 +1,27 @@
+/*------------------------------------*\
+    #ICON-PRODUCT
+\*------------------------------------*/
+
+.comIconProduct {
+  font-size: $com-icon-product-font-size;
+  line-height: ($com-icon-product-font-size / 3) !important;
+  @include transition-property(color);
+  @include transition-duration(.35s);
+}
+
+.comIconProduct--large {
+  font-size: $com-icon-product-large-font-size;
+  line-height: ($com-icon-product-large-font-size / 3) !important;
+  height: ($com-icon-product-large-font-size / 3);
+}
+
+.comIconProduct--hero {
+  font-size: $com-icon-product-hero-font-size-mobile;
+
+  @include respondTo(medium-up) {
+    font-size: $com-icon-product-hero-font-size;
+    line-height: ($com-icon-product-hero-font-size / 3) !important;
+    height: ($com-icon-product-hero-font-size / 3);
+  }
+}
+

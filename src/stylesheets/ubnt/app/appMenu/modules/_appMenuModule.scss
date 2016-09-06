@@ -1,0 +1,98 @@
+/**
+ * Dropdown Object. Originally designed for the Select Object (selectmenu),
+ * this is a simple container to toggle display mode.
+ *
+ * 1. Remove bullets from default list style.
+ * 2. Expand to be as wide as the parent element and fit snugly inside.
+ * 3. Wrap text when it's wider than the containing element.
+ * 4. Undo bottom margin set by normalize.
+ */
+.appMenu {
+  display: block;
+  list-style: none; /* [1] */
+  box-sizing: content-box; /* [2] */
+  min-width: 100%; /* [2] */
+  white-space: normal; /* [3] */
+  color: $app-menu-font-color;
+  margin-bottom: 0; /* [4] */
+  font-size: remCalc(14px);
+  background-color: $app-menu-background-color;
+}
+
+  .appMenu__item {
+    padding: remCalc(8px 12px);
+    &.is-menu-item-selected {
+      background-color: $app-menu-selected-background-color;
+    }
+  }
+
+.appMenu--dark {
+  color: $app-menu-dark-font-color;
+  background-color: $app-menu-dark-background-color;
+
+  .appMenu__item {
+    &.is-menu-item-selected {
+      color: $app-menu-dark-selected-font-color;
+      background-color: $app-menu-dark-selected-background-color !important;
+    }
+  }
+
+  &.appMenu--clickable {
+    .appMenu__item {
+      &:hover:not(.is-menu-item-selected) {
+        color: $app-menu-dark-hover-font-color;
+        background-color: $app-menu-dark-hover-background-color !important;
+      }
+    }
+  }
+}
+
+.appMenu--light {
+  color: $app-light-quiet-font-color;
+
+  .appMenu__item {
+    &.is-menu-item-selected {
+      color: $app-menu-dark-selected-font-color;
+      background-color: $app-menu-light-selected-background-color !important;
+    }
+  }
+
+  &.appMenu--clickable {
+    .appMenu__item {
+      &:hover:not(.is-menu-item-selected) {
+        color: $app-menu-light-hover-font-color;
+        background-color: $app-menu-light-selected-background-color !important;
+      }
+    }
+  }
+}
+.appMenu--transparent {
+  background-color: transparent !important;
+}
+
+.appMenu--scrollable {
+  @include appMakeScrollable;
+}
+
+/**
+ * 1. Hovering over a selected item should not offer affordance to the user.
+ */
+.appMenu--clickable {
+  .appMenu__item {
+    cursor: pointer;
+    &:hover:not(.is-menu-item-selected) { /* [1] */
+      background-color: $app-menu-hover-background-color;
+    }
+  }
+}
+
+.appMenu--complex {
+  .appMenu__item + .appMenu__item {
+    border-top: 1px solid $app-menu-border-color;
+  }
+}
+
+.is-menu-disabled {
+  background-color: $app-menu-disabled-background-color;
+  color: $app-menu-disabled-font-color;
+}

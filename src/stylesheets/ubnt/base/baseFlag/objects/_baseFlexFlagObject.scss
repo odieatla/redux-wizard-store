@@ -1,0 +1,17 @@
+%flexFlag,
+.flexFlag {
+  @include flexGroup;
+}
+
+  %flexFlag__body,
+  .flexFlag__body {
+    @include flex(1);
+  }
+
+.flexFlag--centered {
+  @include align-items(center);
+}
+
+.flexFlag--vertical {
+  @include flex-direction(column);
+}

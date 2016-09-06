@@ -1,0 +1,48 @@
+/**
+ * This is the button object. Alone this is not a fully functional
+ * button. It should be combined with a class in modules/_button.scss.
+ *
+ * 1. Margin 0 is needed to reset the HTML button element.
+ * 2. Outline none to reset HTML button behaviour.
+ */
+ button,
+.button {
+  margin: 0; /* [1] */
+  display: inline-block;
+  cursor: pointer;
+  font-size: $base-button-font-size;
+
+  &:hover,
+  &:focus {
+    outline: none; /* [2] */
+  }
+}
+
+  /**
+   * An icon may accompany the button's text. The default
+   * accomidates an icon on the left.
+   *
+   * 1. Vertically align icon with text.
+   * 2. Provides space between icon and text when icon is left of text.
+   */
+  .button__icon {
+    display: inline-block; /* [1] */
+    vertical-align: middle; /* [1] */
+    margin-top: emCalc(-2px); /* [1] */
+    margin-right: $base-button-icon-margin; /* [2] */
+  }
+
+  /**
+   * An icon to the right of button text
+   *
+   * 1. Undoes margin-right in .button__icon
+   * 2. Provides space between icon and text when icon is right of text.
+   */
+  .button__icon--right {
+    margin-right: 0; /* [1] */
+    margin-left: $base-button-icon-margin; /* [2] */
+  }
+
+.button--full {
+  width: 100%;
+}

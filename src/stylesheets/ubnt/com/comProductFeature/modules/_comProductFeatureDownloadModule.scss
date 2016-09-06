@@ -1,0 +1,65 @@
+.comProductFeature--downloads {
+  background-color: $com-product-feature-downloads-background-color;
+  color: $com-product-feature-downloads-font-color;
+
+  &.comProductFeature__background--black {
+    background-color: $com-product-feature-downloads-black-background-color;
+  }
+
+  .comProductFeature__text {
+    color: $com-product-feature-downloads-font-color;
+
+    p {
+      color: $com-product-feature-downloads-font-color;
+    }
+  }
+
+  .comProductFeature__downloads {
+    margin-top: 0;
+
+    @include respondTo(medium-up) {
+      margin-top: 1.2em;
+    }
+  }
+
+  .comProductFeature__item {
+    display: inline-block;
+    padding: 1.2em;
+    cursor: pointer;
+
+    @include respondTo(medium-up) {
+      margin-right: 4rem;
+      padding: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    a {
+      color: $com-product-feature-downloads-font-color;
+    }
+
+    .icon,
+    .comProductFeature__text {
+      display: block;
+      margin-left: 5px;
+
+      @include respondTo(large-up) {
+        display: inline-block;
+      }
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+    .icon {
+      font-size: 3em;
+
+      &.ubnt-icon--firmware-download{
+        font-size: 2em;
+      }
+    }
+  }
+}

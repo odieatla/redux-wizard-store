@@ -1,0 +1,47 @@
+/**
+ * THIS COMPONENT IS DEPRECATED 4/1/15.
+ */
+
+/**
+ * 1. Accomodate collapsed side nav.
+ * 2. Make room for the header.
+ */
+.appPage {
+  padding-left: $app-global-side-nav-width-medium; /* [1] */
+  padding-top: $app-page-offset-top; /* [2] */
+}
+
+/**
+ * 1. Expand to the size of the page
+ */
+.appPage--fullHeight {
+  height: 100%; /* [1] */
+}
+
+/**
+ * 1. Make room for the header and action bar.
+ */
+.appPage--withActionBar {
+  padding-top: $app-page-offset-top + $app-action-bar-height; /* [1] */
+}
+
+/**
+ * 1. Make room for the header and action bar.
+ */
+.appPage--withCozyActionBar {
+  padding-top: $app-page-offset-top + $app-action-bar-cozy-height; /* [1] */
+}
+
+.appPage--withFooter {
+  padding-bottom: $app-footer-height + 14px;
+  min-height: 100%;
+  height: auto;
+}
+
+.appPage--withSideMenu {
+  padding-left: $app-global-side-nav-width-medium + $app-side-menu-width;
+}
+
+.appPage--withWideSideMenu {
+  padding-left: $app-global-side-nav-width-medium + $app-side-menu-width-wide;
+}

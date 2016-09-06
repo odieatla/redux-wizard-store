@@ -1,0 +1,26 @@
+/*------------------------------------*\
+    #TEXT BUTTON
+\*------------------------------------*/
+
+.comTextButton {
+  color: $com-text-button-color;
+  padding: 0;
+  background-color: transparent;
+  border-color: transparent;
+  font-weight: normal;
+  display: inline-block;
+
+  @include transition-property(color);
+  @include transition-duration(.35s);
+
+  &:hover {
+    color: $com-text-button-hover-color;
+    background-color: transparent;
+    border-color: transparent;
+  }
+}
+
+.comTextButton--inline {
+  margin-left: 15px;
+  display: inline-block;
+}

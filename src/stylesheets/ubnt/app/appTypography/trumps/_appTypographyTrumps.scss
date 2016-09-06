@@ -1,0 +1,40 @@
+.warning {
+  color: $app-status-warning-color !important;
+}
+
+.danger {
+  color: $app-status-danger-color !important;
+}
+
+.success {
+  color: $app-status-success-color !important;
+}
+
+.primary {
+  color: $app-status-primary-color !important;
+}
+
+.noTextTransform {
+  text-transform: none !important;
+}
+
+.italicized {
+  font-style: italic;
+}
+
+.unweighted {
+  font-weight: normal;
+}
+
+.noWrap {
+  white-space: nowrap !important;
+}
+
+.allowWrap {
+  white-space: normal !important;
+}
+
+.noLineHeight {
+  line-height: 0;
+}
+

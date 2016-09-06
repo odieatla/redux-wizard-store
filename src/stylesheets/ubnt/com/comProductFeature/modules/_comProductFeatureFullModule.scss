@@ -1,0 +1,154 @@
+.comProductFeature--full {
+  line-height: 0;
+  border: none;
+  padding: 0;
+  overflow: hidden;
+  
+  @include respondTo($base-lower-large) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .comProductFeature__content {
+    border: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .comProductFeature__vimeo__video__container {
+    display: block;
+    @include respondTo(large-up) {
+      display: none;
+    }
+  }
+
+  @media only screen and (-webkit-device-pixel-ratio:1.5) {
+    display: none;
+  }
+  
+  .comProductFeature__container {
+    position: relative;
+    max-width: none;
+
+    &.comProductFeature__container--showVideo {
+      /* [1] ratio of the height/width  of the video */
+      padding-top: 56.2%; /* [1] */
+
+      .comProductFeature__image {
+        display: none;
+      }
+    }
+
+    .comProductFeature__image {
+      display: block;
+      position: relative;
+      width: 100%;
+    }
+
+    .comProductFeature__text {
+      display: none;
+    }
+
+    .comProductFeature__watchVideo {
+      display: block;
+    }
+
+    &:last-of-type {
+      border: none;
+    }
+  }
+}
+
+.comProductFeature__watchVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: none;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+
+  .comProductFeature__watchVideo__close {
+    position: absolute;
+    display: none;
+    top: $com-base-spacing-unit;
+    right: $com-base-spacing-unit;
+    color: $com-product-feature-full-close-color;
+    font-size: remCalc(24px);
+    z-index: 3;
+    @include respondTo(small-down) {
+      top: halve($com-base-spacing-unit);
+      right: halve($com-base-spacing-unit);
+      font-size: remCalc(16px);
+    }
+  }
+
+  /**
+   * 1. Flag Layout
+   */
+  .comProductFeature__watchVideo__content {
+    display: table; /* [1] */
+    width: 100%; /* [1] */
+    height: 100%;
+
+    .comProductFeature__watchVideo__content__body {
+      display: table-cell; /* [1] */
+      vertical-align: middle; /* [1] */
+
+      a{
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .comProductFeature__watchVideo__overlay {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: $com-product-feature-full-overlay-background-color;
+    cursor: pointer;
+    @include opacity(0);
+  }
+
+  .comProductFeature__watchVideo__videoHolder {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+  }
+
+  .comMainButton {
+    margin-bottom: 0;
+    
+    @include respondTo(medium-up) {
+      margin-top: -13px;
+    }
+  }
+
+  h2 {
+    display: block;
+    color: $com-product-feature-full-font-color;
+    text-shadow: 0 1px 3px $com-product-feature-full-text-shadow-color;
+    font-size: 1.6rem;
+    margin-bottom: 0;
+
+    @include respondTo(medium-up) {
+      display: inline-block;
+      font-size: 2rem;
+      margin-right: halve($com-base-spacing-unit);
+    }
+  }
+}

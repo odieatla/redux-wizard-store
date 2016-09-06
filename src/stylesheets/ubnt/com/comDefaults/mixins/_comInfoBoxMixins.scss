@@ -1,0 +1,126 @@
+/**
+ * This mixin can be used to create modifiers that become cozy at a specific
+ * breakpoint.
+ */
+@mixin comMakeCozyInfoBox($component: comInfoBox) {
+  padding: 10px;
+
+  .#{$component}__icon {
+    font-size: 20px;
+    width: 28px;
+  }
+
+  .#{$component}__close {
+    top: 8px;
+  }
+
+  .#{$component}__header {
+    font-size: remCalc(14px);
+    margin-bottom: $com-info-box-cozy-content-spacing;
+    font-weight: bold;
+  }
+
+  .#{$component}__content {
+    p {
+      font-size: remCalc(12px);
+      margin-bottom: $com-info-box-cozy-content-spacing;
+    }
+  }
+
+    /**
+     * 1. Don't push down the body in cozy info boxes.
+     */
+    .#{$component}__body {
+      margin-top: 0; /* [1] */
+    }
+}
+
+/**
+ * This mixin can be used to create info boxes, toasts, and similar components.
+ */
+@mixin comMakeInfoBox($component: comInfoBox) {
+  .#{$component} {
+    @extend %flexFlag;
+    background-color: $com-info-box-light-background-color;
+    color: $com-info-box-light-font-color;
+    padding: $com-padding;
+    border-radius: $com-global-radius;
+    border: 1px solid $com-line-light-item-border-color;
+  }
+
+    /**
+    * 1. Position icon so it is more visually aligned with the header.
+    * 2. Primary by default.
+    */
+    .#{$component}__icon {
+      position: relative; /* [1] */
+      top: remCalc(-4px); /* [1] */
+      font-size: remCalc(50px);
+      color: $com-status-primary-color; /* [2] */
+      width: remCalc(80px);
+    }
+
+    .#{$component}__content {
+      @extend %flexFlag__body;
+
+      p {
+        margin-bottom: $com-info-box-content-spacing;
+      }
+    }
+
+      .#{$component}__header {
+        font-size: remCalc(18px);
+        margin-bottom: $com-info-box-content-spacing;
+      }
+
+      /**
+       * 1. Push the body down so the first line of text is vertically-
+       *    centered with the icon.
+       */
+      .#{$component}__body {
+        margin-top: remCalc(10px); /* [1] */
+      }
+
+      /**
+       * 1. If there is a header, we don't need to push down the body.
+       */
+      .#{$component}__header +
+      .#{$component}__body {
+        margin-top: 0; /* [1] */
+      }
+
+  .#{$component}--success {
+    .#{$component}__icon {
+      color: $com-status-success-color;
+    }
+  }
+
+  .#{$component}--warning {
+    .#{$component}__icon {
+      color: $com-status-warning-color;
+    }
+  }
+
+  .#{$component}--danger {
+    .#{$component}__icon {
+      color: $com-status-danger-color;
+    }
+  }
+
+  .#{$component}--dark {
+    background-color: $com-info-box-dark-background-color;
+    color: $com-info-box-dark-font-color;
+    border-color: $com-info-box-dark-border-color;
+  }
+
+  .#{$component}--cozy {
+    @include comMakeCozyInfoBox($component);
+  }
+
+  .#{$component}--responsiveMdDown {
+    @include respondTo(medium-down) {
+      @include comMakeCozyInfoBox($component);
+    }
+  }
+
+}

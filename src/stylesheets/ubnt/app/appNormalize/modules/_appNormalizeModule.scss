@@ -1,0 +1,11 @@
+html {
+  height: 100%;
+  position: relative;
+}
+
+body {
+  height: 100%;
+  background: $app-body-background-color;
+  color: $app-body-font-color;
+  line-height: 1;
+}

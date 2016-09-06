@@ -1,0 +1,18 @@
+.comWrapper {
+  padding-top: $com-wrapper-mobile-padding-top;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  background-color: $com-wrapper-background-color;
+  overflow: hidden;
+  @media screen and (min-width: $com-global-header-tablet-nav-breakpoint-lower-bound + 1) {
+    padding-top: $com-wrapper-padding-top;
+  }
+}
+
+.comWrapper--basic {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}

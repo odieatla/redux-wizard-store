@@ -1,0 +1,104 @@
+/**
+ * Label element
+ *
+ * 1. Apply a bottom margin.
+ * 2. Give the same line-height as paragraphs.
+ */
+label {
+  display: inline-block; /* [1] */
+  margin-bottom: 5px; /* [1] */
+  line-height: remCalc(18px); /* [2] */
+  &[disabled],
+  &[disabled]:hover,
+  &.disabled,
+  &.disabled:hover {
+    cursor: not-allowed;
+  }
+
+  &.is-label-disabled {
+    opacity: $app-form-disabled-opacity;
+    cursor: not-allowed;
+  }
+
+  /**
+   * 1. Put some space between a label and a tooltip.
+   */
+  & + .appTooltipContainer {
+    margin-left: $app-form-inline-separation; /* [1] */
+  }
+}
+
+.appLabel--primary {
+  font-weight: 700;
+}
+
+.appForm--dark {
+  .appLabel--primary {
+    color: #969BA3;
+  }
+}
+
+/**
+ * 1. Vertically align with box inputs in an aligned form.
+ */
+.appLabel--boxAlign {
+  position: relative;
+  top: remCalc(8px); /* [1] */
+
+  /**
+   * 1. Line up the label and tooltip.
+   */
+  & + .appTooltipContainer {
+    position: relative;
+    top: remCalc(8px); /* [1] */
+  }
+
+  .appForm--cozy & {
+    & + .appTooltipContainer {
+      position: relative;
+      top: remCalc(3px); /* [1] */
+    }
+    top: remCalc(3px); /* [1] */
+  }
+}
+
+/**
+ * 1. Vertically align with toggle inputs in an aligned form.
+ */
+.appLabel--toggleAlign {
+  position: relative;
+  top: remCalc(2px); /* [1] */
+
+  /**
+   * 1. Line up the label and tooltip.
+   */
+  & + .appTooltipContainer {
+    position: relative;
+    top: remCalc(2px); /* [1] */
+  }
+
+  .appForm--cozy & {
+    & + .appTooltipContainer {
+      position: relative;
+      top: remCalc(3px); /* [1] */
+    }
+    top: remCalc(3px); /* [1] */
+  }
+}
+
+/**
+ * 1. Vertically align with box inputs in an inline form.
+ */
+.appLabel--boxInline {
+  position: relative;
+  top: remCalc(1px);
+}
+
+/**
+ * 1. Needs a width or else it will collapse.
+ */
+.appLabel--blank {
+  display: inline-block;
+  width: 1px; /* [1] */
+  height: remCalc(15px);
+}

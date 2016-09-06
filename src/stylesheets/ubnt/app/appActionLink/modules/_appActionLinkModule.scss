@@ -1,0 +1,42 @@
+/**
+ * Action links surface actions performed on granular bodies of content.
+ */
+
+.appActionLinkContainer {
+  position: relative;
+}
+
+  /**
+   * 1. Align action links to top of container.
+   */
+  .appActionLinkList {
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 0; /* 1 */
+  }
+
+  .appActionLink {
+    display: inline-block;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+    & + & {
+      margin-left: 10px;
+    }
+  }
+
+  .appActionLink--standalone {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+.appActionIcon {
+  display: inline-block;
+  margin-bottom: 0;
+  & + & {
+    margin-left: 6px;
+  }
+}

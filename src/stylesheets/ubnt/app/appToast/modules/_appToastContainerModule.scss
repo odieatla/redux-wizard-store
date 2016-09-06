@@ -1,0 +1,22 @@
+/**
+ * 1. Position at top of screen, full-width.
+ * 2. Display higher than other elements.
+ * 3. Don't block user interaction with elements below.
+ * 4. Center the toasts.
+ * 5. Stack them vertically.
+ * 6. Align to the right.
+ * 7. Position below the global header.
+ */
+.appToastContainer {
+  position: fixed; /* 1 */
+  top: 0; /* 1 */
+  left: 0; /* 1 */
+  right: 0; /* 1 */
+  z-index: $base-z-index-alert; /* 2 */
+  pointer-events: none; /* 3 */
+  padding: ($app-global-header-height + 10px) 10px 0; /* 7 */
+  @include flexbox; /* 4 */
+  @include justify-content(center); /* 4 */
+  @include flex-direction(column); /* 5 */
+  @include align-items(flex-end); /* 6 */
+}

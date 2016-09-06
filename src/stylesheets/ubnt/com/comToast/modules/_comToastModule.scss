@@ -1,0 +1,39 @@
+@include comMakeInfoBox(comToast);
+
+/**
+ * 1. Relatively position the close button.
+ * 2. The container has no pointer-events, so we need to re-enable them.
+ */
+.comToast {
+  position: relative; /* [1] */
+  max-width: $com-toast-max-width;
+  box-shadow: $com-toast-shadow;
+  width: $com-toast-width;
+  pointer-events: auto; /* [2] */
+
+  & + & {
+    margin-top: remCalc(5px);
+  }
+}
+
+  .comToast__close {
+    @extend %comCloseButton;
+    position: absolute;
+    right: remCalc(12px);
+    top: remCalc(12px);
+  }
+
+  .comToast__header {
+    margin-top: 0.6rem;
+  }
+
+  .is-toast-hidden, 
+  .is-toast-status-hidden {
+    display: none;
+  }
+  
+.comToast--dark {
+  .comToast__close {
+    @extend %comCloseButton--dark;
+  }
+}

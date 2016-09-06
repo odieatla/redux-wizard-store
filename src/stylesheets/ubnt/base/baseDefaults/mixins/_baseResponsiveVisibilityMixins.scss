@@ -1,0 +1,114 @@
+/**
+ * Hide everything except for
+ * .visible--xs, .visible--xsUp, .visible--smDown, .visible--mdDown, .visible--lgDown,
+ * .visible--xlgDown
+ */
+@include respondTo(xsmall-only) {
+  .visible--sm,
+  .visible--smUp,
+  .visible--md,
+  .visible--mdUp,
+  .visible--lg,
+  .visible--lgUp,
+  .visible--xlg,
+  .visible--xlgUp,
+  .visible--xxlg,
+  .visible--xxlgUp {
+    display: none !important;
+  }
+}
+
+/**
+ * Hide everything except for
+ * .visible--xsUp, .visible--sm, .visible--smUp, .visible--smDown, .visible--mdDown,
+ * .visible--lgDown, .visible--xlgDown
+ */
+@include respondTo(small-only) {
+  .visible--xs,
+  .visible--md,
+  .visible--mdUp,
+  .visible--lg,
+  .visible--lgUp,
+  .visible--xlg,
+  .visible--xlgUp,
+  .visible--xxlg,
+  .visible--xxlgUp {
+    display: none !important;
+  }
+}
+
+/**
+ * Hide everything except for
+ * .visible--xsUp, .visible--smUp, .visible--md, .visible--mdUp, .visible--mdDown,
+ * .visible--lgDown, .visible--xlgDown
+ */
+@include respondTo(medium-only) {
+  .visible--xs,
+  .visible--sm,
+  .visible--smDown,
+  .visible--lg,
+  .visible--lgUp,
+  .visible--xlg,
+  .visible--xlgUp,
+  .visible--xxlg,
+  .visible--xxlgUp {
+    display: none !important;
+  }
+}
+
+/**
+ * Hide everything except for
+ * .visible--xsUp, .visible--smUp, .visible--mdUp, .visible--lg, .visible--lgUp,
+ * .visible--lgDown, .visible--xlgDown
+ */
+@include respondTo(large-only) {
+  .visible--xs,
+  .visible--sm,
+  .visible--smDown,
+  .visible--md,
+  .visible--mdDown,
+  .visible--xlg,
+  .visible--xlgUp,
+  .visible--xxlg,
+  .visible--xxlgUp {
+    display: none !important;
+  }
+}
+
+/**
+ * Hide everything except for
+ * .visible--xsUp, .visible--smUp, .visible--mdUp, .visible--lgUp, .visible--xlg,
+ * .visible--xlgUp, .visible--xlgDown
+ */
+@include respondTo(xlarge-only) {
+  .visible--xs,
+  .visible--sm,
+  .visible--smDown,
+  .visible--md,
+  .visible--mdDown,
+  .visible--lg,
+  .visible--lgDown,
+  .visible--xxlg,
+  .visible--xxlgUp {
+    display: none !important;
+  }
+}
+
+/**
+ * Hide everything except for
+ * .visible--xsUp, .visible--smUp, .visible--mdUp, .visible--lgUp, .visible--xlgUp,
+ * .visible--xxlg, .visible-xxlgUp
+ */
+@include respondTo(xxlarge-up) {
+  .visible--xs,
+  .visible--sm,
+  .visible--smDown,
+  .visible--md,
+  .visible--mdDown,
+  .visible--lg,
+  .visible--lgDown,
+  .visible--xlg,
+  .visible--xlgDown {
+    display: none !important;
+  }
+}

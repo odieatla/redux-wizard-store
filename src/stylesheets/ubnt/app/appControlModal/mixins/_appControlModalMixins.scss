@@ -1,0 +1,20 @@
+/**
+ * Use this mixin to create a scrollable content area inside of modals.
+ * In situations where there is a sticky action bar, or other sticky UI
+ * elements (either above or below the scrollable content area), be sure to
+ * specify the aggregate height (in px) of those elements.
+ *
+ * 1. This content area will expand to occupy the entire height of the viewport,
+ *    minus the height of the modal chrome and margin.
+ * 2. Let the user scroll to see overflowing content.
+ */
+@mixin appMakeControlModalScrollableContent($fixed-content-height: 0px, $min-height: 100px) {
+  min-height: $min-height;
+  $margin: $app-control-modal-distance-from-window * 2;
+  $height: $app-control-modal-header-height + $app-control-modal-footer-height + $fixed-content-height;
+  max-height: calc(100vh - #{$margin + $height}); /* [1] */
+  overflow: auto; /* [2] */
+  border-top: 1px solid #272b30;
+  border-bottom: 1px solid #272b30;
+  @include appMakeDarkScrollbar;
+}

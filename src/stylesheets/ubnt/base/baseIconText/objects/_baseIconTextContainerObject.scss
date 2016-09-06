@@ -1,0 +1,7 @@
+/**
+ * 1. Provide a container around icon text so that it can be aligned left, right
+ *    etc, as a single inline element.
+ */
+.iconTextContainer {
+  display: inline-block; /* [1] */
+}

@@ -1,0 +1,54 @@
+/**
+ * 1. Tooltip is a child of this element, and it's absolutely positioned.
+ * 2. Since we expect this to encapsulate the "prompt", we should shrink-wrap
+ *    to its dimensions.
+ */
+.appTooltipContainer {
+  position: relative; /* [1] */
+  display: inline-block; /* [2] */
+}
+
+/*
+ * 1. Reveal tooltip on hover.
+ */
+.appTooltipContainer--hoverable {
+  .appTooltip {
+    display: none; /* [1] */
+  }
+  &:hover {
+    .appTooltip {
+      display: block; /* [1] */
+    }
+  }
+}
+
+/**
+ * 1. If we vertically-align to the middle then it looks weird when next to
+ *    a blank form label.
+ * 2. Retain appearance despite inherited font-size.
+ */
+.appTooltipContainer--prompt {
+  vertical-align: top; /* [1] */
+  width: $app-tooltip-prompt-size;
+  height: $app-tooltip-prompt-size;
+  background-color: $app-tooltip-prompt-background-color;
+  color: $app-tooltip-prompt-font-color;
+  text-align: center;
+  padding-top: remCalc(1px);
+  cursor: pointer;
+  line-height: remCalc(14px);
+  font-size: remCalc(14px); /* [2] */
+  @include user-select(none);
+  @include border-radius($app-tooltip-prompt-size);
+
+  &:before {
+    content: "?";
+  }
+}
+
+/**
+ * 1. Remove spacing when in a columnar form when the input has no label.
+ */
+.appTooltipContainer--withBlankLabel {
+  margin-left: 0 !important; /* [1] */
+}

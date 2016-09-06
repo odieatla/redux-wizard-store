@@ -1,0 +1,12 @@
+@mixin appMakeCollapsedGlobalSideNav() {
+
+  width: $app-global-side-nav-width-medium;
+
+  .appGlobalSideNav__itemText {
+    opacity: 0;
+  }
+
+  .appGlobalSideNav__utilityMenu {
+    display: none;
+  }
+}

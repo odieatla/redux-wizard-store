@@ -1,0 +1,43 @@
+/**
+ * Global Application Switcher Icon link. Should be applied to a link,
+ * and used in combination with the Global Switcher object.
+ *
+ * 1. Gives the border color a lighter blue color in contrast to the grid icon.
+ * 2. Centers the icon vertically as an absolute positioned element.
+ * 3. Centers the icon horizontally as an absolute positioned element.
+ * 4. Making sure these elements won't get distorted at small screen size.
+ *
+ */
+.appSwitcherButton {
+  @include flex-shrink(0); /* [2] */
+  position: relative;
+  display: inline-block;
+  height: inherit;
+  margin-right: 10px;
+}
+
+  .appSwitcherButton__trigger {
+    display: inline-block;
+    position: relative;
+    width: $app-switcher-trigger-width;
+    height: $app-switcher-trigger-height;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid $app-switcher-trigger-border-color; /* [1] */
+    border-radius: 100%;
+
+    &:hover {
+      color: inherit;
+    }
+
+    .icon {
+      position: absolute;
+      font-size: $app-switcher-trigger-icon-font-size;
+      line-height: 1.1;
+      color: $app-switcher-icon-color;
+      top: 50%; /* [2] */
+      left: 50%; /* [3] */
+      margin-top: -5px; /* 2 */
+      margin-left: -5px; /* 3 */
+    }
+  }

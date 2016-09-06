@@ -1,0 +1,79 @@
+/**
+ * 1. Shrink to contents.
+ */
+.appDatepicker {
+  display: inline-block; /* [1] */
+  padding: remCalc(12px 5px 8px);
+  @include appMakeDropdown;
+}
+
+  .appDatepicker__title {
+    position: relative;
+    text-align: center;
+    font-size: remCalc(13px);
+    margin-bottom: remCalc(5px);
+    font-weight: 300;
+  }
+
+    .appDatepicker__prev,
+    .appDatepicker__next {
+      position: absolute;
+    }
+
+    .appDatepicker__prev {
+      left: remCalc(6px);
+    }
+
+    .appDatepicker__next {
+      right: remCalc(6px);
+    }
+
+  /**
+   * 1. Separate cells.
+   */
+  .appDatepicker__table {
+    border-collapse: separate; /* [1] */
+    border-spacing: remCalc(4px 6px); /* [1] */
+    margin-bottom: 0;
+    font-weight: 700;
+
+    thead {
+      font-size: remCalc(12px);
+    }
+
+    th {
+      font-weight: 300;
+    }
+
+    tbody {
+      font-size: remCalc(11px);
+    }
+
+    td,
+    th {
+      width: remCalc(18px);
+      height: remCalc(18px);
+      vertical-align: middle;
+      text-align: center;
+      border: 1px solid transparent;
+    }
+
+    a {
+      color: $app-dropdown-light-font-color;
+    }
+
+  }
+
+    .appDatepickerDay--past,
+    .appDatepickerDay--future {
+      color: $app-datepicker-adjacent-font-color;
+      font-weight: 300;
+    }
+
+    .appDatepickerDay--selected {
+      background-color: $app-datepicker-selected-background-color;
+    }
+
+    .appDatepickerDay--today {
+      border-color: $app-datepicker-today-border-color !important;
+    }

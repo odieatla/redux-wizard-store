@@ -1,0 +1,151 @@
+body {
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+h1,
+.appH1,
+.appAlpha {
+  font-size: remCalc(36px);
+  line-height: remCalc(40px);
+  font-weight: 300;
+  @include fontSmoothing;
+  @include appVerticalRhythm;
+}
+
+h2,
+.appH2,
+.appBeta {
+  font-size: remCalc(28px);
+  line-height: remCalc(32px);
+  font-weight: 400;
+  @include fontSmoothing;
+  @include appVerticalRhythm;
+}
+
+h3,
+.appH3,
+.appGamma {
+  font-size: remCalc(22px);
+  line-height: remCalc(26px);
+  font-weight: 400;
+  @include fontSmoothing;
+  @include appVerticalRhythm;
+}
+
+h4,
+.appH4,
+.appDelta {
+  font-size: remCalc(18px);
+  line-height: remCalc(24px);
+  font-weight: 700;
+  @include fontSmoothing;
+  @include appVerticalRhythm;
+}
+
+h5,
+.appH5,
+.appEpsilon {
+  font-size: remCalc(14px);
+  line-height: remCalc(18px);
+  font-weight: 700;
+  @include fontSmoothing;
+  @include appVerticalRhythm;
+}
+
+h6,
+%appH6,
+.appH6,
+.appZeta {
+  font-size: remCalc(12px);
+  line-height: remCalc(16px);
+  font-weight: 900;
+  @include fontSmoothing;
+  @include appVerticalRhythm;
+}
+
+p,
+%appParagraph,
+.appParagraph {
+  font-size: remCalc(14px);
+  line-height: remCalc(18px);
+  @include appVerticalRhythm;
+}
+
+.appType--micro {
+  font-size: 12px;
+}
+
+.appType--nano {
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.appType--quiet {
+  color: $app-light-quieter-font-color;
+}
+
+.appSubHeading {
+  @extend %appH6;
+  text-transform: uppercase;
+  color: $app-subheading-light-font-color;
+  margin-bottom: 0;
+}
+
+.appSubHeading--small {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.appSubHeading--comfy {
+  font-size: 13px;
+  letter-spacing: .05rem;
+}
+
+.appSubHeading--dark {
+  color: $app-subheading-dark-font-color;
+}
+
+.appSubHeading--standalone {
+  border-bottom: 1px solid $app-subheading-light-border-color;
+  padding-bottom: 3px;
+
+  &.appSubHeading--comfy {
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+  }
+
+  &.appSubHeading--dark {
+    border-color: $app-subheading-dark-border-color;
+  }
+}
+
+.appItemHeading {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.appType--darkImportant {
+  color: white;
+}
+
+.appType--dark {
+  color: #969BA3;
+}
+
+/**
+ * 1. Draw each line of text as a solid line.
+ * 2. Reduce height of each solid line to make it thinner.
+ * 3. Show a gap between lines to prevent them from appearing as a solid
+ *    block.
+ * 4. Prevent the text itself from being visible.
+ */
+.appType--dummy {
+  background-color: $app-light-fill-disabled-font-color; /* [1] */
+  line-height: 0.8; /* [2] */
+  margin-bottom: 0.2em; /* /[3] */
+  display: inline-block; /* [3] */
+  color: transparent; /* [4] */
+}

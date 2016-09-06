@@ -1,0 +1,97 @@
+/**
+ * Tables with scrollable content.
+ */
+.table--scrollable {
+
+  position: relative;
+
+  /**
+   * 1. The scroll bar creates some extra padding on the right side of the
+   *    header. Add a border to the last th to clearly separate the th from this
+   *    extra space.
+   */
+  .th:last-child,
+  th:last-child {
+    border-right-width: 1px; /* [1] */
+    border-right-style: solid; /* [1] */
+  }
+
+  /**
+  * Scrollable styles
+  *
+  * NOTE: The cells must have their 'width' attribute set since we are making
+  * our sections use display: block.
+  *
+  * NOTE: The table body will need to have an explicit pixel height set. Tall,
+  # medium, and short defaults are available.
+  */
+
+  /**
+  * Table Header
+  *
+  * 1. Position it at the top.
+  * 2. Give it a full width.
+  * 3. Give it an explicit height.
+  * 4. Reduce the width of the header to match the reduced width of the tbody
+  *    caused by the presence of a scrollbar. This ensures the header cells
+  *    align with the row cells.
+  */
+
+  .thead,
+  thead {
+    position: absolute; /* [1] */
+    display: block;
+    left: 0; /* [2] */
+    right: 0; /* [2] */
+    height: $base-table-header-height; /* [3] */
+    padding-right: 15px; /* [4] */
+  }
+
+  /**
+   * 1. Give it a full width.
+   * 2. Reset the display back to table.
+   */
+  .thead .tr,
+  thead tr {
+    width: 100%; /* [1] */
+    display: table; /* [2] */
+  }
+
+  /**
+  * Table Body
+  *
+  * NOTE: The table body will need to have an explicit pixel height set.
+  *
+  * 1. Add vertical scrolling. Make sure scrollbar is always visible with scroll
+  *    instead of auto, because of the width adjustment we've made to the thead,
+  *    which is unconditional.
+  */
+  .tbody,
+  tbody {
+    display: block;
+    overflow-y: scroll; /* [1] */
+  }
+
+  /**
+  * Table Body
+  *
+  * NOTE: The table body will need to have an explicit pixel height set.
+  *
+  * 1. Give it a margin top to push it under the absolutely positioned header.
+  */
+  .thead + .tbody,
+  thead + tbody {
+    margin-top: $base-table-header-height; /* [1] */
+  }
+
+  /**
+   * 1. Give it a full width.
+   * 3. Reset the display back to table.
+   */
+  .tbody .tr,
+  tbody tr {
+    width: 100%; /* [1] */
+    display: table; /* [2] */
+  }
+
+}

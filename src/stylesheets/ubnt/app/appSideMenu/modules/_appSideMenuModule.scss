@@ -1,0 +1,26 @@
+/**
+ * THIS COMPONENT IS DEPRECATED 4/1/15.
+ */
+
+/**
+ * 1. Make menu items comfy, and match the height of the action bar, in case
+ *    it's used in conjunction with a fixed action bar.
+ */
+.appSideMenu {
+  position: fixed;
+  top: $app-page-offset-top;
+  left: $app-global-side-nav-width-medium;
+  bottom: 0;
+  width: $app-side-menu-width;
+  overflow-y: auto;
+  border-right: 1px solid $app-line-light-section-border-color;
+  @include appMakeLightScrollbar;
+
+  .appMenu__item {
+    padding: remCalc(16px 24px); /* [1] */
+  }
+}
+
+.appSideMenu--wide {
+  width: $app-side-menu-width-wide;
+}

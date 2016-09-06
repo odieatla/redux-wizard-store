@@ -1,0 +1,46 @@
+/*------------------------------------*\
+    #SECTION FEATURE
+\*------------------------------------*/
+
+.comSectionFeature {
+  
+}
+
+.comSectionFeature__text {
+  font-weight: 400;
+  text-align: justify;
+  @include comVerticalRhythm;
+  margin-bottom: 48px;
+}
+
+.comSectionFeature__image {
+  max-width: 100%;
+  @include comVerticalRhythm;
+}
+
+.comSectionFeature__text--footnote {
+  font-size: 0.75rem;
+  line-height: 1.125;
+  font-weight: 300;
+  text-align: justify;
+  color: $com-section-feature-footnote-font-color;
+  @include fontSmoothing(subpixel-antialiased);
+
+  sup {
+      top: -0.3em;
+  }
+}
+
+/**
+ * 1. For product gradient use 'to bottom',
+ * 'top bottom' causes the gradient to not render correctly
+ */
+.comSectionFeature--gradient {
+  @include background-image(linear-gradient(to bottom, #fafafa 0%,#fafafa 26%,#f7f7f7 76%,#f1f2f2 97%,#f0f0f0 100%,#ededed 100%,#f8f8f8 100%));/* [1] */
+  background-size: 100% 280px;
+  background-repeat: no-repeat;
+
+  @include respondTo(medium-up) {
+    background-size: 100% 380px;
+  }
+}

@@ -1,0 +1,19 @@
+.appCount {
+  color: $app-count-font-color;
+  font-size: 1em;
+  background-color: $app-count-warning-background-color;
+}
+
+/**
+ * A reassuring counter.
+ */
+.appCount--success {
+  background-color: $app-count-success-background-color;
+}
+
+/**
+ * A counter for alerts. Bright colors.
+ */
+.appCount--danger {
+  background-color: $app-count-danger-background-color;
+}

@@ -1,0 +1,11 @@
+.uppercase {
+  text-transform: uppercase !important;
+}
+
+.capitalize {
+  text-transform: capitalize !important;
+}
+
+.truncate {
+  @include truncate;
+}

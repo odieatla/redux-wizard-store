@@ -1,0 +1,76 @@
+.tabs {
+  @include baseMakeTabs;
+}
+
+  /**
+   * Individual tab items.
+   *
+   * 1. Allow the parents text-align center to center the tabs.
+   * 2. Reset font-size.
+   * 3. Disabled state for item.
+   * 4. This is correct, but doesn't work in Chrome.
+   */
+  .tabs__item {
+
+    cursor: pointer;
+    display: inline-block; /* [1] */
+    width: $base-tabs-item-width;
+    font-size: 1rem; /* [2] */
+
+    &.is-tab-disabled { /* [3] */
+
+      pointer-events: none;
+      cursor: not-allowed; /* [4] */
+
+    }
+
+  }
+
+/**
+ * DEPRECATED 10/30/14
+ *
+ * Tabs are full width and evenly spaced.
+ *
+ * 1. Provides text alignment and equal spacing of tabs
+ * 2. Determines equal widths of tabs
+ * 3. Provides equal width of tabs via display:table and
+ *    table-layout:fixed properties of parent
+ */
+.tabs--full {
+
+  display: table; /* [1] */
+  table-layout: fixed; /* [2] */
+
+  .tabs__item {
+
+    display: table-cell; /* [3] */
+
+  }
+
+}
+
+/**
+ * DEPRECATED 10/30/14
+ */
+.tabs--cozy {
+
+  .tabs__item {
+
+    padding: $base-tabs-item-cozy-padding;
+
+  }
+
+}
+
+/**
+ * DEPRECATED 10/30/14
+ */
+.tabs--comfy {
+
+  .tabs__item {
+
+    padding: $base-tabs-item-comfy-padding;
+
+  }
+
+}

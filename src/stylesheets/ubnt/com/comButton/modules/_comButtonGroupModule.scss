@@ -1,0 +1,38 @@
+/*------------------------------------*\
+    #GROUP BUTTON
+\*------------------------------------*/
+
+.comMainButtonGroup {
+  .comMainButton {
+    @include comMakeMainButton($com-main-button-group-gradient-begin, $com-main-button-group-gradient-end, $com-main-button-group-hover-gradient-begin, $com-main-button-group-hover-gradient-end);
+
+    color: $com-main-button-group-color;
+    border: 1px solid $com-main-button-group-border-color;
+    padding: 1em;
+
+    & + & {
+      border-left: none;
+    }
+
+    &:hover {
+      color: $com-main-button-group-hover-color;
+    }
+
+    &:focus {
+      color: $com-main-button-group-color;
+    }
+
+    &.is-button-selected {
+      color: $com-main-button-group-selected-font-color;
+      @include comMakeMainButton($com-main-button-group-selected-gradient-begin, $com-main-button-group-selected-gradient-end, $com-main-button-group-selected-hover-gradient-begin, $com-main-button-group-selected-hover-gradient-end);
+    }
+
+    &:first-child {
+      @include border-left-radius($com-main-button-group-radius);
+    }
+
+    &:last-child {
+      @include border-right-radius($com-main-button-group-radius);
+    }
+  }
+}

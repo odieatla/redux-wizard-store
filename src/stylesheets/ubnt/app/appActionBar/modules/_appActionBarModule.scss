@@ -1,0 +1,116 @@
+/**
+ * 1. Fixes appearance when used within flexFlag--vertical, as is the case
+ *    when implementing a table view.
+ * 2. Set the action bar's minimum height in case the flexible modifier is used.
+ */
+.appActionBar {
+  height: $app-action-bar-height;
+  min-height: $app-action-bar-height; /* [2] */
+  padding: 0 $app-padding;
+  background-color: $app-action-bar-background-color;
+  border-bottom: 1px solid $app-action-bar-border-color;
+  position: relative; /* [1] */
+  width: 100%; /* [1] */
+}
+
+  .appActionBar__inner {
+    display: table;
+    width: 100%;
+    height: inherit;
+  }
+
+  .appActionBar__left,
+  .appActionBar__right {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .appActionBar__right {
+    text-align: right;
+  }
+
+/**
+* 2. Set the action bar's minimum height in case the flexible modifier is used.
+*/
+.appActionBar--cozy {
+  height: $app-action-bar-cozy-height;
+  min-height: $app-action-bar-cozy-height; /* [2] */
+  padding: 0 $app-cozy-padding;
+}
+
+.appActionBar--standalone {
+  border-top: 1px solid $app-action-bar-border-color;
+}
+
+/**
+ * 1. Never shrink the action bar when it's in a vertical flexbox layout.
+ * 2. Rely on the minimum height instead of defining it explicitly.
+ * 3. Add some padding so when wrapped there is a bit of space.
+ */
+.appActionBar--flexible {
+  display: flex;
+  flex-shrink: 0; /* [1] */
+  height: auto; /* [2] */
+  padding-top: 2px; /* [3] */
+  padding-bottom: 2px; /* [3] */
+
+  .appActionBar__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .appActionBar__left,
+  .appActionBar__right {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.appActionBar--dark {
+  border-top: 1px solid #272b30;
+  background-color: #191c21;
+  border-bottom-color: #272b30;
+}
+
+.appActionBar--transparent {
+  background-color: transparent !important;
+}
+
+  .appActionBarTitle {
+    padding-left: 3px;
+    font-size: .8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .05rem;
+  }
+
+.appActionBar--detached {
+  border: 1px solid $app-action-bar-border-color;
+  border-radius: 4px;
+}
+
+/**
+ * DEPRECATED 4/1/15.
+ */
+.appActionBar--withSideMenu {
+  left: $app-global-side-nav-width-medium + $app-side-menu-width;
+}
+
+/**
+ * DEPRECATED 4/1/15.
+ */
+.appActionBar--withWideSideMenu {
+  left: $app-global-side-nav-width-medium + $app-side-menu-width-wide;
+}
+
+/**
+ * DEPRECATED 4/1/15.
+ */
+.appActionBar--fixed {
+  position: fixed;
+  top: $app-global-header-height;
+  left: $app-global-side-nav-width-medium;
+  right: 0;
+  z-index: $app-z-index-action-bar;
+}

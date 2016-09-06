@@ -1,0 +1,250 @@
+.appInfoBox {
+  @extend %flexFlag;
+  color: $app-light-default-font-color;
+  padding: $app-padding;
+  border-radius: $app-global-radius;
+  border: 1px solid $app-line-light-container-border-color;
+}
+
+  /**
+  * 1. Position icon so it is more visually aligned with the header.
+  *    Use margin-top instead of top, to affect layout.
+  * 2. Primary by default.
+  */
+  .appInfoBox__icon {
+    margin-top: -4px; /* 1 */
+    font-size: 50px;
+    color: $app-status-primary-color; /* [2] */
+    width: 80px;
+  }
+
+  .appInfoBox__content {
+    @extend %flexFlag__body;
+
+    p {
+      margin-bottom: $app-info-box-content-spacing;
+    }
+  }
+
+    /**
+     * 1. Only push body down if preceded by a header.
+     */
+    .appInfoBox__header {
+      font-size: 18px;
+      & + .appInfoBox__body {
+        margin-top: 8px; /* 1 */
+      }
+    }
+
+    /**
+     * 1. Push the body down so the first line of text is vertically-
+     *    centered with the icon.
+     */
+    .appInfoBox__body {
+      margin-top: 10px; /* [1] */
+    }
+
+    /**
+     * 1. If there is a header, we don't need to push down the body.
+     */
+    .appInfoBox__header +
+    .appInfoBox__body {
+      margin-top: 0; /* [1] */
+    }
+
+    .appInfoBox__footer {
+      padding-top: $app-padding / 2;
+      text-align: right;
+    }
+
+.appInfoBox--noBorder {
+  border: none;
+}
+
+.appInfoBox--success {
+  .appInfoBox__icon {
+    color: $app-status-success-color;
+  }
+}
+
+.appInfoBox--warning {
+  .appInfoBox__icon {
+    color: $app-status-warning-color;
+  }
+}
+
+.appInfoBox--danger {
+  .appInfoBox__icon {
+    color: $app-status-danger-color;
+  }
+}
+
+.appInfoBox--default {
+  .appInfoBox__icon {
+    color: $app-light-default-font-color;
+  }
+}
+
+.appInfoBox--dark {
+  color: $app-dark-default-font-color;
+  border-color: $app-line-dark-container-border-color;
+
+  .appInfoBox__body {
+    color: $app-container-dark-font-color;
+  }
+}
+
+.appInfoBox--cozy {
+  padding: 10px;
+
+  /**
+   * 1. Don't push down the body in cozy info boxes.
+   */
+  .appInfoBox__body {
+    margin-top: -2px; /* [1] */
+  }
+
+  /**
+   * 1. If there is a header, we don't need to push down the body.
+   */
+  .appInfoBox__header +
+  .appInfoBox__body {
+    margin-top: 0; /* [1] */
+  }
+
+  .appInfoBox__icon {
+    font-size: 20px;
+    width: 28px;
+  }
+
+  .appInfoBox__close {
+    top: 8px;
+  }
+
+  /**
+   * 1. Only push body down if preceded by a header.
+   */
+  .appInfoBox__header {
+    font-size: 14px;
+    font-weight: bold;
+    & + .appInfoBox__body {
+      margin-top: 8px; /* 1 */
+    }
+  }
+
+  .appInfoBox__content {
+    p {
+      font-size: 12px;
+      margin-bottom: $app-info-box-content-spacing;
+    }
+  }
+
+  /**
+   * 1. Fix bug with padding in collapsed state.
+   */
+  &.is-app-info-box-collapsed {
+    padding-bottom: 8px; /* 1 */
+  }
+}
+
+/**
+ * 1. When collapsed, the icon should be in the exact middle of the bar.
+ * 2. Horizontally center header with icon.
+ * 3. In the collapsed state, the entire info box can be clicked to be expanded.
+ * 4. In collapsed state, the info box should have an even visual padding.
+ */
+.appInfoBox--collapsible {
+  .appInfoBox__header {
+    position: relative;
+  }
+}
+
+.is-app-info-box-collapsed {
+  border: 1px solid transparent;
+  color: white;
+  cursor: pointer; /* [3] */
+  padding-bottom: 1px; /* [4] */
+  background-color: $app-status-primary-color;
+
+  .appInfoBox__icon {
+    color: white;
+  }
+
+  .appInfoBox__body,
+  .appInfoBox__footer {
+    display: none;
+  }
+
+  .appInfoBox__toggle {
+    color: white;
+  }
+
+  &.appInfoBox--success {
+    background-color: $app-status-success-color;
+  }
+
+  &.appInfoBox--warning {
+    background-color: $app-status-warning-color;
+  }
+
+  &.appInfoBox--danger {
+    background-color: $app-status-danger-color;
+  }
+
+  &.appInfoBox--default {
+    background-color: $app-light-default-font-color;
+  }
+
+  &:hover {
+    .appInfoBox__toggle {
+      opacity: 0.5;
+    }
+  }
+}
+
+  /**
+   * 1. Prevent rapidly clicking the toggle from accidentally selecting the
+   *    alert.
+   */
+  .appInfoBox__toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    color: $app-close-button-light-color;
+    @include transition(opacity 0.5s);
+    @include user-select(none); /* 1 */
+    &:hover {
+      opacity: 0.5;
+    }
+
+    .appInfoBox--dark & {
+      color: $app-close-button-dark-color;
+    }
+  }
+
+.appInfoBox--responsive {
+
+  @include respondTo(medium-down) {
+    padding: $app-padding / 2;
+
+    .appInfoBox__icon {
+      font-size: 25px;
+      width: 40px;
+    }
+
+    .appInfoBox__header {
+      font-size: 14px;
+      margin-bottom: $app-info-box-content-spacing;
+      font-weight: bold;
+    }
+
+    .appInfoBox__content {
+      p {
+        font-size: 12px;
+        margin-bottom: $app-info-box-content-spacing;
+      }
+    }
+  }
+}
+

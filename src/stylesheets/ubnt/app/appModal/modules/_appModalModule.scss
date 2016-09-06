@@ -1,0 +1,163 @@
+/**
+ * Modal Object.
+ *
+ * 1. Broad drop shadow.
+ */
+.appModal {
+  box-shadow: $app-high-box-shadow; /* [1] */
+  background-color: $app-modal-light-background-color;
+  color: $app-modal-light-font-color;
+  border-radius: $app-global-radius;
+  @include appMakeLightScrollbar;
+}
+
+  /**
+   * Modal close button
+   */
+  .modal__close {
+    @extend %appCloseButton;
+    top: 12px;
+    right: 12px;
+  }
+
+  /**
+   * 1. Add horizontal dividers between header, body, and footer.
+   * 2. Disallow wrapping text.
+   */
+  .modal__header {
+    height: $app-modal-header-height;
+    padding: $app-padding;
+    font-size: 24px;
+    border-bottom: 1px solid $app-line-light-section-border-color; /* [1] */
+    @include truncate; /* [2] */
+  }
+
+  %modal__content,
+  .modal__content {
+    padding: 0 $app-padding;
+  }
+
+  /**
+   * 1. Add horizontal dividers between header, body, and footer.
+   * 2. Disallow wrapping text.
+   */
+  .modal__footer {
+    height: $app-modal-footer-height;
+    padding: $app-padding;
+    text-align: right;
+    border-top: 1px solid $app-line-light-section-border-color; /* [1] */
+    @include truncate; /* [2] */
+  }
+
+.appModal--wide {
+  max-width: calc(100% - 84px);
+  @include respondTo(small-down) {
+    max-width: calc(100% - 14px);
+  }
+}
+
+.appModal--large {
+  max-width: 1200px;
+}
+
+/**
+ * This modifier is for confirmation modals.
+ * 1. Center modal content.
+ * 2. Un-truncate text in the header and footer, and make wrapped text look good.
+ * 3. Unify modal header, body, and footer.
+ */
+.appModal--brief {
+  max-width: 520px;
+  text-align: center; /* [1] */
+  .modal__header {
+    height: auto; /* [2] */
+    line-height: 1.25; /* [2] */
+    white-space: normal; /* [2] */
+  }
+  .modal__footer {
+    text-align: center; /* [1] */
+    white-space: normal; /* [2] */
+  }
+  .modal__header,
+  .modal__footer {
+    border-top: none; /* [3] */
+    border-bottom: none; /* [3] */
+  }
+}
+
+/**
+ * 1. Create a default scrollable content area.
+ */
+.appModalScrollableContent {
+  @include appMakeModalScrollableContent; /* [1] */
+}
+
+/**
+ * DEPRECATED 3/16/15
+ * 1. Leave gap between modal and the top and bottom edges of the browser.
+ */
+.appModal--scrollable {
+  max-height: $app-modal-max-height; /* [1] */
+  padding: 0;
+  overflow-y: auto;
+}
+
+/**
+ * DEPRECATED 3/16/15
+ * 1. Use flex layout to have a fixed header and footer while the content
+ *    scrolls.
+ * 2. The header and footer should have fixed heights.
+ * 3. The content should grow and shrink as the modal gets taller and shorter.
+ * 4. Leave gap between modal and the top and bottom edges of the browser.
+ */
+.appModal--scrollableContent {
+  @include flexbox; /* [1] */
+  @include flex-direction(column); /* [1] */
+  @include align-items(stretch); /* [1] */
+  max-height: $app-modal-max-height; /* [4] */
+
+  & > *:not(.modal__scrollableContent) {
+    @include flex-shrink(0); /* [2] */
+  }
+
+  .modal__header,
+  .modal__footer {
+  }
+
+  .modal__header {
+    border-bottom: 1px solid $app-line-light-section-border-color;
+  }
+
+  .modal__footer {
+    padding-top: $app-padding;
+    border-top: 1px solid $app-line-light-section-border-color;
+  }
+
+  .modal__scrollableContent {
+    @extend %modal__content;
+    overflow-y: auto; /* [3] */
+    @include flex-grow; /* [3] */
+    @include appMakeLightScrollbar; /* [3] */
+  }
+}
+
+/**
+ * DEPRECATED 3/16/15
+ */
+.appModalContent--hasBorder {
+  padding-top: 18px;
+  border-top: 1px solid $app-line-light-section-border-color;
+}
+
+/**
+ * DEPRECATED 2/3/15
+ */
+.appModal--dark {
+  color: $app-modal-dark-font-color;
+  background-color: $app-modal-dark-background-color;
+  @include appMakeDarkScrollbar;
+
+  .modal__close {
+    @extend %appCloseButton--dark;
+  }
+}

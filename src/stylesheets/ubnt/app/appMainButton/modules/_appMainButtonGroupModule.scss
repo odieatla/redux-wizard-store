@@ -1,0 +1,39 @@
+.appMainButtonGroup {
+  @include appVerticalRhythm;
+  @include border-radius($app-main-button-radius);
+
+  .appMainButton {
+    background-color: transparent;
+    color: $app-status-primary-color;
+    border-color: $app-status-primary-color;
+  }
+
+  .is-button-selected {
+    color: $app-main-button-group-selected-font-color;
+    background-color: $app-status-primary-color;
+  }
+}
+
+.appMainButtonGroup--filter {
+  .appMainButton {
+    color: $app-main-button-group-filter-font-color;
+    border-color: $app-main-button-group-filter-background-color;
+  }
+
+  .is-button-selected {
+    color: $app-main-button-group-filter-selected-font-color;
+    background-color: $app-main-button-group-filter-selected-background-color;
+  }
+}
+
+.appMainButtonGroup--dark {
+  .appMainButton {
+    color: $app-main-button-group-dark-font-color;
+    border-color: $app-main-button-group-dark-background-color;
+  }
+
+  .is-button-selected {
+    color: $app-main-button-group-dark-selected-font-color;
+    background-color: $app-main-button-group-dark-selected-background-color;
+  }
+}

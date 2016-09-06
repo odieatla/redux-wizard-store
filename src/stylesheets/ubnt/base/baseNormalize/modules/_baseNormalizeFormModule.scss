@@ -1,0 +1,6 @@
+/**
+ * 1. Hide arrow in IE10.
+ */
+select::-ms-expand {
+  display: none; /* [1] */
+}

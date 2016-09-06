@@ -1,0 +1,72 @@
+/*------------------------------------*\
+    #MODAL
+\*------------------------------------*/
+
+.comModalBackground,
+%comModalBackground {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: $com-modal-backdrop-background-color;
+  z-index: $com-z-index-modal-background;
+  display: none;
+  top: 0;
+  left: 0;
+}
+
+.comModal,
+%comModal {
+  visibility: hidden;
+  display: none;
+  position: absolute;
+  left: 50%;
+  z-index: $base-z-index-modal;
+  height: auto;
+  margin-left: -40%;
+  width: 80%;
+  background-color: $com-modal-background-color;
+  padding: 1.25rem;
+  border: solid 1px $com-modal-border-color;
+  top: 50px;
+
+  @include box-shadow(0 0 10px rgba(black,0.4)); 
+
+  @include respondTo(medium-up) {
+    padding: 1.875rem;
+    top: 50px;
+  }
+
+  @include respondTo(medium-up) {
+    &.tiny  { @include comModalBase(false, 30%); }
+    &.small { @include comModalBase(false, 40%); }
+    &.medium  { @include comModalBase(false, 60%); }
+    &.large { @include comModalBase(false, 70%); }
+    &.xlarge { @include comModalBase(false, 95%); }
+  }
+
+  &>:first-child {
+    margin-top: 0;
+  }
+
+}
+  .comModal__close,
+  %comModal__close {
+    font-size: inherit;
+    line-height: 1;
+    position: absolute;
+    top: -17px;
+    right: -17px;
+    color: $com-modal-close-font-color;
+    font-weight: normal;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-color: $com-modal-close-background-color;
+    border: 5px solid $com-modal-close-border-color;
+    text-align: center;
+    border-radius: 100%;
+
+    &>.icon {
+      line-height: 2;
+    }
+  }

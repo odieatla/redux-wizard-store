@@ -1,0 +1,27 @@
+/**
+ * 1. Clip overflowing content by default. This is so that we can slide side
+ *    panels out of sight without affecting the view (with scrollbars or changed
+ *    dimensions).
+ */
+.appView {
+  position: fixed;
+  top: $app-global-header-height;
+  left: $app-global-side-nav-width-medium;
+  right: 0;
+  bottom: 0;
+  overflow: hidden; /* [1] */
+}
+
+.appView--dark,
+.appView--dark .appViewSidePanel {
+  background-color: $app-dark-default-background-color;
+  @include background(linear-gradient($app-dark-default-background-gradient-start, $app-dark-default-background-gradient-stop));
+  color: $app-form-dark-font-color;
+}
+
+/**
+ * 1. Use flex layout to position child panels.
+ */
+.appView--panelLayout {
+  @include flexbox; /* [1] */
+}

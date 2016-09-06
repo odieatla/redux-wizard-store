@@ -1,0 +1,31 @@
+// New product section for BB and Enterprise
+.comProductSection__title {
+  text-transform: uppercase;
+  color: $com-product-section-title-font-color;
+  letter-spacing: 1px;
+  border-bottom: 1px solid $com-product-section-title-border-color;
+  padding-bottom: 2px;
+  text-align: center;
+  display: block;
+  margin-bottom: 6px;
+  margin-top: 5px;
+}
+
+.comProductSection__name {
+  color: $com-product-section-name-font-color;
+}
+
+.comProductSection__text {
+  text-align: center;
+  font-weight: 400;
+}
+
+.comProductSection__stats {
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 48px;
+}
+
+.comProductSection__links {
+  text-align: center;
+}

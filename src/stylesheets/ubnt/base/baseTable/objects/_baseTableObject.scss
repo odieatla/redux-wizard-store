@@ -1,0 +1,181 @@
+/**
+ * 1. Allow table styles to be applied to non-table elements.
+ */
+ table,
+.table {
+  display: table; /* [1] */
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+  .thead,
+  thead {
+    display: table-header-group; /* [1] */
+  }
+
+  .th,
+  .td,
+  th,
+  td {
+    display: table-cell; /* [1] */
+    vertical-align: middle;
+  }
+
+  .tbody {
+    display: table-row-group; /* [1] */
+  }
+
+  .tr {
+    display: table-row; /* [1] */
+  }
+
+/**
+ * A simple way to force tables to have equal-width columns. Use in conjunction
+ * with colspans adding up to 24, as per: csswizardry.com/2013/11/taming-data-tables
+ *
+ * THIS MODIFIER IS DEPRECATED.
+ */
+
+.table--grid {
+  table-layout: fixed !important;
+}
+
+/**
+ * Add borders around a table.
+ *
+ * THIS MODIFIER IS DEPRECATED.
+ */
+.table--solid {
+
+  .th,
+  .td,
+  th,
+  td {
+    border: $base-table-solid-border-width solid !important;
+  }
+
+}
+
+/**
+ * Add borders only to table’s rows.
+ *
+ * THIS MODIFIER IS DEPRECATED.
+ */
+.table--solidRows {
+
+  &,
+  .th,
+  .td,
+  th,
+  td {
+
+    border-width: 0 !important;
+    border-style: solid !important;
+
+  }
+
+  .tbody .td,
+  tbody td {
+
+    border-bottom-width: $base-table-solid-border-width !important;
+
+  }
+
+  .tr:last-child .td
+  tr:last-child td {
+
+    border-bottom-width: 0px !important;
+
+  }
+
+}
+
+/**
+ * Add borders only to table’s columns.
+ *
+ * THIS MODIFIER IS DEPRECATED.
+ */
+.table--solidColumns {
+
+  border-left-width: $base-table-solid-border-width !important;
+
+  &,
+  .th,
+  .td,
+  th,
+  td {
+    border-width: 0 !important;
+    border-style: solid !important;
+  }
+
+  .th,
+  .td,
+  th,
+  td {
+    border-right-width: $base-table-solid-border-width !important;
+  }
+}
+
+/**
+ * Tighly packed tables.
+ *
+ * THIS MODIFIER IS DEPRECATED.
+ */
+.table--cozy {
+
+  .th,
+  .td,
+  th,
+  td {
+    padding: $base-table-cozy-cell-padding !important;
+  }
+
+}
+
+/**
+ * Large-padded tables.
+ *
+ * THIS MODIFIER IS DEPRECATED.
+ */
+.table--comfy {
+
+  .th,
+  .td,
+  th,
+  td {
+    padding: $base-table-comfy-cell-padding !important;
+  }
+
+}
+
+/**
+ * Row padding modifiers.
+ *
+ * NOTE: Padding adjustments for rows only. To be used with the default header height.
+ *
+ *
+ * 1. Apply padding to just top and bottom padding to keep header and
+ *    body cell text aligned.
+ *
+ * THESE MODIFIERS ARE DEPRECATED.
+ */
+.table--comfyRows {
+
+  .td,
+  td {
+    padding-top: $base-table-comfy-cell-padding !important; /* [1] */
+    padding-bottom: $base-table-comfy-cell-padding !important; /* [1] */
+  }
+
+}
+
+.table--cozyRows {
+
+  .td,
+  td {
+    padding-top: $base-table-cozy-cell-padding !important; /* [1] */
+    padding-bottom: $base-table-cozy-cell-padding !important; /* [1] */
+  }
+
+}

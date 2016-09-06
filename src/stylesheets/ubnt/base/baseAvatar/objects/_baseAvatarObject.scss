@@ -1,0 +1,17 @@
+/**
+ * The avatar component styles images as if they are avatar images. Apply this
+ * class either to an element with a background-image.
+ *
+ * Override the width and height to change its size.
+ */
+
+.avatar {
+  width: 5em;
+  height: 5em;
+  background-position: 50%;
+  @include background-size(cover);
+}
+
+.avatar--circle {
+  border-radius: 100%;
+}

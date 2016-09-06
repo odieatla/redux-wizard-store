@@ -1,0 +1,39 @@
+/**
+ * Blackout is for darkening the main UI while presenting
+ * a modal or other takeover UI component.
+ *
+ * 1. Display higher than other elements.
+ * 2. 50% opacity black background.
+ */
+.blackout {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: $base-z-index-blackout; /* [1] */
+  background-color: rgba(0,0,0,.5); /* [2] */
+}
+
+/**
+ * 1. Use flexbox positioning to center the modal.
+ */
+.blackout,
+.blackout__inner {
+  @include flexCenter; /* [1] */
+}
+
+  /**
+   * In case you need to nest a few container elements inside the blackout.
+   */
+  .blackout__inner {
+    width: 100%;
+    height: 100%;
+  }
+
+/**
+ * DEPRECATED 11/18/14
+ */
+.blackout--absolute {
+  position: absolute;
+}

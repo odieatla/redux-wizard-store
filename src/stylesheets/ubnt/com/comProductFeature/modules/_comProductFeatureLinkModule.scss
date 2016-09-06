@@ -1,0 +1,27 @@
+.comProductFeature--link {
+  .comProductFeature__content {
+    overflow: auto;
+  }
+
+  .comProductFeature__container {
+    float: left;
+    width: 50%;
+    padding: 0 3%;
+
+    @include respondTo(large-up) {
+      width: 25%;
+    }
+  }
+
+  .comProductFeature__text {
+    h2 {
+      font-size: 1rem;
+      line-height: 1;
+      font-weight: 700;
+      margin-top: 24px;
+    }
+    p {
+      text-align: center;
+    }
+  }
+}

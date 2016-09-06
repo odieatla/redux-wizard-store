@@ -1,0 +1,77 @@
+.appToggle {
+  width: 66px;
+  font-size: 22px;
+  border-radius: 3px;
+  border: 1px solid $app-toggle-light-border-color;
+  background-color: $app-form-light-background-color;
+  box-sizing: content-box;
+  height: $app-form-box-cozy-component-height;
+
+  &:after,
+  &:before {
+    color: $app-toggle-light-font-color;
+  }
+
+  /**
+   * 1. Offset border width.
+   * 2. Undo "unchecked" transparent style for checkboxes.
+   */
+  label {
+    height: 100%;
+    opacity: 1 !important; /* 2 */
+    &:after {
+      border: 1px solid $app-toggle-light-border-color;
+      background-color: $app-toggle-light-background-color;
+      border-radius: 2px;
+      box-sizing: content-box;
+      margin-left: -1px; /* [1] */
+      margin-top: -1px; /* [1] */
+    }
+  }
+
+  input[type="checkbox"] {
+    &:checked + label:after {
+      background-color: $app-status-success-color;
+      border-color: $app-status-success-color;
+    }
+  }
+
+  &.is-toggle-disabled {
+    opacity: $app-form-disabled-opacity;
+
+    label {
+      cursor: not-allowed;
+    }
+  }
+
+  /**
+   * 1. Have same height as cozy input and cozy button.
+   */
+  .appForm--cozy & {
+    width: 60px;
+    height: 21px; /* [1] */
+    font-size: 20px;
+  }
+}
+
+.appToggle--dark {
+  border-color: $app-toggle-dark-border-color;
+  background-color: $app-form-dark-background-color;
+
+  &:after,
+  &:before {
+    color: $app-toggle-dark-font-color;
+  }
+
+  label {
+    &:after {
+      border-color: $app-toggle-dark-border-color;
+      background-color: $app-toggle-dark-background-color;
+    }
+  }
+}
+
+.appToggle--inline {
+  display: inline-block;
+  vertical-align: middle;
+}

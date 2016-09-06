@@ -1,0 +1,86 @@
+/*------------------------------------*\
+    #ADDITIONAL CLASSES FOR CUSTOM IMPLEMENTATION 
+\*------------------------------------*/
+
+/*------------------------------------*\
+  This class hides the bottom padding and border of a feature so that it appears continuous from one feature to another.
+\*------------------------------------*/
+.comProductFeature--noBottom {
+  .comProductFeature__content {
+    border-bottom: none; 
+    padding-bottom:0;
+  }
+}
+
+/*------------------------------------*\
+  This class is used to vertically center the description when there is no headline or images.
+\*------------------------------------*/
+.comProductFeature--center-description {
+  .comProductFeature__text {
+    margin-bottom: 0;
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/*------------------------------------*\
+  This class is used to align image flush to the bottom 
+\*------------------------------------*/
+.comProductFeature--alignBottom,
+.comProductFeature--alignBoth {
+  .comProductFeature__container{
+    margin-bottom: -6px;
+  }
+
+  .comProductFeature__content {
+    padding-bottom: 0;
+  }
+
+  .comProductFeature__container {
+    .comProductFeature__image {
+      @include respondTo(medium-up) {
+        vertical-align: bottom;
+      }
+    }
+  }
+}
+
+/*------------------------------------*\
+  This class is used to align image flush to the top 
+\*------------------------------------*/
+.comProductFeature--alignTop,
+.comProductFeature--alignBoth {
+  .comProductFeature__content {
+    @include respondTo(large-up) {
+      padding-top: 0;
+    }
+  }
+}
+
+/*------------------------------------*\
+  This class is used to align left text on desktop layout and center align for mobile layout
+\*------------------------------------*/
+.comProductFeature--leftAlign {
+  .comProductFeature__text {
+    p, h2 {
+      @include respondTo(medium-up) {
+        text-align: left;
+      }
+    }
+  }
+
+  button {
+    @include respondTo(medium-up) {
+      float: left;
+    }
+  }
+}
+
+.comProductFeature--rightAlign {
+  button {
+    @include respondTo(medium-up) {
+      float: right;
+    }
+  }
+}

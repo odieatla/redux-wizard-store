@@ -1,0 +1,79 @@
+/*
+* [1] Custom breakpoints for product listing layout
+*/
+
+.comProductList {
+  float: left;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+}
+
+.comProductList__item {
+  margin-bottom: 24px;
+  min-width: 270px;
+  padding-bottom: 20px;
+  height: 270px;
+  float: left;
+  width: 100%;
+  text-align: center;
+
+  @media only screen and (min-width: $com-product-list-breakpoint-medium) { /* [1] */
+    text-align: left;
+    width: 50%;
+    padding: 0 24px 20px 10px;
+  }
+
+  @media only screen and (min-width: $com-product-list-breakpoint-large) { /* [1] */
+    width: 33.3%;
+  }
+
+  @media only screen and (min-width: $com-product-list-breakpoint-xlarge) { /* [1] */
+    width: 25%;
+  }
+
+  @media only screen and (min-width: $com-product-list-breakpoint-max-width) { /* [1] */
+    width: 20%;
+  }
+}
+
+.comProductList__item__img {
+  width: $com-product-list-image-width;
+  height: $com-product-list-image-height;
+  display: block;
+  margin: 0 auto;
+}
+
+.comProductList__item__name {
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid $com-product-list-name-border-color;
+  font-size: 1.25rem;
+  color: $com-product-list-name-color;
+}
+
+.comProductList__item__description {
+  color: $com-product-list-description-color;
+  font-size: .875rem;
+  margin-bottom: 1em;
+  line-height: 1.2em;
+}
+
+//marketing page
+.comProductList__itemMarketingName {
+  color: #616770;
+  font-size: remCalc(14px);
+  line-height: 1.2em;
+  border-top: 1px solid #bbbbbd;
+  margin-top: 8px;
+  padding-top: 8px;
+  margin-bottom: 0;
+
+  @include fontSmoothing(antialiased);
+}
+
+.comProductList__itemDate {
+  font-size: remCalc(12px);
+  margin-bottom: 0.8em;
+  color: #aeb4b7;
+}

@@ -1,0 +1,8 @@
+@mixin baseMakeFlexColumns {
+  $numColumns: 12;
+  @for $i from 1 through $numColumns {
+    .flexCol--#{$i} {
+      width: $i / $numColumns * 100%;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+/**
+ * 1. Due to remCalc, the width must be slightly less than the height to get an
+ *    actual circle.
+ * 2. Not so for the content, however.
+ */
+$com-feature-icon-width: remCalc(75px); /* [1] */
+$com-feature-icon-height: $com-feature-icon-width - remCalc(1px); /* [1] */
+$com-feature-icon-content-width: $com-feature-icon-width - remCalc(11px); /* [2] */
+$com-feature-icon-content-height: $com-feature-icon-content-width; /* [2] */
+$com-feature-icon-large-width: remCalc(90px); /* [1] */
+$com-feature-icon-large-height: $com-feature-icon-large-width - remCalc(1px); /* [1] */
+$com-feature-icon-large-content-width: $com-feature-icon-large-width - remCalc(11px); /* [2] */
+$com-feature-icon-large-content-height: $com-feature-icon-large-content-width; /* [2] */
+

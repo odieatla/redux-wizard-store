@@ -1,0 +1,43 @@
+/**
+ * Make this element resizable. It will grow and shrink with its container
+ * and siblings.
+ *
+ * 1. Set flex-shrink and flex-grow to 1 so that it will resize, and
+ *    flex-basis to 0 so that its content doesn't affect its size.
+ */
+@mixin flexible {
+  flex: 1; /* 1 */
+}
+.flexible,
+%flexible {
+  @include flexible;
+}
+
+/**
+ * Make this element a fixed size, regardless of container and sibling size.
+ *
+ * 1. Set flex-shrink and flex-grow to 0 so that this element doesn't resize,
+ *    by default. Set flex-basis to auto so that its content affects its size.
+ */
+@mixin inflexible {
+  flex: 0 0 auto; /* 1 */
+}
+.inflexible,
+%inflexible {
+  @include inflexible;
+}
+
+/**
+ * Make this element expandable. It will grow and shrink with its container
+ * and siblings, but it won't shrink to less than its minimum content size.
+ * 1. Set flex-grow to 1 so that it will expand, flex-shrink to 0 so it
+ *    won't shrink to less than its content size, and flex-basis to auto so that
+ *    its content determines its size.
+ */
+@mixin growable {
+  flex: 1 0 auto; /* 1 */
+}
+.growable,
+%growable {
+  @include growable;
+}

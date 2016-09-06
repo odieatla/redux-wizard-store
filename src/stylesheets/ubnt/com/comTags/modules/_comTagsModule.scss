@@ -1,0 +1,53 @@
+/*------------------------------------*\
+    #TAGS
+\*------------------------------------*/
+
+.comTags {
+  display: inline-block;
+  text-align: center;
+  font-size: remCalc(10px);
+  background-color: $com-tags-background-color;
+  color: $com-tags-font-color;
+  line-height: $com-tags-line-height;
+  padding: 0 5px;
+  margin-right: 4px;
+  margin-bottom: 5px;
+  width: auto;
+  height: 30px;
+
+  @include border-radius(3px);
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+/**
+* 1. Flag layout
+*/
+.comTags__content {
+  display: table-cell; /* [1] */
+  vertical-align: middle; /* [1] */
+  width: 100%; /* [1] */
+  height: 30px;
+
+  &.comTags__contentType {
+    color: $com-tags-content-type-font-color;
+    font-size: 0.9rem;
+    height: 13px;
+  }
+}
+
+.comTags--cozy {
+  font-size: .625rem;
+  line-height: 1.5;
+  padding: 0 8px;
+  background: $com-tags-background-color;
+  border-radius: 10px;
+  height: auto;
+}
+
+.comTags--bare{
+  background-color: transparent;
+  text-align: left;
+}

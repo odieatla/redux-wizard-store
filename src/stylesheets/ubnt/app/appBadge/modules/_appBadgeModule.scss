@@ -1,0 +1,53 @@
+/**
+ * 1. Move the badge up a bit so that it visually aligns with baseline of text.
+ * 2. Scale down the badge proportionate to its container so that it matches
+ *    the container's cap-height.
+ * 3. Make text heavier so it can be read at small size.
+ * 4. Reduce line-height.
+ * 5. Don't wrap to next line.
+ */
+.appBadge {
+  display: inline-block;
+  position: relative; /* [1] */
+  top: -0.3em; /* [1] */
+  border-style: solid;
+  border-width: 1px;
+  background-color: transparent;
+  font-size: 0.6em; /* [2] */
+  font-weight: 800; /* [3] */
+  padding: 0.3em 0.6em 0.35em;
+  text-transform: uppercase;
+  letter-spacing: emCalc(1px);
+  border-radius: remCalc(3px);
+  line-height: 1; /* [4] */
+  white-space: nowrap; /* [5] */
+  @include appMakeBadge($app-light-default-font-color);
+
+  & + & {
+    margin-left: emCalc(4px);
+  }
+}
+
+.appBadge--medium {
+  @include appMakeBadge($app-badge-medium-color);
+}
+
+.appBadge--light {
+  @include appMakeBadge($app-badge-light-color);
+}
+
+.appBadge--primary {
+  @include appMakeBadge($app-status-primary-color);
+}
+
+.appBadge--success {
+  @include appMakeBadge($app-status-success-color);
+}
+
+.appBadge--warning {
+  @include appMakeBadge($app-status-warning-color);
+}
+
+.appBadge--danger {
+  @include appMakeBadge($app-status-danger-color);
+}

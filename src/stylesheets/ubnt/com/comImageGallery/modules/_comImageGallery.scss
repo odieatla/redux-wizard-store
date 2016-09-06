@@ -1,0 +1,235 @@
+/*------------------------------------*\
+    #IMAGE GALLERY
+\*------------------------------------*/
+
+/**
+ * 1. bxSlider/swiper plugin css import
+ * 2. Plugin overrides
+ */
+
+.comImageSlider {
+
+  .bx-wrapper {
+    width: 100%;
+    margin-left: 0;
+    margin: 0 auto;
+
+    img {
+      width: auto;
+      display: block;
+      max-width: 100%;
+    }
+
+    .bx-viewport {
+      border: 0; /* [2] */
+      left: 0; /* [2] */
+      box-shadow: none; /* [2] */
+      background: transparent; /* [2] */
+
+      @include respondTo(large-up) {
+        min-height: 720px;
+      }
+
+      img {
+        @include respondTo(large-up) {
+          min-height: 400px;
+        }
+      }
+    }
+
+    @media only screen and (-webkit-device-pixel-ratio:1.5) {
+      display: none;
+    }
+  }
+
+  .comImageSlider__listItem {
+    position: absolute;
+  }
+}
+
+/**
+ * Image Slider Pager
+ */
+.comImageSliderPager {
+  @extend %clearfix;
+
+  width: 100%;
+  text-align: center;
+  max-height: 16px;
+  margin-bottom: -1rem;
+  position: relative;
+  bottom: initial;
+  z-index: 5;
+  padding-top: 8px;
+  
+  @include respondTo(medium-up) {
+    padding-top: 1rem;
+  }
+
+  @include respondTo(large-up) {
+    position: absolute;
+    bottom: 72px;
+    left: -50%;
+  }
+
+  @media only screen and (-webkit-device-pixel-ratio:1.5) {
+    display: none;
+  }
+
+  .comImageSliderPager__listItem {
+    display: inline-block;
+    float: none;
+    margin-right: 5px;
+    width: remCalc(10);
+    height: remCalc(10);
+    background-color: rgba(#000, 0.4);
+
+    .comProductHero--dark &,
+    .comProductHero--black & {
+      background-color: rgba(#fff, 0.4);
+    }
+
+    @include border-radius(100%);
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.comImageSliderPager__listItem--active {
+      background-color: rgba(#000, 0.8);
+
+      .comProductHero--dark &,
+      .comProductHero--black & {
+          background-color: rgba(#fff, 0.8);
+      }
+    }
+
+    @media only screen and (-webkit-device-pixel-ratio:1.5) {
+      display: none;
+    }
+  }
+
+  .comImageSliderPager__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-indent: -9999px;
+  }
+
+}
+
+/**
+ * Image Slider Swipe
+ */
+.comImageSliderSwipe {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  z-index: 8;
+  background: black;
+  opacity: 0;
+}
+
+.bx-wrapper, .bx-loading {
+  background-image: none;
+}
+
+/**
+ * Image Carousel
+ */
+
+/**
+ * 1. Plugin overrides
+ * 2. Greyscale filter
+ */
+.comImageCarousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #000;
+  height: 326px;
+
+  @include respondTo(medium-up) {
+    height: 524px;
+  }
+
+  @include opacity(0);
+
+  .comImageCarousel__prev,
+  .comImageCarousel__next {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5em;
+    color: #fff;
+    z-index: 10;
+    font-size: remCalc(30px);
+  }
+
+  .comImageCarousel__prev {
+    left: 10px;
+  }
+
+  .comImageCarousel__next {
+    right: 10px;
+  }
+
+  .comImageCarousel__listItem {
+    overflow: hidden;
+
+    @include opacity(0.4);
+
+    -webkit-filter: grayscale(100%); /* [2] */
+       -moz-filter: grayscale(100%); /* [2] */
+            filter: grayscale(100%); /* [2] */
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.comImageCarousel__listItem--active,
+    &.swiper-slide-active {
+      @include opacity(1);
+
+      -webkit-filter: grayscale(0%); /* [2] */
+         -moz-filter: grayscale(0%); /* [2] */
+              filter: grayscale(0%); /* [2] */
+    }
+
+    img {
+      height: 300px;
+      padding: 12px 7px 0;
+
+      @include respondTo(medium-up) {
+        height: 500px;
+      }
+    }
+  }
+
+  .bx-wrapper {
+    padding: 12px 0;
+    img {
+      max-width: none;
+      width: auto;
+      height: auto;
+      //min-height: 400px;
+      max-height: 595px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .bx-loading {
+      display: none; /* [1] */
+    }
+
+    .bx-viewport {
+      left: 0; /* [1] */
+      border: none; /* [1] */
+      box-shadow: none; /* [1] */
+      background: #000; /* [1] */
+      max-height: 595px;
+    }
+  }
+}

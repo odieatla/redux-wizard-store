@@ -1,0 +1,47 @@
+$base-screen: "only screen";
+
+// Orientations.
+$landscape: "#{$base-screen} and (orientation: landscape)";
+$portrait: "#{$base-screen} and (orientation: portrait)";
+
+// XS
+$base-lower-xsmall: 0px !default;
+$base-upper-xsmall: 480px !default;
+$base-xsmall-up: $base-screen;
+$base-xsmall-down: "#{$base-screen} and (max-width: #{$base-upper-xsmall})";
+$base-xsmall-only: "#{$base-screen} and (max-width: #{$base-upper-xsmall})";
+
+// Small
+$base-lower-small: 481px !default;
+$base-upper-small: 800px !default;
+$base-small-up: "#{$base-screen} and (min-width: #{$base-lower-small})";
+$base-small-down: "#{$base-screen} and (max-width: #{$base-upper-small})";
+$base-small-only: "#{$base-screen} and (min-width:#{$base-lower-small}) and (max-width:#{$base-upper-small})";
+
+// Medium
+$base-lower-medium: 801px !default;
+$base-upper-medium: 1040px !default;
+$base-medium-up: "#{$base-screen} and (min-width:#{$base-lower-medium})";
+$base-medium-down: "#{$base-screen} and (max-width:#{$base-upper-medium})";
+$base-medium-only: "#{$base-screen} and (min-width:#{$base-lower-medium}) and (max-width:#{$base-upper-medium})";
+
+// Large
+$base-lower-large: 1041px !default;
+$base-upper-large: 1440px !default;
+$base-large-up: "#{$base-screen} and (min-width:#{$base-lower-large})";
+$base-large-down: "#{$base-screen} and (max-width:#{$base-upper-large})";
+$base-large-only: "#{$base-screen} and (min-width:#{$base-lower-large}) and (max-width:#{$base-upper-large})";
+
+// X large
+$base-lower-xlarge: 1441px !default;
+$base-upper-xlarge: 1920px !default;
+$base-xlarge-up: "#{$base-screen} and (min-width:#{$base-lower-xlarge})";
+$base-xlarge-down: "#{$base-screen} and (max-width:#{$base-upper-xlarge})";
+$base-xlarge-only: "#{$base-screen} and (min-width:#{$base-lower-xlarge}) and (max-width:#{$base-upper-xlarge})";
+
+// XX large
+$base-lower-xxlarge: 1921px !default;
+$base-upper-xxlarge: 2400px !default;
+$base-xxlarge-up: "#{$base-screen} and (min-width:#{$base-lower-xxlarge})";
+$base-xxlarge-down: "#{$base-screen} and (max-width:#{$base-upper-xxlarge})";
+$base-xxlarge-only: "#{$base-screen} and (min-width:#{$base-lower-xxlarge}) and (max-width:#{$base-upper-xxlarge})";

@@ -1,0 +1,86 @@
+/**
+ * 1. Ensure this element appears correctly in a fake table.
+ * 2. Background color is semi-transparent so the appStatusBar stands out
+ *    against different shades of gray.
+ */
+.appStatusBar {
+
+  display: inline-block; /* [1] */
+  vertical-align: middle; /* [1] */
+  width: 100%; /* [1] */
+  background-color: $app-status-bar-background-color; /* [2] */
+  box-shadow: $app-status-bar-shadow;
+  @include border-radius($app-status-bar-height); /* [1] */
+
+}
+
+/**
+ * 1. Background color is semi-transparent so the appStatusBar stands out
+ *    against different shades of gray.
+ */
+.appStatusBar--dark {
+
+  background-color: $app-status-bar-dark-background-color; /* [1] */
+
+}
+
+.appStatusBar--small {
+
+  box-shadow: none;
+  @include border-radius(none);
+
+  .statusBar__inner {
+
+    height: $app-status-bar-small-height;
+    box-shadow: none;
+    min-width: 0;
+    @include border-radius(none);
+
+  }
+
+}
+
+  /**
+   * 1. Speed up animations by entering GPU mode.
+   * 2. Minimum width should be 1em, which renders as a circle.
+   */
+  .statusBar__inner {
+
+    box-shadow: $app-status-bar-shadow;
+    height: $app-status-bar-height;
+    min-width: $app-status-bar-height; /* [2] */
+    @include border-radius($app-status-bar-height); /* [2] */
+
+    .appStatusBar & {
+
+      @include transform(translateZ(0)); /* [1] */
+      @include transition-property(width, background-color);
+      @include transition-duration(0.4s, 0.2s);
+
+    }
+
+    .appStatusBar.is-status-bar-muted & {
+
+      background-color: $app-status-bar-muted-background-color;
+
+    }
+
+    .appStatusBar--low & {
+
+      background-color: $app-status-bar-low-background-color;
+
+    }
+
+    .appStatusBar--medium & {
+
+      background-color: $app-status-bar-medium-background-color;
+
+    }
+
+    .appStatusBar--high & {
+
+      background-color: $app-status-bar-high-background-color;
+
+    }
+
+  }

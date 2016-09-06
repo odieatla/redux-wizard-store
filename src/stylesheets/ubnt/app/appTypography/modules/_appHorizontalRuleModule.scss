@@ -1,0 +1,6 @@
+hr {
+  border-style: solid;
+  border-color: $app-line-light-section-border-color;
+  border-bottom-width: 0;
+  @include appVerticalRhythm;
+}

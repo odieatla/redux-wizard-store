@@ -1,0 +1,147 @@
+/**
+ * Dropdown Object. Originally designed for the Select Object (selectmenu),
+ * this is a simple container to toggle display mode.
+ *
+ * 1. Remove bullets from default list style.
+ * 2. Expand to be as wide as the parent element and fit snugly inside.
+ * 3. Other box elements will ignore positioning of dropdown.
+ * 4. Initially be invisible.
+ * 5. Wrap text when it's wider than the containing element.
+ * 6. Align left by default.
+ */
+.appDropdown {
+  display: block;
+  list-style: none; /* [1] */
+  box-sizing: content-box; /* [2] */
+  margin-left: -1px; /* [2]*/
+  min-width: 100%; /* [2] */
+  position: absolute; /* [3] */
+  visibility: hidden; /* [4] */
+  white-space: normal; /* [5] */
+  left: 0; /* [6] */
+  top: 100%; /* [6] */
+  padding: remCalc(6px 0);
+  font-size: remCalc(14px);
+  @include appMakeDropdown;
+  @include appMakeLightScrollbar;
+
+  &.is-dropdown-visible {
+    visibility: visible;
+  }
+}
+
+/**
+ * Dark color dropdown.
+ */
+.appDropdown--dark {
+  border-color: $app-dropdown-dark-border-color;
+  background-color: $app-dropdown-dark-background-color;
+  color: $app-dropdown-dark-font-color;
+  box-shadow: $app-low-dark-box-shadow;
+  @include appMakeDarkScrollbar;
+}
+
+/**
+ * Dropdown aligned to left side of its parent.
+ *
+ * 1. Extend wider than parent if necessary.
+ */
+.appDropdown--left {
+  white-space: nowrap; /* [1] */
+}
+
+/**
+ * Dropdown aligned to right side of its parent.
+ *
+ * 1. Extend wider than parent if necessary.
+ */
+.appDropdown--right {
+  white-space: nowrap; /* [1] */
+  left: auto;
+  right: 0;
+  margin-right: -1px;
+}
+/**
+ * Dropdown inside of an appMainButton.
+ *
+ * 1. Override styles inherited from parent button.
+ * 2. Give a gap between button and dropdown.
+ */
+.appDropdown--inButton {
+  text-transform: none; /* [1] */
+  text-align: left; /* [1] */
+  letter-spacing: 0; /* [1] */
+  margin-top: remCalc(2px); /* [2] */
+}
+
+.appDropdown--nonMenu {
+  .appDropdown__item {
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+.appDropdown--scrollable {
+  overflow-y: auto;
+  max-height: remCalc(192px);
+}
+
+.appDropdown--medium {
+  max-height: remCalc(480px);
+}
+
+.appDropdown--tall {
+  max-height: remCalc(864px);
+}
+
+  /**
+   * List items inside dropdown menu
+   */
+  .appDropdown__item {
+    padding: remCalc(8px 12px);
+    cursor: pointer;
+
+    &:hover {
+      background-color: $app-dropdown-light-hover-background-color;
+    }
+
+    .appDropdown--dark & {
+      &:hover {
+        background-color: $app-dropdown-dark-hover-background-color;
+      }
+    }
+  }
+
+/**
+ * 1. Make room for the header and action bar and leave some space
+ *    at the bottom of the page.
+ */
+.appDropdown--filters {
+  padding: 10px;
+  max-height: calc(100vh - 120px); /* [1] */
+  overflow-y: auto;
+
+  /**
+   * 1. Leave some room for the count values.
+   * 2. Expand the label so clicking anywhere will trigger the input.
+   * 3. Ignore count clicks so it passes through to the label.
+   */
+  li {
+    position: relative;
+    width: 100%;
+    margin-right: 40px; /* [1] */
+    overflow: hidden;
+
+    label {
+      width: 100%; /* [2] */
+    }
+
+    .count {
+      position: absolute;
+      top: 0;
+      right: 0;
+      pointer-events: none; /* [3] */
+    }
+  }
+}

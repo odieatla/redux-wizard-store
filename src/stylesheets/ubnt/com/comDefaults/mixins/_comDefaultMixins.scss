@@ -1,0 +1,21 @@
+/*------------------------------------*\
+    #MIXINS
+\*------------------------------------*/
+
+/**
+ * Create a fully formed type style (sizing and vertical rhythm) by passing in a
+ * single value, e.g.:
+ *
+   .foo {
+       @include font-size(10px);
+   }
+ *
+ */
+@mixin com-font-size($com-font-size, $com-line-height: true) {
+  font-size: $com-font-size;
+  font-size: ($com-font-size / $com-base-font-size) * 1rem;
+
+  @if $com-line-height == true {
+      line-height: ceil($com-font-size / $com-base-line-height) * ($com-base-line-height / $com-font-size);
+  }
+}

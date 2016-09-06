@@ -1,0 +1,182 @@
+/*------------------------------------*\
+    #TABLE
+\*------------------------------------*/
+
+.comTable {
+  width: 100%;
+  border-left: 0;
+  border-right: 0;
+  border-spacing: 0;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  margin-bottom: double($com-base-spacing-unit);
+  text-align: left;
+  background-color: transparent;
+
+  &:last-child {
+      margin-bottom: 0;
+  }
+
+  tr {
+    th,
+    td {
+      padding: $com-table-row-padding;
+      font-size: $com-table-row-font-size;
+      color: $com-table-row-font-color;
+    }
+
+    &.odd,
+    &.alt,
+    &:nth-of-type(odd) { 
+      background: $com-table-stripe-background-color; 
+    }
+  }
+
+  thead tr th,
+  tfoot tr th,
+  tbody tr td,
+  tr td,
+  tfoot tr td { 
+    line-height: $com-table-line-height; 
+  }
+
+  thead tr th,
+  tfoot tr th,
+  tfoot tr td { 
+    letter-spacing: -1px;
+  }
+
+  .comTable--25percent{
+    width: 25%;
+  }
+
+  .comTableText--large{
+    text-align: left;
+    font-weight: 400;
+    font-size: remCalc(14px);
+    line-height: 24px;
+
+    @include respondTo(medium-up) {
+      font-size: remCalc(20px);
+      line-height: 28px;
+    }
+
+    @include respondTo(small-down) {
+      line-height: 18px;
+    }
+  }
+}
+
+.comTable--small {
+  border: 0 none;
+
+  tr {
+    td,
+    th {
+      padding: remCalc(6px) 0;
+      border: 0;
+      border-bottom: 1px solid $com-table-small-border-color;
+
+      &:first-child {
+          font-weight: 700;
+      }
+    }
+
+    &:last-child td {
+      border: 0;
+    }
+  }
+}
+
+.comTable--large {
+  tr {
+    td,
+    th {
+      padding: 18px 5px;
+      border: 0;
+      border-bottom: 1px solid $com-table-large-border-color;
+    }
+
+    &:first-child td,
+    &:first-child th {
+        border-top: 1px solid $com-table-large-border-color;
+    }
+
+    &:last-child td {
+        border: 0 none;
+    }
+  }
+}
+
+.comTable__icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.comTable--fixed {
+  table-layout: fixed;
+
+  td {
+    text-align: center;
+    overflow: hidden;
+  }
+}
+
+table.comTable--noStripes tr:nth-of-type(odd) {
+  background: transparent;
+}
+
+tr.comTable__row--header {
+  th {
+    text-align: left;
+    letter-spacing: 0 !important;
+  }
+  &.even,
+  &.alt,
+  &:nth-of-type(odd),
+  &:nth-of-type(even) {
+    background-color: $com-table-row-header-background-color;
+    th, td {
+      color: $com-table-row-header-font-color;
+    }
+  }
+}
+
+@include respondTo(small-only) {
+  .comTable {
+    td {
+      font-size: remCalc(14px);
+    }
+  }
+
+  .comTable--manyColumns {
+    td, th {
+      font-size: remCalc(12px);
+    }
+  }
+}
+
+@include respondTo(xsmall-only) {
+  .comTable--manyColumns {
+    td, th {
+      font-size: remCalc(8px);
+    }
+  }
+}
+
+.comTable--alignLeft td {
+  text-align: left;
+}
+
+// responsive text
+.comTable--responsiveText tr {
+  td, th {
+    @include respondTo(xsmall-down) {
+      font-size: 0.5rem;
+    }
+
+    @include respondTo(small-only) {
+      font-size: 0.75rem;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+/**
+ * Position the tooltip horizontally.
+ *
+ * 1. The position is a percentage, based on the width of the tooltip.
+ * 2. Move the tooltip so that its left edge is aligned with the center of the
+ *    container.
+ * 3. Move the tooltip backwards by the percentage amount.
+ * 4. Move the arrow forwards by the percentage amount, but offset so that it is
+ *    centered over the container's center.
+ */
+@mixin appTooltipPosition($x-percent) { /* [1] */
+  left: 50%; /* [2] */
+  @include transform(translateX(#{-$x-percent})); /* [3] */
+  &:before,
+  &:after {
+    left: calc(#{$x-percent} - #{$app-tooltip-x-offset}); /* [4] */
+  }
+}
