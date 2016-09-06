@@ -6,6 +6,8 @@ import FileUpload from '../containers/FileUpload';
 require('../stylesheets/ubnt/base/fonts/icons/style.scss')
 require('../stylesheets/style.scss')
 
+require('../favicon.ico');
+
 const App = ({ children }) => (
 	<div className="comWrapper">
 		<Header />

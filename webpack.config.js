@@ -24,6 +24,10 @@ module.exports = {
       loader: extractTextPlugin.extract('style', 'css?sourceMap!sass?sourceMap')
       // loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
     }, {
+			test: /\.ico$/,
+			exclude: /node_modules/,
+			loader: 'file-loader?name=[name].[ext]'
+		}, {
 			test: /\.svg/,
 			loader: 'url-loader?limit=65000&mimetype=image/svg+xml&name=fonts/[name].[ext]'
 		}, {
