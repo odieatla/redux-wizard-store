@@ -7,7 +7,7 @@ class DropZone extends Component {
 	}
 
 	componentWillMount() {
-		console.error('componentWillMount')
+		// console.error('componentWillMount')
 	}
 
 	componentDidMount() {
