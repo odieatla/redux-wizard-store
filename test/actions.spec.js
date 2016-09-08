@@ -79,7 +79,7 @@ describe('actions', () => {
 		})
 
 		describe('fetch wizard', () => {
-			it('successful fetch wizard', () => {
+			it('should successful fetch wizard', () => {
 				nock(GLOBAL_VARS.API_SERVER)
 					.get(`/wizards/${wizard.id}`)
 					.reply('200', {

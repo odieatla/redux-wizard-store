@@ -2,6 +2,8 @@ import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import NavigationList from './NavigationList';
 import NavigationItem from './NavigationItem';
+import HeaderLogo from './HeaderLogo';
+import SearchForm from './SearchForm';
 
 class HeaderContent extends Component {
 	constructor(props) {
@@ -11,33 +13,28 @@ class HeaderContent extends Component {
 			isNavSearchExpanded: false
 		}
 
-		this.handleClickSearch = this.handleClickSearch.bind(this);
-		this.handleClickClearButton = this.handleClickClearButton.bind(this);
+		this.handleClickSearchExpand = this.handleClickSearchExpand.bind(this);
 	}
 
-	handleClickSearch() {
+	handleClickSearchExpand() {
 		this.setState({
 			isNavSearchExpanded: !this.state.isNavSearchExpanded
 		});
 	}
 
-	handleClickClearButton() {
-		this._searchForm.reset();
-	}
-
 	render() {
 		const { navs, handleToggleMenuMobile } = this.props
 		const isNavSearchExpanded = this.state.isNavSearchExpanded
-		let searchFormClass = 'comGlobalHeader__navItem comGlobalHeader__navItemSearchForm';
+		let searchFormClass = 'comGlobalHeader__navItem ' +
+		 'comGlobalHeader__navItemSearchForm ' +
+		 'searchFormContainer';
 		if (isNavSearchExpanded) {
 			searchFormClass = `${searchFormClass} is-nav-search-expanded`;
 		}
 
 		return (
 			<div className="comGlobalHeader__content">
-				<Link to={'/'} className="comGlobalHeader__logo logo-edgemax">
-					<span className="icon ubnt-icon--edgemax" />
-				</Link>
+				<HeaderLogo />
 				<NavigationList customizedClasses={[]}>
 					{ navs.map(nav => (
 						<NavigationItem key={nav.text} {...nav} />
@@ -45,17 +42,10 @@ class HeaderContent extends Component {
 				</NavigationList>
 				<NavigationList customizedClasses={['comGlobalHeader__navRight']}>
 					<li className={searchFormClass}>
-						<form name="search" action="/" method="get" className="comFormSearch"
-						  ref={(c) => this._searchForm = c}>
-							<a className="comFormSearch__clearButton js-search-clear"
-							  onClick={this.handleClickClearButton}>
-								<span className="icon ubnt-icon--x"></span>
-							</a>
-							<input name="q" type="text" required className="comFormSearch__input" />
-						</form>
+						<SearchForm />
 					</li>
-					<li onClick={this.handleClickSearch}
-					    className="comGlobalHeader__navItem comGlobalHeader__navItemSearch" >
+					<li onClick={this.handleClickSearchExpand}
+					 className="comGlobalHeader__navItem comGlobalHeader__navItemSearch" >
 						<a className="comGlobalHeader__navItemLink">
 							<span className="icon ubnt-icon--search-2">
 								<span className="offstage">Search</span>
@@ -64,12 +54,12 @@ class HeaderContent extends Component {
 					</li>
 				</NavigationList>
 				<div className="comGlobalHeader__navItem comGlobalHeader__navItemMobile">
-					<Link to={"#"} className="comGlobalHeader__navItemLink"
+					<a href={"#"} className="comGlobalHeader__navItemLink toggle_mobile_menu"
 					 onClick={handleToggleMenuMobile}>
 						<span className="icon ubnt-icon--menu">
 							<span className="offstage">Menu</span>
 						</span>
-					</Link>
+					</a>
 				</div>
 			</div>
 		)
