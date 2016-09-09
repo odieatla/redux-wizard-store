@@ -4,8 +4,8 @@
   "scripts": {
     "start": "node server.js",
     "lint": "eslint src",
-    "test": "mocha --require ignore-styles -w test/helpers/browser.js test/*.spec.js",
-    "test:watch": "npm test -- --watch"
+    "test": "mocha --require ignore-styles test/helpers/browser.js -w test/*.spec.js",
+    "test-cov": "istanbul cover _mocha -- --require ignore-styles test/helpers/browser.js test/*.spec.js"
   },
   "devDependencies": {
     "babel-core": "^6.0.20",
@@ -24,7 +24,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "ignore-styles": "^5.0.1",
-    "istanbul": "^0.4.5",
+    "istanbul": "^1.0.0-alpha",
     "jsdom": "^9.5.0",
     "mocha": "^3.0.1",
     "nock": "^8.0.0",
